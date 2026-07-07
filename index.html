@@ -15,44 +15,53 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
+body{
+margin:0;
+background:#050505;
+color:white;
+}
+
+
 :root{
 --gold:#B8860B;
---darkgold:#7A5600;
---shine:#D4AF37;
+--lightgold:#D4AF37;
 }
 
-body{
-
-margin:0;
-background:#000;
-color:white;
-
-}
 
 
 header{
 
 height:100px;
+
 padding:20px 50px;
 
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
 
-background:#050505;
+background:#000;
 
 border-bottom:1px solid var(--gold);
+
+position:sticky;
+
+top:0;
 
 }
 
 
+
 .logo{
 
-font-size:50px;
+font-size:45px;
+
 font-weight:bold;
+
 letter-spacing:5px;
 
-color:#B8860B;
+color:var(--gold);
 
 }
 
@@ -60,10 +69,11 @@ color:#B8860B;
 
 button{
 
-background:#B8860B;
-border:0;
+background:linear-gradient(45deg,#7A5600,#B8860B,#D4AF37);
 
-padding:14px 30px;
+border:none;
+
+padding:15px 30px;
 
 border-radius:30px;
 
@@ -77,26 +87,19 @@ cursor:pointer;
 
 .hero{
 
-height:300px;
-
-display:flex;
-
-flex-direction:column;
-
-justify-content:center;
-
-align-items:center;
-
 text-align:center;
 
+padding:60px 20px;
+
 }
+
 
 
 .hero h1{
 
 font-size:65px;
 
-color:#B8860B;
+color:var(--gold);
 
 margin:0;
 
@@ -129,12 +132,11 @@ padding:50px;
 
 
 
-
 .card{
 
 background:#111;
 
-border:1px solid #B8860B;
+border:1px solid var(--gold);
 
 border-radius:30px;
 
@@ -142,8 +144,19 @@ padding:25px;
 
 text-align:center;
 
+transition:.3s;
+
 }
 
+
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 30px var(--gold);
+
+}
 
 
 
@@ -151,7 +164,7 @@ text-align:center;
 
 width:100%;
 
-height:250px;
+height:260px;
 
 object-fit:cover;
 
@@ -163,9 +176,7 @@ border-radius:20px;
 
 .card h2{
 
-color:#B8860B;
-
-font-size:27px;
+color:var(--gold);
 
 }
 
@@ -173,21 +184,9 @@ font-size:27px;
 
 .info{
 
-color:#eee;
+color:#ddd;
 
-line-height:1.7;
-
-font-size:15px;
-
-}
-
-
-
-.trust{
-
-color:#D4AF37;
-
-font-size:13px;
+line-height:1.6;
 
 }
 
@@ -195,9 +194,9 @@ font-size:13px;
 
 .price{
 
-color:#D4AF37;
+color:var(--lightgold);
 
-font-size:24px;
+font-size:22px;
 
 font-weight:bold;
 
@@ -219,8 +218,8 @@ YOURS ✨
 </div>
 
 
-<button onclick="openCart()">
-🛒 Cart
+<button onclick="openCheckout()">
+🛒 Checkout
 </button>
 
 
@@ -250,20 +249,15 @@ YOURS Deep Repair Shampoo
 </h2>
 
 <p class="info">
-Experience a luxurious cleansing ritual that restores your hair’s natural vitality.
-Deeply cleanses the scalp while maintaining moisture balance,
-leaving your hair soft, shiny and healthy.
-</p>
-
-<p class="trust">
-Free from sulfates and parabens.
+Luxury cleansing formula that restores vitality,
+leaving hair soft, shiny and healthy.
 </p>
 
 <p class="price">
 800 EGP
 </p>
 
-<button onclick="addToCart('YOURS Deep Repair Shampoo',800)">
+<button onclick="addToCart('Shampoo',800)">
 Add to Cart
 </button>
 
@@ -280,24 +274,20 @@ YOURS Intensive Hydration Conditioner
 </h2>
 
 <p class="info">
-A nourishing formula that gently detangles hair,
-providing deep hydration and leaving it smooth,
-soft and easy to manage.
-</p>
-
-<p class="trust">
-Free from sulfates and parabens.
+Deep hydration formula that detangles hair
+and leaves it smooth and easy to style.
 </p>
 
 <p class="price">
 800 EGP
 </p>
 
-<button onclick="addToCart('YOURS Intensive Hydration Conditioner',800)">
+<button onclick="addToCart('Conditioner',800)">
 Add to Cart
 </button>
 
 </div>
+
 
 
 
@@ -310,23 +300,20 @@ YOURS Deep Care Hair Mask
 </h2>
 
 <p class="info">
-An intensive treatment that nourishes damaged-looking hair,
-helping restore softness, strength and flexibility.
-</p>
-
-<p class="trust">
-Free from sulfates and parabens.
+Intensive treatment that helps restore
+softness, strength and flexibility.
 </p>
 
 <p class="price">
 800 EGP
 </p>
 
-<button onclick="addToCart('YOURS Deep Care Hair Mask',800)">
+<button onclick="addToCart('Hair Mask',800)">
 Add to Cart
 </button>
 
 </div>
+
 
 
 
@@ -339,19 +326,15 @@ YOURS Ultimate Shine Serum
 </h2>
 
 <p class="info">
-A lightweight serum that delivers beautiful shine
-without a greasy feeling, leaving hair smooth and refreshed.
-</p>
-
-<p class="trust">
-Lightweight formula with a non-greasy finish.
+Lightweight serum that gives beautiful shine
+without a greasy feeling.
 </p>
 
 <p class="price">
 550 EGP
 </p>
 
-<button onclick="addToCart('YOURS Ultimate Shine Serum',550)">
+<button onclick="addToCart('Serum',550)">
 Add to Cart
 </button>
 
@@ -362,70 +345,45 @@ Add to Cart
 
 
 
-<div id="cart" style="
-display:none;
-padding:40px;
-background:#111;
-border:1px solid #B8860B;
-margin:30px;
-border-radius:30px;
-">
+<!-- CHECKOUT PAGE -->
 
-
-<h2 style="color:#B8860B">
-Your Cart 🛒
-</h2>
-
-
-<ul id="cartItems"></ul>
-
-
-<h3>
-Total:
-<span id="total">0</span> EGP
-</h3>
-
-
-<button onclick="openCheckout()">
-Checkout
-</button>
-
-
-</div>
 <div id="checkout" style="
 display:none;
 padding:40px;
-max-width:650px;
-margin:auto;
 ">
 
-<h1 style="
-color:#B8860B;
+
+<div style="
+max-width:600px;
+margin:auto;
+background:#111;
+padding:35px;
+border-radius:30px;
+border:1px solid #B8860B;
 text-align:center;
 ">
+
+
+<h1 style="color:#B8860B;">
 Complete Your Order ✨
 </h1>
 
 
-<input id="name" placeholder="Full Name"
-style="width:100%;padding:15px;margin:10px;background:#000;color:white;border:1px solid #B8860B;border-radius:15px;">
+
+<input id="customerName" placeholder="Full Name"
+style="width:100%;padding:15px;margin:10px;border-radius:15px;background:#000;color:white;border:1px solid #B8860B;">
 
 
-<input id="phone" placeholder="Phone Number"
-style="width:100%;padding:15px;margin:10px;background:#000;color:white;border:1px solid #B8860B;border-radius:15px;">
+<input id="customerPhone" placeholder="Phone Number"
+style="width:100%;padding:15px;margin:10px;border-radius:15px;background:#000;color:white;border:1px solid #B8860B;">
 
 
-<input id="address" placeholder="Address"
-style="width:100%;padding:15px;margin:10px;background:#000;color:white;border:1px solid #B8860B;border-radius:15px;">
+<input id="customerAddress" placeholder="Address"
+style="width:100%;padding:15px;margin:10px;border-radius:15px;background:#000;color:white;border:1px solid #B8860B;">
 
 
-<input id="government" placeholder="Governorate"
-style="width:100%;padding:15px;margin:10px;background:#000;color:white;border:1px solid #B8860B;border-radius:15px;">
-
-
-<input id="city" placeholder="City"
-style="width:100%;padding:15px;margin:10px;background:#000;color:white;border:1px solid #B8860B;border-radius:15px;">
-
+<input id="customerCity" placeholder="City"
+style="width:100%;padding:15px;margin:10px;border-radius:15px;background:#000;color:white;border:1px solid #B8860B;">
 
 
 <button onclick="completeOrder()">
@@ -433,35 +391,31 @@ Done ✅
 </button>
 
 
-
-<h2 id="success" style="
+<h2 id="doneMessage" style="
 display:none;
 color:#D4AF37;
-text-align:center;
+margin-top:30px;
 ">
-Order Completed Successfully ✨
+Order Completed Successfully 🎉
 </h2>
 
 
 </div>
 
 
-
-
+</div>
 <script>
 
+let cart = [];
 
-let cart=[];
-
-let total=0;
-
+let total = 0;
 
 
-function addToCart(name,price){
 
+function addToCart(product,price){
 
 cart.push({
-name:name,
+name:product,
 price:price
 });
 
@@ -469,36 +423,22 @@ price:price
 total += price;
 
 
-document.getElementById("cartItems").innerHTML +=
-"<li>"+name+" - "+price+" EGP</li>";
-
-
-document.getElementById("total").innerHTML=total;
+alert("Added to Cart ✓");
 
 
 }
 
-
-
-
-
-function openCart(){
-
-document.getElementById("cart").style.display="block";
-
-}
 
 
 
 function openCheckout(){
 
-document.getElementById("cart").style.display="none";
+document.querySelector(".hero").style.display="none";
 
 document.querySelector(".products").style.display="none";
 
-document.querySelector(".hero").style.display="none";
-
 document.getElementById("checkout").style.display="block";
+
 
 }
 
@@ -509,13 +449,19 @@ function completeOrder(){
 
 
 let name =
-document.getElementById("name").value;
+document.getElementById("customerName").value;
+
 
 let phone =
-document.getElementById("phone").value;
+document.getElementById("customerPhone").value;
+
 
 let address =
-document.getElementById("address").value;
+document.getElementById("customerAddress").value;
+
+
+let city =
+document.getElementById("customerCity").value;
 
 
 
@@ -529,15 +475,58 @@ return;
 
 
 
-document.getElementById("success")
+let orderText = "";
+
+
+
+cart.forEach(item=>{
+
+orderText +=
+item.name + " - " + item.price + " EGP\n";
+
+});
+
+
+
+let message =
+
+"✨ New YOURS Order ✨\n\n" +
+
+"Customer Name: " + name + "\n" +
+
+"Phone: " + phone + "\n" +
+
+"Address: " + address + "\n" +
+
+"City: " + city + "\n\n" +
+
+"Order:\n" +
+
+orderText +
+
+"\nTotal: " + total + " EGP";
+
+
+
+
+let whatsappLink =
+
+"https://wa.me/201069000231?text="
+
++
+
+encodeURIComponent(message);
+
+
+
+window.open(whatsappLink,"_blank");
+
+
+
+
+document.getElementById("doneMessage")
 .style.display="block";
 
-
-
-/*
-هنا مكان ربط الإيميل
-بعد إضافة بيانات EmailJS الخاصة بك
-*/
 
 
 }
