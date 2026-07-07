@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,145 +10,166 @@
 <style>
 
 *{
-    box-sizing:border-box;
-    font-family: Arial, sans-serif;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-    margin:0;
-    min-height:100vh;
-    background:
-    radial-gradient(circle at top, white, #f5d76e, #c99b16);
+margin:0;
+background:linear-gradient(135deg,#ffffff,#f6d365,#d4af37);
+min-height:100vh;
 }
 
 
-/* الهيدر */
+/* Header */
 
 header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:25px 50px;
-    color:#7a5700;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 50px;
 }
-
 
 .logo{
-    font-size:40px;
-    font-weight:bold;
+font-size:40px;
+font-weight:bold;
+color:#8a6500;
 }
 
-
-/* العربة */
 
 .cart-btn{
-    background:#c99b16;
-    color:white;
-    border:none;
-    padding:15px 25px;
-    border-radius:30px;
-    cursor:pointer;
-    font-size:18px;
+background:#c89b19;
+color:white;
+border:none;
+padding:15px 25px;
+border-radius:30px;
+cursor:pointer;
+font-size:18px;
 }
 
 
-.cart-box{
-    display:none;
-    position:absolute;
-    right:40px;
-    top:90px;
-    background:white;
-    width:300px;
-    border-radius:20px;
-    padding:20px;
-    box-shadow:0 15px 30px #0004;
-    z-index:5;
+/* Cart */
+
+.cart{
+display:none;
+position:absolute;
+right:40px;
+top:90px;
+background:white;
+width:320px;
+padding:20px;
+border-radius:20px;
+box-shadow:0 10px 30px #0004;
+z-index:10;
 }
 
 
-.cart-box li{
-    list-style:none;
-    padding:10px;
-    border-bottom:1px solid #ddd;
+.cart li{
+list-style:none;
+padding:8px;
+border-bottom:1px solid #ddd;
 }
 
 
-/* المنتجات */
+/* Products */
 
 .products{
 
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:25px;
-    padding:40px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+padding:40px;
 
 }
 
 
 .card{
 
-    background:white;
-    border-radius:25px;
-    padding:20px;
-    text-align:center;
-    box-shadow:0 15px 30px #0003;
-
-    animation:float 3s infinite ease-in-out;
-
-}
-
-
-@keyframes float{
-
-    50%{
-        transform:translateY(-10px);
-    }
+background:white;
+border-radius:25px;
+padding:20px;
+text-align:center;
+box-shadow:0 15px 30px #0003;
+animation:move 3s infinite;
 
 }
 
+
+@keyframes move{
+
+50%{
+transform:translateY(-10px);
+}
+
+}
 
 
 .card img{
 
-    width:100%;
-    height:230px;
-    object-fit:cover;
-    border-radius:20px;
+width:100%;
+height:220px;
+object-fit:cover;
+border-radius:20px;
 
 }
 
 
-.card h2{
-
-    color:#7a5700;
-
+h2{
+color:#8a6500;
 }
 
 
 .price{
 
-    font-size:22px;
-    font-weight:bold;
-    color:#c99b16;
+color:#c89b19;
+font-size:22px;
+font-weight:bold;
 
 }
 
 
-.add{
+button{
 
-    background:#c99b16;
-    color:white;
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    cursor:pointer;
+background:#c89b19;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:25px;
+cursor:pointer;
 
 }
 
 
-.add:hover{
+/* Checkout */
 
-    background:#8b6508;
+.checkout{
+
+display:none;
+background:white;
+margin:30px;
+padding:30px;
+border-radius:25px;
+
+}
+
+
+input{
+
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:10px;
+border:1px solid #ccc;
+
+}
+
+
+.contact{
+
+text-align:center;
+padding:30px;
+font-size:20px;
+color:#8a6500;
 
 }
 
@@ -156,13 +178,10 @@ header{
 @media(max-width:900px){
 
 .products{
-
 grid-template-columns:repeat(2,1fr);
-
 }
 
 }
-
 
 </style>
 
@@ -179,30 +198,35 @@ Yours ✨
 </div>
 
 
-<button class="cart-btn" onclick="openCart()">
+<button class="cart-btn" onclick="showCart()">
 🛒 Cart
 </button>
-
-
-<div class="cart-box" id="cart">
-
-<h3>Your Cart</h3>
-
-<ul id="items"></ul>
-
-<p>
-Total: <span id="total">0</span>
-</p>
-
-</div>
 
 
 </header>
 
 
 
-<section class="products">
+<div class="cart" id="cart">
 
+<h2>Your Cart</h2>
+
+<ul id="cartItems"></ul>
+
+<p>
+Total: <span id="total">0</span>
+</p>
+
+<button onclick="checkout()">
+Checkout 🛍️
+</button>
+
+</div>
+
+
+
+
+<div class="products">
 
 
 <div class="card">
@@ -213,12 +237,11 @@ Total: <span id="total">0</span>
 
 <p class="price">800</p>
 
-<button class="add" onclick="addItem('Shampoo',800)">
+<button onclick="add('Shampoo',800)">
 Add to Cart
 </button>
 
 </div>
-
 
 
 
@@ -230,12 +253,11 @@ Add to Cart
 
 <p class="price">800</p>
 
-<button class="add" onclick="addItem('Conditioner',800)">
+<button onclick="add('Conditioner',800)">
 Add to Cart
 </button>
 
 </div>
-
 
 
 
@@ -247,12 +269,11 @@ Add to Cart
 
 <p class="price">800</p>
 
-<button class="add" onclick="addItem('Hair Mask',800)">
+<button onclick="add('Hair Mask',800)">
 Add to Cart
 </button>
 
 </div>
-
 
 
 
@@ -264,15 +285,63 @@ Add to Cart
 
 <p class="price">550</p>
 
-<button class="add" onclick="addItem('Serum',550)">
+<button onclick="add('Serum',550)">
 Add to Cart
 </button>
 
 </div>
 
 
+</div>
 
-</section>
+
+
+
+<div class="checkout" id="checkout">
+
+
+<h1>Complete Your Order</h1>
+
+
+<input placeholder="Full Name">
+
+<input placeholder="Email">
+
+<input placeholder="Phone Number">
+
+
+<input placeholder="Governorate">
+
+<input placeholder="City / Area">
+
+<input placeholder="Street Address">
+
+
+<input placeholder="Building Number">
+
+<input placeholder="Floor">
+
+<input placeholder="Apartment Number">
+
+
+<button>
+Confirm Order ✅
+</button>
+
+
+</div>
+
+
+
+
+<div class="contact">
+
+📞 Contact Us:
+<br>
+YOUR PHONE NUMBER
+
+</div>
+
 
 
 
@@ -280,47 +349,59 @@ Add to Cart
 <script>
 
 
-let total = 0;
+let total=0;
 
 
-function openCart(){
-
-let cart=document.getElementById("cart");
-
-if(cart.style.display==="block"){
-
-cart.style.display="none";
-
-}
-
-else{
-
-cart.style.display="block";
-
-}
-
-}
-
-
-
-function addItem(name,price){
+function add(name,price){
 
 let li=document.createElement("li");
 
 li.innerHTML=name+" - "+price;
 
-document.getElementById("items").appendChild(li);
+document.getElementById("cartItems")
+.appendChild(li);
 
 
-total += price;
+total+=price;
 
-document.getElementById("total").innerHTML=total;
+document.getElementById("total")
+.innerHTML=total;
+
+}
+
+
+
+function showCart(){
+
+let box=document.getElementById("cart");
+
+if(box.style.display=="block"){
+
+box.style.display="none";
+
+}
+
+else{
+
+box.style.display="block";
+
+}
+
+}
+
+
+
+function checkout(){
+
+document.getElementById("checkout")
+.style.display="block";
 
 }
 
 
 
 </script>
+
 
 
 </body>
