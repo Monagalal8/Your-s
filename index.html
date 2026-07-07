@@ -1,89 +1,64 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOURS</title>
+
+<title>متجري</title>
 
 <style>
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#ffffff;
-color:#333;
-text-align:center;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f7f7f7;
 }
 
-header img{
-width:100%;
-display:block;
+header {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
-h2{
-margin-top:40px;
-font-size:34px;
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
 }
 
-.products{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:25px;
-padding:40px;
+.card {
+    background: white;
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
 }
 
-.card{
-background:#fff;
-width:260px;
-border-radius:15px;
-box-shadow:0 4px 15px rgba(0,0,0,.1);
-overflow:hidden;
+.card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
-.card img{
-width:100%;
-height:220px;
-object-fit:cover;
+.contact {
+    background: white;
+    text-align: center;
+    padding: 20px;
 }
 
-.card h3{
-margin:15px 0 5px;
+#wheel {
+    margin: 20px auto;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: conic-gradient(
+    #ffb6c1, #ffd700, #90ee90, #87ceeb, #dda0dd, #ffb6c1
+    );
+    transition: 3s;
 }
-
-.price{
-font-size:22px;
-font-weight:bold;
-color:#8b6b2d;
-}
-
-button{
-background:#000;
-color:#fff;
-padding:14px 30px;
-border:none;
-border-radius:30px;
-font-size:18px;
-cursor:pointer;
-margin:10px;
-}
-
-.whatsapp{
-background:#25D366;
-}
-
-.instagram{
-background:#C13584;
-}
-
-footer{
-margin-top:40px;
-background:#111;
-color:white;
-padding:20px;
-}
-
 </style>
 
 </head>
@@ -91,68 +66,77 @@ padding:20px;
 <body>
 
 <header>
-<img src="banner.jpg" alt="YOURS">
+<h1>متجر منتجات الشعر</h1>
+<p>منتجات عناية وترميم الشعر</p>
 </header>
 
-<h2>منتجاتنا</h2>
+
+<h2 style="text-align:center;">المنتجات</h2>
 
 <div class="products">
 
 <div class="card">
-<img src="banner.jpg">
+<img src="shampoo.jpg">
 <h3>شامبو</h3>
-<p>تنظيف عميق وترطيب للشعر.</p>
-<div class="price">800 جنيه</div>
+<p>800 جنيه للتر</p>
 </div>
 
 <div class="card">
-<img src="banner.jpg">
+<img src="conditioner.jpg">
 <h3>بلسم</h3>
-<p>نعومة وترطيب للشعر.</p>
-<div class="price">800 جنيه</div>
+<p>800 جنيه للتر</p>
 </div>
 
 <div class="card">
-<img src="banner.jpg">
-<h3>ماسك ترميم</h3>
-<p>500 مل - ترميم ومعالجة للشعر.</p>
-<div class="price">800 جنيه</div>
+<img src="mask.jpg">
+<h3>ماسك ترميم ومعالج</h3>
+<p>800 جنيه - 500 مللي</p>
 </div>
 
 <div class="card">
-<img src="banner.jpg">
+<img src="serum.jpg">
 <h3>سيروم</h3>
-<p>100 مل - حماية ولمعان.</p>
-<div class="price">550 جنيه</div>
+<p>550 جنيه - 100 مللي</p>
 </div>
 
 </div>
 
-<button>🛍️ تسوق الآن</button>
 
-<br><br>
+<div class="contact">
+<h2>للطلب والتواصل</h2>
+<p>📞 +20 106 900 0231</p>
+</div>
 
-<button class="whatsapp">
-اطلب عبر واتساب
-</button>
 
-<button class="instagram">
-Instagram
-</button>
+<h2 style="text-align:center;">🎡 عجلة الحظ</h2>
 
-<footer>
+<div id="wheel"></div>
 
-<h3>من نحن</h3>
+<center>
+<button onclick="spin()">لف العجلة</button>
+<h3 id="result"></h3>
+</center>
 
-<p>
-YOURS هي علامة متخصصة في العناية بالشعر بتركيبة احترافية تمنح الترطيب والنعومة واللمعان.
-</p>
 
-<p>
-©️ 2026 YOURS - All Rights Reserved
-</p>
+<script>
 
-</footer>
+function spin(){
+
+let wheel = document.getElementById("wheel");
+
+let number = Math.floor(Math.random()*2000)+1000;
+
+wheel.style.transform = "rotate(" + number + "deg)";
+
+setTimeout(function(){
+document.getElementById("result").innerHTML =
+"مبروك 🎉 حصلت على خصم!";
+},3000);
+
+}
+
+</script>
+
 
 </body>
 </html>
