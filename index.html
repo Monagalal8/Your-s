@@ -8,51 +8,42 @@
 
 <title>Yours</title>
 
-
 <style>
 
 *{
-    box-sizing:border-box;
-    font-family: 'Arial', sans-serif;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
-
 
 body{
 
-    margin:0;
-    min-height:100vh;
+margin:0;
 
-    background:
-    radial-gradient(circle at top left,#ffffff 10%,transparent 40%),
-    radial-gradient(circle at bottom right,#ffe8a3 10%,transparent 45%),
-    linear-gradient(135deg,#fff,#e8c45a,#fff3c4);
+background:
+radial-gradient(circle at top,#ffffff,#ffe9a8,#d4af37);
+
+min-height:100vh;
 
 }
-
 
 
 /* Header */
 
 header{
 
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    padding:30px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:30px 50px;
 
 }
 
 
 .logo{
 
-    font-size:45px;
-    font-weight:bold;
-
-    color:#b8860b;
-
-    text-shadow:
-    0 5px 15px #b8860b55;
+font-size:45px;
+font-weight:bold;
+color:#a87500;
 
 }
 
@@ -60,25 +51,15 @@ header{
 
 .cart-btn{
 
-    background:linear-gradient(45deg,#b8860b,#ffd700);
-
-    color:white;
-
-    border:none;
-
-    padding:15px 30px;
-
-    border-radius:40px;
-
-    font-size:18px;
-
-    cursor:pointer;
-
-    box-shadow:0 10px 20px #0003;
+background:#c99b19;
+color:white;
+border:none;
+padding:15px 30px;
+border-radius:30px;
+cursor:pointer;
+font-size:18px;
 
 }
-
-
 
 
 
@@ -86,72 +67,45 @@ header{
 
 .products{
 
-    display:grid;
-
-    grid-template-columns:
-    repeat(4,1fr);
-
-    gap:30px;
-
-    padding:40px 60px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+padding:40px;
 
 }
-
-
 
 
 
 .card{
 
-    background:
-    rgba(255,255,255,.85);
+background:white;
+padding:20px;
+border-radius:25px;
+text-align:center;
 
-    backdrop-filter:blur(10px);
+box-shadow:0 15px 35px #0003;
 
-    border-radius:30px;
-
-    padding:25px;
-
-    text-align:center;
-
-
-    box-shadow:
-
-    0 20px 40px #0003;
-
-
-    animation:float 4s infinite ease-in-out;
-
+animation:move 3s infinite;
 
 }
 
 
+@keyframes move{
 
-@keyframes float{
-
-    50%{
-
-        transform:translateY(-12px);
-
-    }
-
+50%{
+transform:translateY(-10px);
 }
 
-
+}
 
 
 
 .card img{
 
-
-    width:100%;
-
-    height:240px;
-
-    object-fit:cover;
-
-    border-radius:25px;
-
+width:100%;
+height:230px;
+object-fit:cover;
+border-radius:20px;
 
 }
 
@@ -159,57 +113,130 @@ header{
 
 .card h2{
 
-    color:#8b6508;
-
-    font-size:25px;
+color:#9b7000;
 
 }
-
 
 
 .price{
 
-    color:#b8860b;
-
-    font-size:24px;
-
-    font-weight:bold;
+color:#c99b19;
+font-size:22px;
+font-weight:bold;
 
 }
 
 
 
+button{
 
-
-.add{
-
-    background:
-
-    linear-gradient(45deg,#b8860b,#ffd700);
-
-    color:white;
-
-    border:none;
-
-    padding:13px 30px;
-
-    border-radius:30px;
-
-    cursor:pointer;
-
-    font-size:16px;
+background:#c99b19;
+color:white;
+border:0;
+padding:12px 25px;
+border-radius:30px;
+cursor:pointer;
 
 }
 
 
 
-.add:hover{
+/* Cart */
 
-    transform:scale(1.05);
+#cart{
+
+display:none;
+
+position:fixed;
+
+top:90px;
+right:30px;
+
+background:white;
+
+width:320px;
+
+padding:25px;
+
+border-radius:25px;
+
+box-shadow:0 20px 40px #0004;
+
+z-index:5;
 
 }
 
 
+#cart li{
+
+list-style:none;
+padding:8px;
+border-bottom:1px solid #ddd;
+
+}
+
+
+
+/* Checkout Page */
+
+#checkout{
+
+display:none;
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+background:
+linear-gradient(135deg,#fff,#f5d77a);
+
+z-index:10;
+
+overflow:auto;
+
+}
+
+
+
+.checkout-box{
+
+background:white;
+
+width:90%;
+
+max-width:600px;
+
+margin:40px auto;
+
+padding:30px;
+
+border-radius:30px;
+
+box-shadow:0 20px 40px #0003;
+
+}
+
+
+
+input{
+
+width:100%;
+
+padding:14px;
+
+margin:8px 0;
+
+border-radius:12px;
+
+border:1px solid #ddd;
+
+font-size:16px;
+
+}
 
 
 
@@ -224,32 +251,23 @@ grid-template-columns:repeat(2,1fr);
 }
 
 
-
 </style>
 
-
 </head>
-
 
 
 <body>
 
 
-
 <header>
 
-
 <div class="logo">
-
 Yours ✨
-
 </div>
 
 
-<button class="cart-btn">
-
+<button class="cart-btn" onclick="openCart()">
 🛒 Cart
-
 </button>
 
 
@@ -258,9 +276,7 @@ Yours ✨
 
 
 
-
 <section class="products">
-
 
 
 <div class="card">
@@ -271,16 +287,11 @@ Yours ✨
 
 <p class="price">800</p>
 
-<button class="add">
-
+<button onclick="addCart('Shampoo',800)">
 Add to Cart
-
 </button>
 
-
 </div>
-
-
 
 
 
@@ -292,16 +303,11 @@ Add to Cart
 
 <p class="price">800</p>
 
-<button class="add">
-
+<button onclick="addCart('Conditioner',800)">
 Add to Cart
-
 </button>
 
-
 </div>
-
-
 
 
 
@@ -314,17 +320,11 @@ Add to Cart
 
 <p class="price">800</p>
 
-<button class="add">
-
+<button onclick="addCart('Hair Mask',800)">
 Add to Cart
-
 </button>
 
-
 </div>
-
-
-
 
 
 
@@ -337,132 +337,83 @@ Add to Cart
 
 <p class="price">550</p>
 
-<button class="add">
-
+<button onclick="addCart('Serum',550)">
 Add to Cart
-
 </button>
 
-
 </div>
-
-
 
 
 </section>
 
 
 
-</body>
 
-</html>
-<!-- CART -->
 
-<div id="cartBox" style="
-display:none;
-position:fixed;
-top:90px;
-right:30px;
-width:330px;
-background:white;
-padding:25px;
-border-radius:25px;
-box-shadow:0 15px 40px #0004;
-z-index:20;
-">
+<div id="cart">
 
-<h2 style="color:#b8860b;">Your Cart 🛒</h2>
+<h2>Your Cart 🛒</h2>
 
-<ul id="cartItems"></ul>
+<ul id="items"></ul>
 
-<h3>
-Total:
-<span id="total">0</span>
-</h3>
+<p>Total: <span id="total">0</span></p>
 
-<button class="add" onclick="openCheckout()">
+
+<button onclick="checkout()">
 Checkout 🛍️
 </button>
+
 
 </div>
 
 
 
-<!-- CHECKOUT -->
-
-<div id="checkout" style="
-
-display:none;
-margin:50px auto;
-max-width:600px;
-background:white;
-padding:35px;
-border-radius:30px;
-box-shadow:0 20px 40px #0003;
-
-">
 
 
-<h1 style="color:#b8860b;">
+<div id="checkout">
+
+
+<div class="checkout-box">
+
+
+<h1>
 Complete Your Order
 </h1>
 
 
-<input placeholder="Full Name"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
+<input placeholder="Full Name">
+
+<input placeholder="Email">
+
+<input placeholder="Phone Number">
 
 
-<input placeholder="Email"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
+<input placeholder="Governorate">
+
+<input placeholder="Area">
+
+<input placeholder="City">
 
 
+<input placeholder="Street Address">
 
-<input placeholder="Phone Number"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
+<input placeholder="Building Number">
 
+<input placeholder="Floor">
 
-
-<input placeholder="Governorate"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
-
+<input placeholder="Apartment Number">
 
 
-<input placeholder="Area"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
-
-
-
-<input placeholder="City"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
-
-
-
-<input placeholder="Street Address"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
-
-
-
-<input placeholder="Building Number"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
-
-
-
-<input placeholder="Floor"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
-
-
-
-<input placeholder="Apartment Number"
-style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
-
-
-
-<button class="add">
+<button>
 Confirm Order ✅
 </button>
 
 
 </div>
+
+
+</div>
+
 
 
 
@@ -471,79 +422,23 @@ Confirm Order ✅
 <script>
 
 
-let cart=[];
-
 let total=0;
 
 
 
-// فتح العربة
-
-document.querySelector(".cart-btn")
-.onclick=function(){
-
-let box=document.getElementById("cartBox");
-
-if(box.style.display==="block"){
-
-box.style.display="none";
-
-}
-
-else{
-
-box.style.display="block";
-
-}
-
-};
-
-
-
-
-
-// إضافة المنتجات
-
-let buttons=document.querySelectorAll(".add");
-
-
-buttons.forEach((button,index)=>{
-
-
-button.onclick=function(){
-
-
-let products=[
-
-{name:"Shampoo",price:800},
-
-{name:"Conditioner",price:800},
-
-{name:"Hair Mask",price:800},
-
-{name:"Serum",price:550}
-
-];
-
-
-if(index<4){
-
-cart.push(products[index]);
-
-total+=products[index].price;
+function addCart(name,price){
 
 
 let li=document.createElement("li");
 
-li.innerHTML=
-products[index].name+
-" - "+
-products[index].price;
+li.innerHTML=name+" - "+price;
 
 
-document.getElementById("cartItems")
+document.getElementById("items")
 .appendChild(li);
 
+
+total+=price;
 
 document.getElementById("total")
 .innerHTML=total;
@@ -552,33 +447,42 @@ document.getElementById("total")
 }
 
 
+
+
+function openCart(){
+
+let c=document.getElementById("cart");
+
+
+if(c.style.display=="block"){
+
+c.style.display="none";
+
+}else{
+
+c.style.display="block";
+
+}
+
+
 }
 
 
 
-});
 
 
-
-
-
-function openCheckout(){
-
+function checkout(){
 
 document.getElementById("checkout")
 .style.display="block";
-
-
-document.getElementById("checkout")
-.scrollIntoView({
-
-behavior:"smooth"
-
-});
-
 
 }
 
 
 
 </script>
+
+
+</body>
+
+</html>
