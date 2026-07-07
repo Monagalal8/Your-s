@@ -4,140 +4,229 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>متجر منتجات الشعر</title>
+<title>متجري الذهبي</title>
 
 <style>
-body {
-    font-family: Arial;
-    margin: 0;
-    background: #f7f7f7;
+
+*{
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
 }
 
-header {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
+body{
+    margin:0;
+    background:
+    linear-gradient(135deg,#b8860b,#ffd700,#8b6508);
+    min-height:100vh;
 }
 
-.products {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+/* العنوان */
+header{
+    text-align:center;
+    color:white;
+    padding:30px;
+    font-size:35px;
+    font-weight:bold;
+    text-shadow:0 5px 10px #000;
 }
 
-.card {
-    background: white;
-    width: 250px;
-    padding: 15px;
-    text-align: center;
-    border-radius: 10px;
+/* المنتجات */
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:30px;
 }
 
-.card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 10px;
+
+.card{
+    background:white;
+    border-radius:25px;
+    padding:20px;
+    text-align:center;
+    box-shadow:
+    0 15px 30px rgba(0,0,0,.3);
+    transform:translateY(0);
+    transition:.3s;
 }
 
-.contact {
-    background: white;
-    text-align: center;
-    padding: 20px;
+.card:hover{
+    transform:translateY(-10px);
 }
 
-#wheel {
-    width: 200px;
-    height: 200px;
-    margin: 20px auto;
-    border-radius: 50%;
-    background: conic-gradient(
-        pink,
-        yellow,
-        lightgreen,
-        skyblue,
-        violet,
-        pink
-    );
-    transition: 3s;
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
 }
+
+
+.price{
+    color:#b8860b;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+button{
+    background:#d4af37;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    color:white;
+    font-size:16px;
+}
+
+
+button:hover{
+    background:#8b6508;
+}
+
+
+/* العربة */
+.cart{
+    position:fixed;
+    left:20px;
+    top:20px;
+    width:300px;
+    background:white;
+    border-radius:25px;
+    padding:20px;
+    box-shadow:0 15px 30px #0005;
+}
+
+
+.cart h2{
+    color:#b8860b;
+}
+
+
+#cartItems{
+    padding:0;
+}
+
+
+#cartItems li{
+    list-style:none;
+    padding:10px;
+    border-bottom:1px solid #ddd;
+}
+
+.total{
+    font-size:20px;
+    font-weight:bold;
+}
+
 </style>
 
 </head>
 
+
 <body>
 
+
 <header>
-<h1>متجر منتجات الشعر</h1>
-<p>عناية وترميم للشعر</p>
+✨ المتجر الذهبي ✨
 </header>
 
 
-<h2 style="text-align:center;">المنتجات</h2>
+<div class="cart">
+
+<h2>🛒 العربة</h2>
+
+<ul id="cartItems"></ul>
+
+<div class="total">
+الإجمالي: <span id="total">0</span> جنيه
+</div>
+
+</div>
+
+
 
 <div class="products">
 
-<div class="card">
-<img src="images/shampoo.jpg">
-<h3>شامبو</h3>
-<p>800 جنيه للتر</p>
-</div>
 
 <div class="card">
-<img src="images/conditioner.jpg">
-<h3>بلسم</h3>
-<p>800 جنيه للتر</p>
+
+<img src="images/product1.jpg">
+
+<h3>المنتج الأول</h3>
+
+<p class="price">100 جنيه</p>
+
+<button onclick="addToCart('المنتج الأول',100)">
+أضف للعربة 🛒
+</button>
+
 </div>
+
+
 
 <div class="card">
-<img src="images/mask.jpg">
-<h3>ماسك ترميم ومعالج</h3>
-<p>800 جنيه - 500 مللي</p>
+
+<img src="images/product2.jpg">
+
+<h3>المنتج الثاني</h3>
+
+<p class="price">250 جنيه</p>
+
+<button onclick="addToCart('المنتج الثاني',250)">
+أضف للعربة 🛒
+</button>
+
 </div>
+
+
 
 <div class="card">
-<img src="images/serum.jpg">
-<h3>سيروم</h3>
-<p>550 جنيه - 100 مللي</p>
-</div>
+
+<img src="images/product3.jpg">
+
+<h3>المنتج الثالث</h3>
+
+<p class="price">350 جنيه</p>
+
+<button onclick="addToCart('المنتج الثالث',350)">
+أضف للعربة 🛒
+</button>
 
 </div>
 
 
-<div class="contact">
-<h2>للطلب والتواصل</h2>
-<p>📞 +20 106 900 0231</p>
 </div>
 
-
-<h2 style="text-align:center;">🎡 عجلة الحظ</h2>
-
-<div id="wheel"></div>
-
-<center>
-<button onclick="spin()">لف العجلة</button>
-<h3 id="result"></h3>
-</center>
 
 
 <script>
-function spin(){
 
-let wheel = document.getElementById("wheel");
+let total = 0;
 
-let x = Math.floor(Math.random()*2000)+1000;
 
-wheel.style.transform = "rotate("+x+"deg)";
+function addToCart(name,price){
 
-setTimeout(function(){
-document.getElementById("result").innerHTML =
-"مبروك 🎉 حصلت على خصم!";
-},3000);
+let item=document.createElement("li");
+
+item.innerHTML=
+name + " - " + price + " جنيه";
+
+
+document.getElementById("cartItems")
+.appendChild(item);
+
+
+total += price;
+
+
+document.getElementById("total")
+.innerHTML=total;
 
 }
+
+
 </script>
 
 
