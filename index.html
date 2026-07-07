@@ -3,73 +3,110 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>اسم البراند</title>
+<title>Yours</title>
 
 <style>
 body{
 margin:0;
 font-family:Arial,sans-serif;
-background:#fff5f8;
-text-align:center;
+background:#ffffff;
 color:#333;
+text-align:center;
 }
 
 header{
-background:#ff69b4;
-color:white;
-padding:40px 20px;
+padding:60px 20px;
+background:white;
+border-bottom:1px solid #eee;
 }
 
 h1{
+font-size:48px;
+letter-spacing:4px;
 margin:0;
-font-size:40px;
+}
+
+h2{
+font-size:30px;
 }
 
 p{
 font-size:18px;
+color:#666;
 }
 
-section{
-padding:40px 20px;
+.products{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:20px;
+padding:40px;
 }
 
-.btn{
-display:inline-block;
-background:#ff69b4;
+.card{
+background:#fafafa;
+padding:25px;
+width:250px;
+border-radius:15px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+button{
+background:black;
 color:white;
 padding:15px 30px;
-text-decoration:none;
+border:none;
 border-radius:30px;
-font-size:18px;
+font-size:17px;
+cursor:pointer;
 }
 
 footer{
-background:#222;
-color:white;
+margin-top:50px;
 padding:20px;
-margin-top:40px;
+background:#111;
+color:white;
 }
 </style>
+
 </head>
 
 <body>
 
 <header>
-<h1>🌸 اسم البراند</h1>
-<p>أهلاً بكم في متجرنا</p>
+<h1>YOURS</h1>
+<p>Luxury Hair Care</p>
 </header>
 
 <section>
-<h2>من نحن؟</h2>
-<p>نقدم أفضل المنتجات بجودة عالية وأسعار مناسبة.</p>
 
-<br>
+<h2>منتجاتنا</h2>
 
-<a class="btn" href="#">اطلب الآن</a>
+<div class="products">
+
+<div class="card">
+<h3>🧴 شامبو</h3>
+<p>تنظيف لطيف ولمعان طبيعي للشعر.</p>
+</div>
+
+<div class="card">
+<h3>🤍 بلسم</h3>
+<p>ترطيب ونعومة لجميع أنواع الشعر.</p>
+</div>
+
+<div class="card">
+<h3>✨ سيروم</h3>
+<p>حماية ولمعان وتقليل الهيشان.</p>
+</div>
+
+</div>
+
+<button>تسوق الآن</button>
+
 </section>
 
 <footer>
-© 2026 جميع الحقوق محفوظة
+© 2026 YOURS - All Rights Reserved
 </footer>
 
 </body>
