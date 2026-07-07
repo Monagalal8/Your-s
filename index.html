@@ -16,49 +16,36 @@ font-family:Arial,sans-serif;
 }
 
 body{
-
 margin:0;
-
 background:
-radial-gradient(circle at top,#ffffff,#ffe9a8,#d4af37);
-
+radial-gradient(circle at top,#ffffff,#f9e6a8,#d4af37);
 min-height:100vh;
-
 }
 
 
 /* Header */
 
 header{
-
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:30px 50px;
-
 }
 
-
 .logo{
-
 font-size:45px;
 font-weight:bold;
 color:#a87500;
-
 }
 
 
-
 .cart-btn{
-
 background:#c99b19;
 color:white;
-border:none;
+border:0;
 padding:15px 30px;
 border-radius:30px;
 cursor:pointer;
-font-size:18px;
-
 }
 
 
@@ -66,77 +53,57 @@ font-size:18px;
 /* Products */
 
 .products{
-
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:25px;
 padding:40px;
-
 }
-
 
 
 .card{
-
 background:white;
-padding:20px;
 border-radius:25px;
+padding:20px;
 text-align:center;
-
 box-shadow:0 15px 35px #0003;
-
-animation:move 3s infinite;
-
+animation:float 3s infinite;
 }
 
 
-@keyframes move{
-
+@keyframes float{
 50%{
 transform:translateY(-10px);
 }
-
 }
-
 
 
 .card img{
-
 width:100%;
-height:230px;
+height:220px;
 object-fit:cover;
 border-radius:20px;
-
 }
 
 
-
-.card h2{
-
+h2{
 color:#9b7000;
-
 }
 
 
 .price{
-
 color:#c99b19;
 font-size:22px;
 font-weight:bold;
-
 }
 
 
-
 button{
-
 background:#c99b19;
 color:white;
 border:0;
 padding:12px 25px;
-border-radius:30px;
+border-radius:25px;
 cursor:pointer;
-
 }
 
 
@@ -144,47 +111,26 @@ cursor:pointer;
 /* Cart */
 
 #cart{
-
 display:none;
-
 position:fixed;
-
 top:90px;
 right:30px;
-
 background:white;
-
 width:320px;
-
 padding:25px;
-
 border-radius:25px;
-
 box-shadow:0 20px 40px #0004;
-
 z-index:5;
-
-}
-
-
-#cart li{
-
-list-style:none;
-padding:8px;
-border-bottom:1px solid #ddd;
-
 }
 
 
 
-/* Checkout Page */
+/* Checkout */
 
 #checkout{
 
 display:none;
-
 position:fixed;
-
 top:0;
 left:0;
 
@@ -201,12 +147,9 @@ overflow:auto;
 }
 
 
-
-.checkout-box{
+.form-box{
 
 background:white;
-
-width:90%;
 
 max-width:600px;
 
@@ -221,7 +164,6 @@ box-shadow:0 20px 40px #0003;
 }
 
 
-
 input{
 
 width:100%;
@@ -230,22 +172,17 @@ padding:14px;
 
 margin:8px 0;
 
-border-radius:12px;
+border-radius:10px;
 
-border:1px solid #ddd;
-
-font-size:16px;
+border:1px solid #ccc;
 
 }
-
 
 
 @media(max-width:900px){
 
 .products{
-
 grid-template-columns:repeat(2,1fr);
-
 }
 
 }
@@ -266,7 +203,7 @@ Yours ✨
 </div>
 
 
-<button class="cart-btn" onclick="openCart()">
+<button class="cart-btn" onclick="showCart()">
 🛒 Cart
 </button>
 
@@ -276,7 +213,7 @@ Yours ✨
 
 
 
-<section class="products">
+<div class="products">
 
 
 <div class="card">
@@ -287,7 +224,7 @@ Yours ✨
 
 <p class="price">800</p>
 
-<button onclick="addCart('Shampoo',800)">
+<button onclick="add('Shampoo',800)">
 Add to Cart
 </button>
 
@@ -303,12 +240,11 @@ Add to Cart
 
 <p class="price">800</p>
 
-<button onclick="addCart('Conditioner',800)">
+<button onclick="add('Conditioner',800)">
 Add to Cart
 </button>
 
 </div>
-
 
 
 
@@ -320,12 +256,11 @@ Add to Cart
 
 <p class="price">800</p>
 
-<button onclick="addCart('Hair Mask',800)">
+<button onclick="add('Hair Mask',800)">
 Add to Cart
 </button>
 
 </div>
-
 
 
 
@@ -337,14 +272,14 @@ Add to Cart
 
 <p class="price">550</p>
 
-<button onclick="addCart('Serum',550)">
+<button onclick="add('Serum',550)">
 Add to Cart
 </button>
 
 </div>
 
 
-</section>
+</div>
 
 
 
@@ -356,13 +291,14 @@ Add to Cart
 
 <ul id="items"></ul>
 
-<p>Total: <span id="total">0</span></p>
+<h3>
+Total: <span id="total">0</span>
+</h3>
 
 
 <button onclick="checkout()">
 Checkout 🛍️
 </button>
-
 
 </div>
 
@@ -373,7 +309,7 @@ Checkout 🛍️
 <div id="checkout">
 
 
-<div class="checkout-box">
+<div class="form-box">
 
 
 <h1>
@@ -418,21 +354,17 @@ Confirm Order ✅
 
 
 
-
 <script>
 
 
 let total=0;
 
 
-
-function addCart(name,price){
-
+function add(name,price){
 
 let li=document.createElement("li");
 
 li.innerHTML=name+" - "+price;
-
 
 document.getElementById("items")
 .appendChild(li);
@@ -443,31 +375,25 @@ total+=price;
 document.getElementById("total")
 .innerHTML=total;
 
-
 }
 
 
 
+function showCart(){
 
-function openCart(){
+let cart=document.getElementById("cart");
 
-let c=document.getElementById("cart");
+if(cart.style.display=="block"){
 
-
-if(c.style.display=="block"){
-
-c.style.display="none";
+cart.style.display="none";
 
 }else{
 
-c.style.display="block";
+cart.style.display="block";
 
 }
 
-
 }
-
-
 
 
 
