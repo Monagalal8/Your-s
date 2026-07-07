@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>متجري الذهبي</title>
+<title>Yours</title>
 
 <style>
 
@@ -15,110 +15,154 @@
 
 body{
     margin:0;
-    background:
-    linear-gradient(135deg,#b8860b,#ffd700,#8b6508);
     min-height:100vh;
+    background:
+    radial-gradient(circle at top, white, #f5d76e, #c99b16);
 }
 
-/* العنوان */
+
+/* الهيدر */
+
 header{
-    text-align:center;
-    color:white;
-    padding:30px;
-    font-size:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 50px;
+    color:#7a5700;
+}
+
+
+.logo{
+    font-size:40px;
     font-weight:bold;
-    text-shadow:0 5px 10px #000;
-}
-
-/* المنتجات */
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-    padding:30px;
-}
-
-
-.card{
-    background:white;
-    border-radius:25px;
-    padding:20px;
-    text-align:center;
-    box-shadow:
-    0 15px 30px rgba(0,0,0,.3);
-    transform:translateY(0);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-10px);
-}
-
-
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:20px;
-}
-
-
-.price{
-    color:#b8860b;
-    font-size:22px;
-    font-weight:bold;
-}
-
-
-button{
-    background:#d4af37;
-    border:none;
-    padding:12px 25px;
-    border-radius:30px;
-    cursor:pointer;
-    color:white;
-    font-size:16px;
-}
-
-
-button:hover{
-    background:#8b6508;
 }
 
 
 /* العربة */
-.cart{
-    position:fixed;
-    left:20px;
-    top:20px;
-    width:300px;
+
+.cart-btn{
+    background:#c99b16;
+    color:white;
+    border:none;
+    padding:15px 25px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:18px;
+}
+
+
+.cart-box{
+    display:none;
+    position:absolute;
+    right:40px;
+    top:90px;
     background:white;
-    border-radius:25px;
+    width:300px;
+    border-radius:20px;
     padding:20px;
-    box-shadow:0 15px 30px #0005;
+    box-shadow:0 15px 30px #0004;
+    z-index:5;
 }
 
 
-.cart h2{
-    color:#b8860b;
-}
-
-
-#cartItems{
-    padding:0;
-}
-
-
-#cartItems li{
+.cart-box li{
     list-style:none;
     padding:10px;
     border-bottom:1px solid #ddd;
 }
 
-.total{
-    font-size:20px;
-    font-weight:bold;
+
+/* المنتجات */
+
+.products{
+
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+    padding:40px;
+
 }
+
+
+.card{
+
+    background:white;
+    border-radius:25px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 15px 30px #0003;
+
+    animation:float 3s infinite ease-in-out;
+
+}
+
+
+@keyframes float{
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+
+
+
+.card img{
+
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    border-radius:20px;
+
+}
+
+
+.card h2{
+
+    color:#7a5700;
+
+}
+
+
+.price{
+
+    font-size:22px;
+    font-weight:bold;
+    color:#c99b16;
+
+}
+
+
+.add{
+
+    background:#c99b16;
+    color:white;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    cursor:pointer;
+
+}
+
+
+.add:hover{
+
+    background:#8b6508;
+
+}
+
+
+
+@media(max-width:900px){
+
+.products{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
 
 </style>
 
@@ -129,102 +173,151 @@ button:hover{
 
 
 <header>
-✨ المتجر الذهبي ✨
+
+<div class="logo">
+Yours ✨
+</div>
+
+
+<button class="cart-btn" onclick="openCart()">
+🛒 Cart
+</button>
+
+
+<div class="cart-box" id="cart">
+
+<h3>Your Cart</h3>
+
+<ul id="items"></ul>
+
+<p>
+Total: <span id="total">0</span>
+</p>
+
+</div>
+
+
 </header>
 
 
-<div class="cart">
 
-<h2>🛒 العربة</h2>
+<section class="products">
 
-<ul id="cartItems"></ul>
-
-<div class="total">
-الإجمالي: <span id="total">0</span> جنيه
-</div>
-
-</div>
-
-
-
-<div class="products">
 
 
 <div class="card">
 
-<img src="images/product1.jpg">
+<img src="images/shampoo.jpg">
 
-<h3>المنتج الأول</h3>
+<h2>Shampoo</h2>
 
-<p class="price">100 جنيه</p>
+<p class="price">800</p>
 
-<button onclick="addToCart('المنتج الأول',100)">
-أضف للعربة 🛒
+<button class="add" onclick="addItem('Shampoo',800)">
+Add to Cart
 </button>
 
 </div>
 
 
 
+
 <div class="card">
 
-<img src="images/product2.jpg">
+<img src="images/conditioner.jpg">
 
-<h3>المنتج الثاني</h3>
+<h2>Conditioner</h2>
 
-<p class="price">250 جنيه</p>
+<p class="price">800</p>
 
-<button onclick="addToCart('المنتج الثاني',250)">
-أضف للعربة 🛒
+<button class="add" onclick="addItem('Conditioner',800)">
+Add to Cart
 </button>
 
 </div>
 
 
 
+
 <div class="card">
 
-<img src="images/product3.jpg">
+<img src="images/hairmask.jpg">
 
-<h3>المنتج الثالث</h3>
+<h2>Hair Mask</h2>
 
-<p class="price">350 جنيه</p>
+<p class="price">800</p>
 
-<button onclick="addToCart('المنتج الثالث',350)">
-أضف للعربة 🛒
+<button class="add" onclick="addItem('Hair Mask',800)">
+Add to Cart
 </button>
 
 </div>
 
 
+
+
+<div class="card">
+
+<img src="images/serum.jpg">
+
+<h2>Serum</h2>
+
+<p class="price">550</p>
+
+<button class="add" onclick="addItem('Serum',550)">
+Add to Cart
+</button>
+
 </div>
+
+
+
+</section>
+
 
 
 
 <script>
 
+
 let total = 0;
 
 
-function addToCart(name,price){
+function openCart(){
 
-let item=document.createElement("li");
+let cart=document.getElementById("cart");
 
-item.innerHTML=
-name + " - " + price + " جنيه";
+if(cart.style.display==="block"){
+
+cart.style.display="none";
+
+}
+
+else{
+
+cart.style.display="block";
+
+}
+
+}
 
 
-document.getElementById("cartItems")
-.appendChild(item);
+
+function addItem(name,price){
+
+let li=document.createElement("li");
+
+li.innerHTML=name+" - "+price;
+
+document.getElementById("items").appendChild(li);
 
 
 total += price;
 
-
-document.getElementById("total")
-.innerHTML=total;
+document.getElementById("total").innerHTML=total;
 
 }
+
 
 
 </script>
