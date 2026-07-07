@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>متجري</title>
+<title>متجر منتجات الشعر</title>
 
 <style>
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial;
     margin: 0;
     background: #f7f7f7;
 }
@@ -50,12 +50,17 @@ header {
 }
 
 #wheel {
-    margin: 20px auto;
     width: 200px;
     height: 200px;
+    margin: 20px auto;
     border-radius: 50%;
     background: conic-gradient(
-    #ffb6c1, #ffd700, #90ee90, #87ceeb, #dda0dd, #ffb6c1
+        pink,
+        yellow,
+        lightgreen,
+        skyblue,
+        violet,
+        pink
     );
     transition: 3s;
 }
@@ -67,7 +72,7 @@ header {
 
 <header>
 <h1>متجر منتجات الشعر</h1>
-<p>منتجات عناية وترميم الشعر</p>
+<p>عناية وترميم للشعر</p>
 </header>
 
 
@@ -76,25 +81,25 @@ header {
 <div class="products">
 
 <div class="card">
-<img src="shampoo.jpg">
+<img src="images/shampoo.jpg">
 <h3>شامبو</h3>
 <p>800 جنيه للتر</p>
 </div>
 
 <div class="card">
-<img src="conditioner.jpg">
+<img src="images/conditioner.jpg">
 <h3>بلسم</h3>
 <p>800 جنيه للتر</p>
 </div>
 
 <div class="card">
-<img src="mask.jpg">
+<img src="images/mask.jpg">
 <h3>ماسك ترميم ومعالج</h3>
 <p>800 جنيه - 500 مللي</p>
 </div>
 
 <div class="card">
-<img src="serum.jpg">
+<img src="images/serum.jpg">
 <h3>سيروم</h3>
 <p>550 جنيه - 100 مللي</p>
 </div>
@@ -119,14 +124,13 @@ header {
 
 
 <script>
-
 function spin(){
 
 let wheel = document.getElementById("wheel");
 
-let number = Math.floor(Math.random()*2000)+1000;
+let x = Math.floor(Math.random()*2000)+1000;
 
-wheel.style.transform = "rotate(" + number + "deg)";
+wheel.style.transform = "rotate("+x+"deg)";
 
 setTimeout(function(){
 document.getElementById("result").innerHTML =
@@ -134,7 +138,6 @@ document.getElementById("result").innerHTML =
 },3000);
 
 }
-
 </script>
 
 
