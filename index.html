@@ -15,43 +15,58 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
+:root{
+--gold:#D4AF37;
+--darkgold:#8C6A00;
+--lightgold:#F5E6A8;
+}
+
 
 body{
 
 margin:0;
 
+color:white;
+
 background:
-radial-gradient(circle at 10% 10%,#d4af37,transparent 20%),
-radial-gradient(circle at 90% 90%,#806000,transparent 25%),
-linear-gradient(135deg,#000,#100c00,#000);
+radial-gradient(circle at 15% 20%,rgba(212,175,55,.35),transparent 25%),
+radial-gradient(circle at 85% 80%,rgba(212,175,55,.25),transparent 25%),
+linear-gradient(135deg,#000,#090909,#000);
 
 background-size:200% 200%;
 
-animation:bgMove 10s infinite alternate;
+animation:goldMove 12s infinite alternate;
 
-color:white;
+overflow-x:hidden;
 
 }
 
 
 
-@keyframes bgMove{
+@keyframes goldMove{
 
 from{
-background-position:left;
+background-position:left top;
 }
 
 to{
-background-position:right;
+background-position:right bottom;
 }
 
 }
+
+
 
 
 
 /* HEADER */
 
+
 header{
+
+height:100px;
+
+padding:20px 60px;
 
 display:flex;
 
@@ -59,17 +74,17 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:25px 60px;
+background:rgba(0,0,0,.85);
 
-background:rgba(0,0,0,.8);
-
-border-bottom:1px solid #d4af37;
+border-bottom:1px solid var(--gold);
 
 position:sticky;
 
 top:0;
 
 z-index:20;
+
+backdrop-filter:blur(10px);
 
 }
 
@@ -83,9 +98,19 @@ font-weight:bold;
 
 letter-spacing:5px;
 
-color:#ffd700;
+background:
 
-text-shadow:0 0 30px #ffd700;
+linear-gradient(
+45deg,
+var(--darkgold),
+var(--gold),
+var(--lightgold),
+var(--gold)
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
 
 }
 
@@ -96,9 +121,14 @@ text-shadow:0 0 30px #ffd700;
 
 background:
 
-linear-gradient(45deg,#b8860b,#ffd700);
+linear-gradient(
+45deg,
+var(--darkgold),
+var(--gold),
+var(--lightgold)
+);
 
-border:0;
+border:none;
 
 padding:15px 35px;
 
@@ -115,20 +145,21 @@ font-size:18px;
 
 
 
+
 /* HERO */
 
 
 .hero{
 
-height:330px;
+height:350px;
 
 display:flex;
 
 flex-direction:column;
 
-justify-content:center;
-
 align-items:center;
+
+justify-content:center;
 
 text-align:center;
 
@@ -138,11 +169,24 @@ text-align:center;
 
 .hero h1{
 
-font-size:60px;
+font-size:65px;
 
-color:#ffd700;
+margin:0;
 
-animation:title 1.5s;
+background:
+
+linear-gradient(
+45deg,
+var(--darkgold),
+var(--gold),
+var(--lightgold)
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
+
+animation:showTitle 1.5s;
 
 }
 
@@ -152,20 +196,20 @@ animation:title 1.5s;
 
 font-size:22px;
 
-color:#eee;
+color:#ddd;
 
 }
 
 
 
 
-@keyframes title{
+@keyframes showTitle{
 
 from{
 
 opacity:0;
 
-transform:translateY(-50px);
+transform:translateY(-40px);
 
 }
 
@@ -178,7 +222,6 @@ transform:translateY(0);
 }
 
 }
-
 
 
 
@@ -202,13 +245,14 @@ padding:60px;
 
 
 
+
 .card{
 
 background:
 
 linear-gradient(145deg,#151515,#000);
 
-border:1px solid #d4af37;
+border:1px solid var(--gold);
 
 border-radius:35px;
 
@@ -222,37 +266,39 @@ overflow:hidden;
 
 transition:.5s;
 
-animation:show 1s;
-
 box-shadow:
 
 0 20px 50px #000;
+
+animation:cardIn 1s;
 
 }
 
 
 
-.card::before{
+
+.card::after{
 
 content:"";
 
 position:absolute;
 
-width:150px;
+width:180px;
 
-height:150px;
+height:180px;
 
-background:#d4af37;
+background:var(--gold);
 
-filter:blur(80px);
+filter:blur(100px);
 
-opacity:.4;
+opacity:.25;
 
-right:-40px;
+top:-70px;
 
-top:-40px;
+right:-70px;
 
 }
+
 
 
 
@@ -261,17 +307,20 @@ top:-40px;
 transform:
 
 translateY(-15px)
+rotateY(8deg)
 scale(1.03);
 
 box-shadow:
 
-0 30px 70px #d4af37;
+0 30px 70px var(--gold);
 
 }
 
 
 
-@keyframes show{
+
+
+@keyframes cardIn{
 
 from{
 
@@ -305,10 +354,9 @@ border-radius:25px;
 
 
 
-
 .card h2{
 
-color:#ffd700;
+color:var(--gold);
 
 font-size:28px;
 
@@ -318,7 +366,7 @@ font-size:28px;
 
 .info{
 
-color:#ddd;
+color:#eee;
 
 }
 
@@ -326,9 +374,9 @@ color:#ddd;
 
 .price{
 
-color:#ffd700;
+color:var(--lightgold);
 
-font-size:25px;
+font-size:24px;
 
 font-weight:bold;
 
@@ -340,9 +388,14 @@ font-weight:bold;
 
 background:
 
-linear-gradient(45deg,#b8860b,#ffd700);
+linear-gradient(
+45deg,
+var(--darkgold),
+var(--gold),
+var(--lightgold)
+);
 
-border:0;
+border:none;
 
 padding:14px 30px;
 
@@ -351,8 +404,6 @@ border-radius:30px;
 font-weight:bold;
 
 cursor:pointer;
-
-font-size:16px;
 
 }
 
@@ -363,8 +414,6 @@ font-size:16px;
 transform:scale(1.1);
 
 }
-
-
 
 
 
@@ -384,15 +433,11 @@ Yours ✨
 
 
 <button class="cart-btn">
-
 🛒 Cart
-
 </button>
 
 
 </header>
-
-
 
 
 
@@ -411,10 +456,7 @@ Premium Hair Care Collection
 
 
 
-
-
 <section class="products">
-
 
 
 <div class="card">
@@ -431,14 +473,11 @@ Size: 1 Liter
 Price: 800 EGP
 </p>
 
-
 <button class="add">
 Add to Cart
 </button>
 
-
 </div>
-
 
 
 
@@ -456,14 +495,11 @@ Size: 1 Liter
 Price: 800 EGP
 </p>
 
-
 <button class="add">
 Add to Cart
 </button>
 
-
 </div>
-
 
 
 
@@ -471,9 +507,7 @@ Add to Cart
 
 <img src="images/hairmask.jpg">
 
-<h2>
-Hair Mask
-</h2>
+<h2>Hair Mask</h2>
 
 <p class="info">
 Repair & Treatment
@@ -487,15 +521,11 @@ Size: 500 ml
 Price: 800 EGP
 </p>
 
-
 <button class="add">
 Add to Cart
 </button>
 
-
 </div>
-
-
 
 
 
@@ -503,9 +533,7 @@ Add to Cart
 
 <img src="images/serum.jpg">
 
-<h2>
-Serum
-</h2>
+<h2>Serum</h2>
 
 <p class="info">
 Size: 100 ml
@@ -515,18 +543,15 @@ Size: 100 ml
 Price: 550 EGP
 </p>
 
-
 <button class="add">
 Add to Cart
 </button>
 
-
 </div>
 
 
-
 </section>
-<!-- CART PART -->
+<!-- CART SYSTEM -->
 
 <style>
 
@@ -540,11 +565,11 @@ top:110px;
 
 right:40px;
 
-width:360px;
+width:370px;
 
 background:#050505;
 
-border:1px solid #d4af37;
+border:1px solid #D4AF37;
 
 border-radius:30px;
 
@@ -552,7 +577,7 @@ padding:25px;
 
 z-index:50;
 
-box-shadow:0 0 50px #d4af37;
+box-shadow:0 0 50px #D4AF37;
 
 }
 
@@ -560,9 +585,17 @@ box-shadow:0 0 50px #d4af37;
 
 #cart h2{
 
-color:#ffd700;
+color:#D4AF37;
 
 text-align:center;
+
+}
+
+
+
+#cart ul{
+
+padding:0;
 
 }
 
@@ -582,7 +615,7 @@ border-bottom:1px solid #333;
 
 .total{
 
-color:#ffd700;
+color:#F5E6A8;
 
 font-size:22px;
 
@@ -596,19 +629,26 @@ font-weight:bold;
 
 width:100%;
 
-padding:15px;
+padding:16px;
 
 border:0;
 
 border-radius:30px;
 
-background:linear-gradient(45deg,#b8860b,#ffd700);
+background:
+
+linear-gradient(
+45deg,
+#8C6A00,
+#D4AF37,
+#F5E6A8
+);
 
 font-weight:bold;
 
-cursor:pointer;
-
 font-size:17px;
+
+cursor:pointer;
 
 }
 
@@ -627,7 +667,7 @@ left:50%;
 
 transform:translateX(-50%);
 
-background:#ffd700;
+background:#D4AF37;
 
 color:#000;
 
@@ -647,13 +687,13 @@ z-index:100;
 
 .vibrate{
 
-animation:vibration .4s;
+animation:vibrate .4s;
 
 }
 
 
 
-@keyframes vibration{
+@keyframes vibrate{
 
 0%{
 transform:translateX(0);
@@ -693,7 +733,9 @@ Your Cart 🛒
 </h2>
 
 
-<ul id="cartItems"></ul>
+<ul id="cartItems">
+
+</ul>
 
 
 
@@ -716,7 +758,6 @@ Checkout
 </button>
 
 
-
 </div>
 
 
@@ -734,15 +775,10 @@ Added to Cart ✓
 
 
 
-
 <script>
 
 
 let total=0;
-
-
-let cartItems=[];
-
 
 
 let products=[
@@ -771,26 +807,23 @@ price:550
 
 
 
-
-
 let buttons=document.querySelectorAll(".add");
 
 
 
-buttons.forEach((btn,index)=>{
+buttons.forEach((button,index)=>{
 
 
-btn.onclick=function(){
+button.onclick=function(){
 
 
-
-btn.classList.add("vibrate");
+button.classList.add("vibrate");
 
 
 
 setTimeout(()=>{
 
-btn.classList.remove("vibrate");
+button.classList.remove("vibrate");
 
 },400);
 
@@ -798,12 +831,7 @@ btn.classList.remove("vibrate");
 
 
 
-cartItems.push(products[index]);
-
-
-
 total += products[index].price;
-
 
 
 
@@ -829,23 +857,23 @@ document.getElementById("total")
 
 
 
+let message=document.getElementById("message");
 
-let msg=document.getElementById("message");
 
-
-msg.style.display="block";
+message.style.display="block";
 
 
 
 setTimeout(()=>{
 
-msg.style.display="none";
+message.style.display="none";
 
 },1200);
 
 
 
 }
+
 
 
 });
@@ -855,21 +883,21 @@ msg.style.display="none";
 
 
 
-
 function openCart(){
 
 
-let c=document.getElementById("cart");
+let cart=document.getElementById("cart");
 
-if(c.style.display==="block"){
 
-c.style.display="none";
+if(cart.style.display==="block"){
+
+cart.style.display="none";
 
 }
 
 else{
 
-c.style.display="block";
+cart.style.display="block";
 
 }
 
@@ -884,7 +912,7 @@ document.querySelector(".cart-btn")
 
 
 </script>
-<!-- CHECKOUT PART -->
+<!-- CHECKOUT SYSTEM -->
 
 <style>
 
@@ -898,7 +926,12 @@ inset:0;
 
 background:
 
-linear-gradient(135deg,#000,#3b2a00,#000);
+linear-gradient(
+135deg,
+#000,
+#1b1400,
+#000
+);
 
 z-index:90;
 
@@ -920,9 +953,13 @@ margin:auto;
 
 background:
 
-linear-gradient(145deg,#151515,#000);
+linear-gradient(
+145deg,
+#151515,
+#000
+);
 
-border:1px solid #d4af37;
+border:1px solid #D4AF37;
 
 border-radius:35px;
 
@@ -930,15 +967,15 @@ padding:35px;
 
 box-shadow:
 
-0 0 60px #d4af37;
+0 0 60px #D4AF37;
 
-animation:checkoutOpen .5s;
+animation:checkoutShow .5s;
 
 }
 
 
 
-@keyframes checkoutOpen{
+@keyframes checkoutShow{
 
 from{
 
@@ -964,9 +1001,20 @@ transform:scale(1);
 
 text-align:center;
 
-color:#ffd700;
-
 font-size:38px;
+
+background:
+
+linear-gradient(
+45deg,
+#8C6A00,
+#D4AF37,
+#F5E6A8
+);
+
+-webkit-background-clip:text;
+
+color:transparent;
 
 }
 
@@ -982,9 +1030,9 @@ margin:10px 0;
 
 border-radius:15px;
 
-border:1px solid #d4af37;
+border:1px solid #D4AF37;
 
-background:#080808;
+background:#050505;
 
 color:white;
 
@@ -1016,11 +1064,16 @@ border-radius:30px;
 
 background:
 
-linear-gradient(45deg,#b8860b,#ffd700);
-
-font-size:18px;
+linear-gradient(
+45deg,
+#8C6A00,
+#D4AF37,
+#F5E6A8
+);
 
 font-weight:bold;
+
+font-size:18px;
 
 cursor:pointer;
 
@@ -1034,7 +1087,7 @@ text-align:right;
 
 font-size:35px;
 
-color:#ffd700;
+color:#D4AF37;
 
 cursor:pointer;
 
@@ -1102,6 +1155,8 @@ Complete Your Order ✨
 
 
 
+
+
 <button class="confirm">
 
 Confirm Order ✅
@@ -1111,7 +1166,6 @@ Confirm Order ✅
 
 
 </div>
-
 
 </div>
 
@@ -1125,10 +1179,8 @@ Confirm Order ✅
 
 function openCheckout(){
 
-
 document.getElementById("checkout")
 .style.display="block";
-
 
 }
 
@@ -1136,13 +1188,16 @@ document.getElementById("checkout")
 
 function closeCheckout(){
 
-
 document.getElementById("checkout")
 .style.display="none";
-
 
 }
 
 
 
 </script>
+
+
+</body>
+
+</html>
