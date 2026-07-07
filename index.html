@@ -8,6 +8,7 @@
 
 <title>Yours</title>
 
+
 <style>
 
 *{
@@ -15,174 +16,197 @@ box-sizing:border-box;
 font-family:Arial,sans-serif;
 }
 
+
 body{
+
 margin:0;
+
 background:
-radial-gradient(circle at top,#ffffff,#f9e6a8,#d4af37);
+radial-gradient(circle at top,#d4af37,#000 70%);
+
+color:white;
+
 min-height:100vh;
+
 }
 
 
-/* Header */
+/* HEADER */
 
 header{
+
 display:flex;
 justify-content:space-between;
 align-items:center;
+
 padding:30px 50px;
+
 }
 
+
 .logo{
+
 font-size:45px;
 font-weight:bold;
-color:#a87500;
+
+color:#ffd700;
+
+text-shadow:0 5px 20px #ffd700;
+
 }
 
 
 .cart-btn{
-background:#c99b19;
-color:white;
-border:0;
+
+background:#d4af37;
+
+color:#000;
+
+border:none;
+
 padding:15px 30px;
+
 border-radius:30px;
+
+font-size:18px;
+
 cursor:pointer;
+
+font-weight:bold;
+
 }
 
 
 
-/* Products */
+/* PRODUCTS */
 
 .products{
+
 display:grid;
+
 grid-template-columns:repeat(4,1fr);
+
 gap:25px;
+
 padding:40px;
+
 }
+
 
 
 .card{
-background:white;
+
+background:linear-gradient(145deg,#111,#222);
+
+border:1px solid #d4af37;
+
 border-radius:25px;
+
 padding:20px;
+
 text-align:center;
-box-shadow:0 15px 35px #0003;
-animation:float 3s infinite;
+
+box-shadow:0 15px 35px #000;
+
+animation:move 3s infinite ease-in-out;
+
 }
 
 
-@keyframes float{
+
+@keyframes move{
+
 50%{
+
 transform:translateY(-10px);
+
 }
+
 }
+
 
 
 .card img{
+
 width:100%;
-height:220px;
+
+height:230px;
+
 object-fit:cover;
+
 border-radius:20px;
+
 }
 
 
-h2{
-color:#9b7000;
+
+.card h2{
+
+color:#ffd700;
+
+font-size:25px;
+
+}
+
+
+
+.size{
+
+color:white;
+
+font-size:16px;
+
 }
 
 
 .price{
-color:#c99b19;
+
+color:#ffd700;
+
 font-size:22px;
+
 font-weight:bold;
+
 }
 
 
-button{
-background:#c99b19;
-color:white;
-border:0;
+
+.add{
+
+background:#ffd700;
+
+color:#000;
+
+border:none;
+
 padding:12px 25px;
-border-radius:25px;
-cursor:pointer;
-}
-
-
-
-/* Cart */
-
-#cart{
-display:none;
-position:fixed;
-top:90px;
-right:30px;
-background:white;
-width:320px;
-padding:25px;
-border-radius:25px;
-box-shadow:0 20px 40px #0004;
-z-index:5;
-}
-
-
-
-/* Checkout */
-
-#checkout{
-
-display:none;
-position:fixed;
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:
-linear-gradient(135deg,#fff,#f5d77a);
-
-z-index:10;
-
-overflow:auto;
-
-}
-
-
-.form-box{
-
-background:white;
-
-max-width:600px;
-
-margin:40px auto;
-
-padding:30px;
 
 border-radius:30px;
 
-box-shadow:0 20px 40px #0003;
+cursor:pointer;
+
+font-weight:bold;
 
 }
 
 
-input{
 
-width:100%;
+.add:hover{
 
-padding:14px;
-
-margin:8px 0;
-
-border-radius:10px;
-
-border:1px solid #ccc;
+transform:scale(1.05);
 
 }
+
+
+
 
 
 @media(max-width:900px){
 
 .products{
+
 grid-template-columns:repeat(2,1fr);
+
 }
 
 }
@@ -193,7 +217,9 @@ grid-template-columns:repeat(2,1fr);
 </head>
 
 
+
 <body>
+
 
 
 <header>
@@ -213,7 +239,9 @@ Yours ✨
 
 
 
-<div class="products">
+
+<section class="products">
+
 
 
 <div class="card">
@@ -222,13 +250,23 @@ Yours ✨
 
 <h2>Shampoo</h2>
 
-<p class="price">800</p>
+<p class="size">
+Size: 1 Liter
+</p>
 
-<button onclick="add('Shampoo',800)">
+<p class="price">
+Price: 800 EGP
+</p>
+
+
+<button class="add" onclick="addToCart('Shampoo',800)">
 Add to Cart
 </button>
 
+
 </div>
+
+
 
 
 
@@ -238,13 +276,23 @@ Add to Cart
 
 <h2>Conditioner</h2>
 
-<p class="price">800</p>
+<p class="size">
+Size: 1 Liter
+</p>
 
-<button onclick="add('Conditioner',800)">
+<p class="price">
+Price: 800 EGP
+</p>
+
+
+<button class="add" onclick="addToCart('Conditioner',800)">
 Add to Cart
 </button>
 
+
 </div>
+
+
 
 
 
@@ -254,13 +302,27 @@ Add to Cart
 
 <h2>Hair Mask</h2>
 
-<p class="price">800</p>
+<p class="size">
+Repair & Treatment
+</p>
 
-<button onclick="add('Hair Mask',800)">
+<p class="size">
+Size: 500 ml
+</p>
+
+<p class="price">
+Price: 800 EGP
+</p>
+
+
+<button class="add" onclick="addToCart('Hair Mask',800)">
 Add to Cart
 </button>
 
+
 </div>
+
+
 
 
 
@@ -270,145 +332,23 @@ Add to Cart
 
 <h2>Serum</h2>
 
-<p class="price">550</p>
+<p class="size">
+Size: 100 ml
+</p>
 
-<button onclick="add('Serum',550)">
+
+<p class="price">
+Price: 550 EGP
+</p>
+
+
+<button class="add" onclick="addToCart('Serum',550)">
 Add to Cart
 </button>
 
-</div>
-
 
 </div>
 
 
 
-
-
-<div id="cart">
-
-<h2>Your Cart 🛒</h2>
-
-<ul id="items"></ul>
-
-<h3>
-Total: <span id="total">0</span>
-</h3>
-
-
-<button onclick="checkout()">
-Checkout 🛍️
-</button>
-
-</div>
-
-
-
-
-
-<div id="checkout">
-
-
-<div class="form-box">
-
-
-<h1>
-Complete Your Order
-</h1>
-
-
-<input placeholder="Full Name">
-
-<input placeholder="Email">
-
-<input placeholder="Phone Number">
-
-
-<input placeholder="Governorate">
-
-<input placeholder="Area">
-
-<input placeholder="City">
-
-
-<input placeholder="Street Address">
-
-<input placeholder="Building Number">
-
-<input placeholder="Floor">
-
-<input placeholder="Apartment Number">
-
-
-<button>
-Confirm Order ✅
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<script>
-
-
-let total=0;
-
-
-function add(name,price){
-
-let li=document.createElement("li");
-
-li.innerHTML=name+" - "+price;
-
-document.getElementById("items")
-.appendChild(li);
-
-
-total+=price;
-
-document.getElementById("total")
-.innerHTML=total;
-
-}
-
-
-
-function showCart(){
-
-let cart=document.getElementById("cart");
-
-if(cart.style.display=="block"){
-
-cart.style.display="none";
-
-}else{
-
-cart.style.display="block";
-
-}
-
-}
-
-
-
-function checkout(){
-
-document.getElementById("checkout")
-.style.display="block";
-
-}
-
-
-
-</script>
-
-
-</body>
-
-</html>
+</section>
