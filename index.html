@@ -8,11 +8,12 @@
 
 <title>Yours Luxury</title>
 
+
 <style>
 
 *{
 box-sizing:border-box;
-font-family:'Arial',sans-serif;
+font-family:Arial,sans-serif;
 }
 
 
@@ -21,13 +22,32 @@ body{
 margin:0;
 
 background:
-radial-gradient(circle at top,#3a2b00,#000 45%);
+radial-gradient(circle at 20% 20%,#d4af37,transparent 25%),
+radial-gradient(circle at 80% 80%,#8b6500,transparent 25%),
+linear-gradient(135deg,#000,#120d00,#000);
+
+background-size:200% 200%;
+
+animation:bgMove 10s infinite alternate;
 
 color:white;
 
-overflow-x:hidden;
+}
+
+
+
+@keyframes bgMove{
+
+from{
+background-position:left;
+}
+
+to{
+background-position:right;
+}
 
 }
+
 
 
 
@@ -37,15 +57,15 @@ header{
 
 height:100px;
 
-display:flex;
+padding:20px 60px;
 
-justify-content:space-between;
+display:flex;
 
 align-items:center;
 
-padding:20px 60px;
+justify-content:space-between;
 
-background:rgba(0,0,0,.8);
+background:rgba(0,0,0,.75);
 
 border-bottom:1px solid #d4af37;
 
@@ -53,7 +73,9 @@ position:sticky;
 
 top:0;
 
-z-index:10;
+z-index:20;
+
+backdrop-filter:blur(10px);
 
 }
 
@@ -65,13 +87,29 @@ font-size:50px;
 
 font-weight:bold;
 
-color:#d4af37;
+color:#ffd700;
 
-letter-spacing:4px;
+letter-spacing:5px;
 
-text-shadow:0 0 20px #d4af37;
+text-shadow:0 0 25px #ffd700;
+
+animation:logo 2s infinite alternate;
 
 }
+
+
+@keyframes logo{
+
+from{
+text-shadow:0 0 10px #ffd700;
+}
+
+to{
+text-shadow:0 0 40px #ffd700;
+}
+
+}
+
 
 
 
@@ -85,11 +123,11 @@ padding:15px 35px;
 
 border-radius:40px;
 
-font-size:18px;
-
 font-weight:bold;
 
 cursor:pointer;
+
+font-size:18px;
 
 }
 
@@ -97,22 +135,34 @@ cursor:pointer;
 
 /* HERO */
 
+
 .hero{
 
-text-align:center;
+height:350px;
 
-padding:70px 20px;
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
 
 }
 
 
+
 .hero h1{
 
-font-size:55px;
+font-size:60px;
 
 color:#ffd700;
 
-animation:glow 2s infinite alternate;
+margin:0;
+
+animation:titleMove 2s;
 
 }
 
@@ -120,35 +170,41 @@ animation:glow 2s infinite alternate;
 
 .hero p{
 
-font-size:20px;
+font-size:22px;
 
-color:#ddd;
+color:#eee;
 
 }
 
 
 
-@keyframes glow{
+@keyframes titleMove{
 
 from{
 
-text-shadow:0 0 10px #ffd700;
+opacity:0;
+
+transform:translateY(-50px);
 
 }
 
 to{
 
-text-shadow:0 0 35px #ffd700;
+opacity:1;
+
+transform:translateY(0);
 
 }
 
 }
+
 
 
 
 
 
 /* PRODUCTS */
+
 
 .products{
 
@@ -158,9 +214,10 @@ grid-template-columns:repeat(4,1fr);
 
 gap:30px;
 
-padding:40px 60px;
+padding:50px 60px;
 
 }
+
 
 
 
@@ -168,7 +225,7 @@ padding:40px 60px;
 
 background:
 
-linear-gradient(145deg,#171717,#050505);
+linear-gradient(145deg,#151515,#050505);
 
 border:1px solid #d4af37;
 
@@ -180,11 +237,11 @@ text-align:center;
 
 box-shadow:
 
-0 20px 40px rgba(0,0,0,.8);
+0 20px 50px #000;
 
 transition:.5s;
 
-animation:float 4s infinite;
+animation:cardShow 1s;
 
 }
 
@@ -196,8 +253,7 @@ animation:float 4s infinite;
 transform:
 
 translateY(-15px)
-
-rotateX(8deg);
+rotateY(8deg);
 
 box-shadow:
 
@@ -208,17 +264,23 @@ box-shadow:
 
 
 
+@keyframes cardShow{
 
-@keyframes float{
+from{
 
-50%{
+opacity:0;
 
-transform:translateY(-8px);
+transform:translateY(50px);
+
+}
+
+to{
+
+opacity:1;
 
 }
 
 }
-
 
 
 
@@ -227,13 +289,14 @@ transform:translateY(-8px);
 
 width:100%;
 
-height:250px;
+height:260px;
 
 object-fit:cover;
 
 border-radius:25px;
 
 }
+
 
 
 
@@ -249,7 +312,7 @@ font-size:28px;
 
 .info{
 
-color:#ddd;
+color:white;
 
 font-size:17px;
 
@@ -261,11 +324,13 @@ font-size:17px;
 
 color:#ffd700;
 
-font-size:24px;
+font-size:25px;
 
 font-weight:bold;
 
 }
+
+
 
 
 
@@ -292,8 +357,6 @@ font-size:16px;
 
 
 .add:hover{
-
-background:white;
 
 transform:scale(1.1);
 
@@ -329,7 +392,7 @@ Yours ✨
 </div>
 
 
-<button class="cart-btn" onclick="openCart()">
+<button class="cart-btn">
 🛒 Cart
 </button>
 
@@ -338,14 +401,15 @@ Yours ✨
 
 
 
+
 <section class="hero">
 
 <h1>
-Luxury Hair Care
+Yours Luxury
 </h1>
 
 <p>
-Premium products made for your beauty
+Premium Hair Care Collection
 </p>
 
 </section>
@@ -372,6 +436,7 @@ Size: 1 Liter
 Price: 800 EGP
 </p>
 
+
 <button class="add">
 Add to Cart
 </button>
@@ -396,6 +461,7 @@ Size: 1 Liter
 <p class="price">
 Price: 800 EGP
 </p>
+
 
 <button class="add">
 Add to Cart
@@ -422,9 +488,11 @@ Repair & Treatment
 Size: 500 ml
 </p>
 
+
 <p class="price">
 Price: 800 EGP
 </p>
+
 
 <button class="add">
 Add to Cart
@@ -447,9 +515,11 @@ Add to Cart
 Size: 100 ml
 </p>
 
+
 <p class="price">
 Price: 550 EGP
 </p>
+
 
 <button class="add">
 Add to Cart
@@ -460,8 +530,9 @@ Add to Cart
 
 
 
+
 </section>
-<!-- CART SECTION -->
+<!-- CART STYLE -->
 
 <style>
 
@@ -471,30 +542,41 @@ display:none;
 
 position:fixed;
 
-top:100px;
+top:110px;
 
 right:40px;
 
-width:350px;
+width:360px;
 
-background:#050505;
+background:#080808;
 
 border:1px solid #d4af37;
 
-border-radius:25px;
+border-radius:30px;
 
 padding:25px;
 
-z-index:20;
+z-index:50;
 
 box-shadow:0 0 40px #d4af37;
 
 }
 
 
+
 #cart h2{
 
 color:#ffd700;
+
+text-align:center;
+
+}
+
+
+
+#cart ul{
+
+padding:0;
 
 }
 
@@ -506,21 +588,27 @@ list-style:none;
 
 padding:12px;
 
-border-bottom:1px solid #444;
-
-color:white;
+border-bottom:1px solid #333;
 
 }
 
 
 
-#cart button{
+.cart-count{
 
-margin-top:20px;
+background:#ffd700;
 
-width:100%;
+color:#000;
+
+border-radius:50%;
+
+padding:4px 9px;
+
+font-size:14px;
 
 }
+
+
 
 
 
@@ -535,19 +623,118 @@ font-weight:bold;
 }
 
 
+
+.checkout-btn{
+
+width:100%;
+
+background:linear-gradient(45deg,#b8860b,#ffd700);
+
+border:0;
+
+padding:15px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+
+.vibrate{
+
+animation:vibrate .4s;
+
+}
+
+
+
+@keyframes vibrate{
+
+
+0%{
+transform:translateX(0);
+}
+
+
+25%{
+transform:translateX(-8px);
+}
+
+
+50%{
+transform:translateX(8px);
+}
+
+
+75%{
+transform:translateX(-8px);
+}
+
+
+100%{
+transform:translateX(0);
+}
+
+
+}
+
+
+
+#message{
+
+display:none;
+
+position:fixed;
+
+bottom:30px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+background:#d4af37;
+
+color:#000;
+
+padding:15px 30px;
+
+border-radius:30px;
+
+font-weight:bold;
+
+z-index:100;
+
+}
+
+
+
 </style>
 
 
 
 
+
+<!-- CART BOX -->
+
+
 <div id="cart">
+
 
 <h2>
 Your Cart 🛒
 </h2>
 
 
-<ul id="cartItems"></ul>
+
+<ul id="cartItems">
+
+</ul>
+
 
 
 <p class="total">
@@ -562,12 +749,23 @@ EGP
 
 
 
-<button class="add" onclick="openCheckout()">
+<button class="checkout-btn" onclick="openCheckout()">
 
-Checkout 🛍️
+Checkout
 
 </button>
 
+
+
+</div>
+
+
+
+
+
+<div id="message">
+
+Added to Cart ✓
 
 </div>
 
@@ -585,12 +783,12 @@ let total=0;
 
 
 
-let addButtons=document.querySelectorAll(".add");
+
+let buttons=document.querySelectorAll(".add");
 
 
 
 let products=[
-
 
 {
 name:"Shampoo",
@@ -616,20 +814,34 @@ price:550
 }
 
 
-
 ];
 
 
 
 
 
-addButtons.forEach((btn,index)=>{
+buttons.forEach((button,index)=>{
 
 
-btn.onclick=function(){
+button.onclick=function(){
+
+
+button.classList.add("vibrate");
+
+
+
+setTimeout(()=>{
+
+button.classList.remove("vibrate");
+
+},400);
+
+
+
 
 
 cart.push(products[index]);
+
 
 
 total += products[index].price;
@@ -658,7 +870,23 @@ document.getElementById("total")
 
 
 
+
+let msg=document.getElementById("message");
+
+
+msg.style.display="block";
+
+
+setTimeout(()=>{
+
+msg.style.display="none";
+
+},1500);
+
+
+
 }
+
 
 
 });
@@ -671,42 +899,34 @@ document.getElementById("total")
 function openCart(){
 
 
-let box=document.getElementById("cart");
+let cartBox=document.getElementById("cart");
 
 
+if(cartBox.style.display==="block"){
 
-if(box.style.display==="block"){
-
-box.style.display="none";
+cartBox.style.display="none";
 
 }
 
 else{
 
-box.style.display="block";
+cartBox.style.display="block";
 
 }
 
 
-}
-
-
-
-
-function openCheckout(){
-
-
-document.getElementById("checkout")
-.style.display="block";
-
-
 
 }
+
+
+
+document.querySelector(".cart-btn")
+.onclick=openCart;
 
 
 
 </script>
-<!-- CHECKOUT PAGE -->
+<!-- CHECKOUT -->
 
 <style>
 
@@ -716,21 +936,17 @@ display:none;
 
 position:fixed;
 
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
+inset:0;
 
 background:
 
-linear-gradient(135deg,#000,#3a2b00);
+linear-gradient(135deg,#000,#2b2000,#000);
 
-z-index:50;
+z-index:80;
 
 overflow:auto;
+
+padding:40px 0;
 
 }
 
@@ -742,19 +958,45 @@ width:90%;
 
 max-width:650px;
 
-margin:40px auto;
+margin:auto;
 
-background:#080808;
+background:
+
+linear-gradient(145deg,#111,#050505);
 
 border:1px solid #d4af37;
 
-border-radius:30px;
+border-radius:35px;
 
 padding:35px;
 
 box-shadow:
 
-0 0 50px #d4af37;
+0 0 60px #d4af37;
+
+animation:openBox .5s;
+
+}
+
+
+
+@keyframes openBox{
+
+from{
+
+opacity:0;
+
+transform:scale(.8);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
 
 }
 
@@ -766,7 +1008,17 @@ text-align:center;
 
 color:#ffd700;
 
-font-size:35px;
+font-size:38px;
+
+}
+
+
+
+.checkout-box p{
+
+text-align:center;
+
+color:#ddd;
 
 }
 
@@ -780,11 +1032,11 @@ padding:15px;
 
 margin:10px 0;
 
-border-radius:12px;
+border-radius:15px;
 
 border:1px solid #d4af37;
 
-background:#111;
+background:#000;
 
 color:white;
 
@@ -806,11 +1058,11 @@ color:#aaa;
 
 width:100%;
 
-padding:15px;
-
 margin-top:20px;
 
-border:none;
+padding:16px;
+
+border:0;
 
 border-radius:30px;
 
@@ -818,9 +1070,9 @@ background:
 
 linear-gradient(45deg,#b8860b,#ffd700);
 
-font-size:18px;
-
 font-weight:bold;
+
+font-size:18px;
 
 cursor:pointer;
 
@@ -830,15 +1082,11 @@ cursor:pointer;
 
 .close{
 
-position:absolute;
+text-align:right;
 
-right:30px;
-
-top:20px;
+font-size:35px;
 
 color:#ffd700;
-
-font-size:30px;
 
 cursor:pointer;
 
@@ -847,7 +1095,6 @@ cursor:pointer;
 
 
 </style>
-
 
 
 
@@ -863,9 +1110,15 @@ cursor:pointer;
 </div>
 
 
+
 <h1>
 Complete Your Order ✨
 </h1>
+
+
+<p>
+Please enter your details
+</p>
 
 
 
@@ -873,7 +1126,7 @@ Complete Your Order ✨
 
 
 
-<input placeholder="Email">
+<input placeholder="Email Address">
 
 
 
@@ -881,11 +1134,11 @@ Complete Your Order ✨
 
 
 
+<input placeholder="Country">
+
+
+
 <input placeholder="Governorate">
-
-
-
-<input placeholder="Area">
 
 
 
@@ -893,7 +1146,11 @@ Complete Your Order ✨
 
 
 
-<input placeholder="Street Address">
+<input placeholder="Area">
+
+
+
+<input placeholder="Full Address">
 
 
 
@@ -901,7 +1158,7 @@ Complete Your Order ✨
 
 
 
-<input placeholder="Floor">
+<input placeholder="Floor Number">
 
 
 
@@ -928,13 +1185,27 @@ Confirm Order ✅
 
 
 
+
 <script>
+
+
+function openCheckout(){
+
+
+document.getElementById("checkout")
+.style.display="block";
+
+
+}
+
 
 
 function closeCheckout(){
 
+
 document.getElementById("checkout")
 .style.display="none";
+
 
 }
 
