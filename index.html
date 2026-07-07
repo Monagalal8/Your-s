@@ -25,7 +25,6 @@ font-family:Arial,sans-serif;
 body{
 
 margin:0;
-
 color:white;
 
 background:
@@ -34,13 +33,11 @@ radial-gradient(circle at 85% 80%,rgba(212,175,55,.25),transparent 25%),
 linear-gradient(135deg,#000,#090909,#000);
 
 background-size:200% 200%;
-
 animation:goldMove 12s infinite alternate;
 
 overflow-x:hidden;
 
 }
-
 
 
 @keyframes goldMove{
@@ -56,22 +53,15 @@ background-position:right bottom;
 }
 
 
-
-
-
 /* HEADER */
-
 
 header{
 
 height:100px;
-
 padding:20px 60px;
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
 background:rgba(0,0,0,.85);
@@ -79,9 +69,7 @@ background:rgba(0,0,0,.85);
 border-bottom:1px solid var(--gold);
 
 position:sticky;
-
 top:0;
-
 z-index:20;
 
 backdrop-filter:blur(10px);
@@ -89,17 +77,13 @@ backdrop-filter:blur(10px);
 }
 
 
-
 .logo{
 
 font-size:50px;
-
 font-weight:bold;
-
 letter-spacing:5px;
 
 background:
-
 linear-gradient(
 45deg,
 var(--darkgold),
@@ -109,18 +93,15 @@ var(--gold)
 );
 
 -webkit-background-clip:text;
-
 color:transparent;
 
 }
 
 
 
-
 .cart-btn{
 
 background:
-
 linear-gradient(
 45deg,
 var(--darkgold),
@@ -144,10 +125,7 @@ font-size:18px;
 
 
 
-
-
 /* HERO */
-
 
 .hero{
 
@@ -174,7 +152,6 @@ font-size:65px;
 margin:0;
 
 background:
-
 linear-gradient(
 45deg,
 var(--darkgold),
@@ -185,8 +162,6 @@ var(--lightgold)
 -webkit-background-clip:text;
 
 color:transparent;
-
-animation:showTitle 1.5s;
 
 }
 
@@ -203,32 +178,7 @@ color:#ddd;
 
 
 
-@keyframes showTitle{
-
-from{
-
-opacity:0;
-
-transform:translateY(-40px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-
-
-
 /* PRODUCTS */
-
 
 .products{
 
@@ -245,11 +195,9 @@ padding:60px;
 
 
 
-
 .card{
 
 background:
-
 linear-gradient(145deg,#151515,#000);
 
 border:1px solid var(--gold);
@@ -260,81 +208,21 @@ padding:25px;
 
 text-align:center;
 
-position:relative;
-
 overflow:hidden;
 
 transition:.5s;
 
-box-shadow:
-
-0 20px 50px #000;
-
-animation:cardIn 1s;
+box-shadow:0 20px 50px #000;
 
 }
-
-
-
-
-.card::after{
-
-content:"";
-
-position:absolute;
-
-width:180px;
-
-height:180px;
-
-background:var(--gold);
-
-filter:blur(100px);
-
-opacity:.25;
-
-top:-70px;
-
-right:-70px;
-
-}
-
 
 
 
 .card:hover{
 
-transform:
+transform:translateY(-15px) scale(1.03);
 
-translateY(-15px)
-rotateY(8deg)
-scale(1.03);
-
-box-shadow:
-
-0 30px 70px var(--gold);
-
-}
-
-
-
-
-
-@keyframes cardIn{
-
-from{
-
-opacity:0;
-
-transform:translateY(50px);
-
-}
-
-to{
-
-opacity:1;
-
-}
+box-shadow:0 30px 70px var(--gold);
 
 }
 
@@ -368,6 +256,22 @@ font-size:28px;
 
 color:#eee;
 
+font-size:15px;
+
+line-height:1.7;
+
+}
+
+
+
+.trust{
+
+color:var(--lightgold);
+
+font-size:13px;
+
+margin-top:15px;
+
 }
 
 
@@ -387,7 +291,6 @@ font-weight:bold;
 .add{
 
 background:
-
 linear-gradient(
 45deg,
 var(--darkgold),
@@ -409,14 +312,6 @@ cursor:pointer;
 
 
 
-.add:hover{
-
-transform:scale(1.1);
-
-}
-
-
-
 </style>
 
 </head>
@@ -431,11 +326,9 @@ transform:scale(1.1);
 Yours ✨
 </div>
 
-
 <button class="cart-btn">
 🛒 Cart
 </button>
-
 
 </header>
 
@@ -463,14 +356,24 @@ Premium Hair Care Collection
 
 <img src="images/shampoo.jpg">
 
-<h2>Shampoo</h2>
+<h2>
+YOURS Deep Repair Shampoo
+</h2>
 
 <p class="info">
-Size: 1 Liter
+
+Experience a luxurious cleansing ritual that restores your hair’s natural vitality.
+YOURS advanced formula deeply cleanses the scalp while maintaining the natural moisture balance,
+leaving your hair with a healthy shine and silky softness from roots to ends.
+
+</p>
+
+<p class="trust">
+Free from sulfates and parabens.
 </p>
 
 <p class="price">
-Price: 800 EGP
+800 EGP
 </p>
 
 <button class="add">
@@ -478,6 +381,7 @@ Add to Cart
 </button>
 
 </div>
+
 
 
 
@@ -485,14 +389,24 @@ Add to Cart
 
 <img src="images/conditioner.jpg">
 
-<h2>Conditioner</h2>
+<h2>
+YOURS Intensive Hydration Conditioner
+</h2>
 
 <p class="info">
-Size: 1 Liter
+
+The perfect finishing touch for an exceptional hair care routine.
+YOURS Conditioner gently detangles and coats each strand with rich moisturizing ingredients,
+leaving your hair smooth, soft, and easy to manage.
+
+</p>
+
+<p class="trust">
+Free from sulfates and parabens.
 </p>
 
 <p class="price">
-Price: 800 EGP
+800 EGP
 </p>
 
 <button class="add">
@@ -500,17 +414,24 @@ Add to Cart
 </button>
 
 </div>
-
-
-
 <div class="card">
 
 <img src="images/hairmask.jpg">
 
-<h2>Hair Mask</h2>
+<h2>
+YOURS Deep Care Hair Mask
+</h2>
 
 <p class="info">
-Repair & Treatment
+
+Treat your hair to an intensive dose of nourishment with YOURS Deep Care Hair Mask.
+Its advanced formula helps improve the appearance of damaged hair caused by external factors,
+restoring softness, strength, and flexibility for healthier-looking beautiful hair.
+
+</p>
+
+<p class="trust">
+Free from sulfates and parabens.
 </p>
 
 <p class="info">
@@ -518,7 +439,7 @@ Size: 500 ml
 </p>
 
 <p class="price">
-Price: 800 EGP
+800 EGP
 </p>
 
 <button class="add">
@@ -529,18 +450,34 @@ Add to Cart
 
 
 
+
 <div class="card">
 
 <img src="images/serum.jpg">
 
-<h2>Serum</h2>
+<h2>
+YOURS Ultimate Shine Serum
+</h2>
+
+<p class="info">
+
+The secret to a flawless radiant finish.
+YOURS Lightweight Serum delivers a crystal-like shine without a greasy feeling.
+Its luxurious formula helps protect your hair from dryness and breakage,
+leaving it smooth, healthy-looking, and refreshed all day long.
+
+</p>
+
+<p class="trust">
+Lightweight formula with a non-greasy finish.
+</p>
 
 <p class="info">
 Size: 100 ml
 </p>
 
 <p class="price">
-Price: 550 EGP
+550 EGP
 </p>
 
 <button class="add">
@@ -551,7 +488,11 @@ Add to Cart
 
 
 </section>
+
+
+
 <!-- CART SYSTEM -->
+
 
 <style>
 
@@ -582,7 +523,6 @@ box-shadow:0 0 50px #D4AF37;
 }
 
 
-
 #cart h2{
 
 color:#D4AF37;
@@ -590,15 +530,6 @@ color:#D4AF37;
 text-align:center;
 
 }
-
-
-
-#cart ul{
-
-padding:0;
-
-}
-
 
 
 #cart li{
@@ -622,7 +553,6 @@ font-size:22px;
 font-weight:bold;
 
 }
-
 
 
 .checkout-btn{
@@ -653,90 +583,18 @@ cursor:pointer;
 }
 
 
-
-
-#message{
-
-display:none;
-
-position:fixed;
-
-bottom:30px;
-
-left:50%;
-
-transform:translateX(-50%);
-
-background:#D4AF37;
-
-color:#000;
-
-padding:15px 35px;
-
-border-radius:30px;
-
-font-weight:bold;
-
-z-index:100;
-
-}
-
-
-
-
-
-.vibrate{
-
-animation:vibrate .4s;
-
-}
-
-
-
-@keyframes vibrate{
-
-0%{
-transform:translateX(0);
-}
-
-25%{
-transform:translateX(-8px);
-}
-
-50%{
-transform:translateX(8px);
-}
-
-75%{
-transform:translateX(-8px);
-}
-
-100%{
-transform:translateX(0);
-}
-
-}
-
-
-
 </style>
 
 
 
-
-
 <div id="cart">
-
 
 <h2>
 Your Cart 🛒
 </h2>
 
 
-<ul id="cartItems">
-
-</ul>
-
+<ul id="cartItems"></ul>
 
 
 <p class="total">
@@ -750,7 +608,6 @@ EGP
 </p>
 
 
-
 <button class="checkout-btn" onclick="openCheckout()">
 
 Checkout
@@ -762,8 +619,6 @@ Checkout
 
 
 
-
-
 <div id="message">
 
 Added to Cart ✓
@@ -771,6 +626,57 @@ Added to Cart ✓
 </div>
 
 
+
+<!-- CHECKOUT -->
+
+
+<div id="checkout">
+
+<div class="checkout-box">
+
+
+<div class="close" onclick="closeCheckout()">
+×
+</div>
+
+
+<h1>
+Complete Your Order ✨
+</h1>
+
+
+<input placeholder="Full Name">
+
+<input placeholder="Email Address">
+
+<input placeholder="Phone Number">
+
+<input placeholder="Country">
+
+<input placeholder="Governorate">
+
+<input placeholder="City">
+
+<input placeholder="Area">
+
+<input placeholder="Street Address">
+
+<input placeholder="Building Number">
+
+<input placeholder="Floor Number">
+
+<input placeholder="Apartment Number">
+
+
+
+<button class="confirm">
+Confirm Order ✅
+</button>
+
+
+</div>
+
+</div>
 
 
 
@@ -784,22 +690,22 @@ let total=0;
 let products=[
 
 {
-name:"Shampoo",
+name:"YOURS Deep Repair Shampoo",
 price:800
 },
 
 {
-name:"Conditioner",
+name:"YOURS Intensive Hydration Conditioner",
 price:800
 },
 
 {
-name:"Hair Mask",
+name:"YOURS Deep Care Hair Mask",
 price:800
 },
 
 {
-name:"Serum",
+name:"YOURS Ultimate Shine Serum",
 price:550
 }
 
@@ -810,41 +716,23 @@ price:550
 let buttons=document.querySelectorAll(".add");
 
 
-
 buttons.forEach((button,index)=>{
 
 
 button.onclick=function(){
 
 
-button.classList.add("vibrate");
-
-
-
-setTimeout(()=>{
-
-button.classList.remove("vibrate");
-
-},400);
-
-
-
-
-
 total += products[index].price;
-
 
 
 let item=document.createElement("li");
 
 
 item.innerHTML=
-
 products[index].name+
 " - "+
 products[index].price+
 " EGP";
-
 
 
 document.getElementById("cartItems")
@@ -857,324 +745,43 @@ document.getElementById("total")
 
 
 
-let message=document.getElementById("message");
-
-
-message.style.display="block";
-
+document.getElementById("message")
+.style.display="block";
 
 
 setTimeout(()=>{
 
-message.style.display="none";
+document.getElementById("message")
+.style.display="none";
 
 },1200);
 
 
-
 }
-
 
 
 });
 
 
 
-
-
-
 function openCart(){
-
 
 let cart=document.getElementById("cart");
 
 
-if(cart.style.display==="block"){
-
-cart.style.display="none";
-
-}
-
-else{
-
-cart.style.display="block";
+cart.style.display =
+cart.style.display==="block"
+?
+"none"
+:
+"block";
 
 }
-
-
-}
-
 
 
 document.querySelector(".cart-btn")
 .onclick=openCart;
 
-
-
-</script>
-<!-- CHECKOUT SYSTEM -->
-
-<style>
-
-#checkout{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-background:
-
-linear-gradient(
-135deg,
-#000,
-#1b1400,
-#000
-);
-
-z-index:90;
-
-overflow:auto;
-
-padding:40px 0;
-
-}
-
-
-
-.checkout-box{
-
-width:90%;
-
-max-width:650px;
-
-margin:auto;
-
-background:
-
-linear-gradient(
-145deg,
-#151515,
-#000
-);
-
-border:1px solid #D4AF37;
-
-border-radius:35px;
-
-padding:35px;
-
-box-shadow:
-
-0 0 60px #D4AF37;
-
-animation:checkoutShow .5s;
-
-}
-
-
-
-@keyframes checkoutShow{
-
-from{
-
-opacity:0;
-
-transform:scale(.8);
-
-}
-
-to{
-
-opacity:1;
-
-transform:scale(1);
-
-}
-
-}
-
-
-
-.checkout-box h1{
-
-text-align:center;
-
-font-size:38px;
-
-background:
-
-linear-gradient(
-45deg,
-#8C6A00,
-#D4AF37,
-#F5E6A8
-);
-
--webkit-background-clip:text;
-
-color:transparent;
-
-}
-
-
-
-.checkout-box input{
-
-width:100%;
-
-padding:15px;
-
-margin:10px 0;
-
-border-radius:15px;
-
-border:1px solid #D4AF37;
-
-background:#050505;
-
-color:white;
-
-font-size:16px;
-
-}
-
-
-
-.checkout-box input::placeholder{
-
-color:#aaa;
-
-}
-
-
-
-.confirm{
-
-width:100%;
-
-padding:16px;
-
-margin-top:20px;
-
-border:0;
-
-border-radius:30px;
-
-background:
-
-linear-gradient(
-45deg,
-#8C6A00,
-#D4AF37,
-#F5E6A8
-);
-
-font-weight:bold;
-
-font-size:18px;
-
-cursor:pointer;
-
-}
-
-
-
-.close{
-
-text-align:right;
-
-font-size:35px;
-
-color:#D4AF37;
-
-cursor:pointer;
-
-}
-
-
-
-</style>
-
-
-
-
-
-<div id="checkout">
-
-
-<div class="checkout-box">
-
-
-<div class="close" onclick="closeCheckout()">
-
-×
-
-</div>
-
-
-
-<h1>
-Complete Your Order ✨
-</h1>
-
-
-
-<input placeholder="Full Name">
-
-
-<input placeholder="Email Address">
-
-
-<input placeholder="Phone Number">
-
-
-<input placeholder="Country">
-
-
-<input placeholder="Governorate">
-
-
-<input placeholder="City">
-
-
-<input placeholder="Area">
-
-
-<input placeholder="Street Address">
-
-
-<input placeholder="Building Number">
-
-
-<input placeholder="Floor Number">
-
-
-<input placeholder="Apartment Number">
-
-
-
-
-
-<button class="confirm">
-
-Confirm Order ✅
-
-</button>
-
-
-
-</div>
-
-</div>
-
-
-
-
-
-
-<script>
 
 
 function openCheckout(){
@@ -1192,7 +799,6 @@ document.getElementById("checkout")
 .style.display="none";
 
 }
-
 
 
 </script>
