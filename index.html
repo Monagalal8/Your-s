@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -7,199 +8,248 @@
 
 <title>Yours</title>
 
+
 <style>
 
 *{
-box-sizing:border-box;
-font-family:Arial,sans-serif;
+    box-sizing:border-box;
+    font-family: 'Arial', sans-serif;
 }
 
+
 body{
-margin:0;
-background:linear-gradient(135deg,#ffffff,#f6d365,#d4af37);
-min-height:100vh;
+
+    margin:0;
+    min-height:100vh;
+
+    background:
+    radial-gradient(circle at top left,#ffffff 10%,transparent 40%),
+    radial-gradient(circle at bottom right,#ffe8a3 10%,transparent 45%),
+    linear-gradient(135deg,#fff,#e8c45a,#fff3c4);
+
 }
+
 
 
 /* Header */
 
 header{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:25px 50px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:30px 60px;
+
 }
 
+
 .logo{
-font-size:40px;
-font-weight:bold;
-color:#8a6500;
+
+    font-size:45px;
+    font-weight:bold;
+
+    color:#b8860b;
+
+    text-shadow:
+    0 5px 15px #b8860b55;
+
 }
+
 
 
 .cart-btn{
-background:#c89b19;
-color:white;
-border:none;
-padding:15px 25px;
-border-radius:30px;
-cursor:pointer;
-font-size:18px;
+
+    background:linear-gradient(45deg,#b8860b,#ffd700);
+
+    color:white;
+
+    border:none;
+
+    padding:15px 30px;
+
+    border-radius:40px;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    box-shadow:0 10px 20px #0003;
+
 }
 
 
-/* Cart */
 
-.cart{
-display:none;
-position:absolute;
-right:40px;
-top:90px;
-background:white;
-width:320px;
-padding:20px;
-border-radius:20px;
-box-shadow:0 10px 30px #0004;
-z-index:10;
-}
-
-
-.cart li{
-list-style:none;
-padding:8px;
-border-bottom:1px solid #ddd;
-}
 
 
 /* Products */
 
 .products{
 
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:25px;
-padding:40px;
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:30px;
+
+    padding:40px 60px;
 
 }
+
+
+
 
 
 .card{
 
-background:white;
-border-radius:25px;
-padding:20px;
-text-align:center;
-box-shadow:0 15px 30px #0003;
-animation:move 3s infinite;
+    background:
+    rgba(255,255,255,.85);
+
+    backdrop-filter:blur(10px);
+
+    border-radius:30px;
+
+    padding:25px;
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 20px 40px #0003;
+
+
+    animation:float 4s infinite ease-in-out;
+
 
 }
 
 
-@keyframes move{
 
-50%{
-transform:translateY(-10px);
+@keyframes float{
+
+    50%{
+
+        transform:translateY(-12px);
+
+    }
+
 }
 
-}
+
+
 
 
 .card img{
 
-width:100%;
-height:220px;
-object-fit:cover;
-border-radius:20px;
+
+    width:100%;
+
+    height:240px;
+
+    object-fit:cover;
+
+    border-radius:25px;
+
 
 }
 
 
-h2{
-color:#8a6500;
+
+.card h2{
+
+    color:#8b6508;
+
+    font-size:25px;
+
 }
+
 
 
 .price{
 
-color:#c89b19;
-font-size:22px;
-font-weight:bold;
+    color:#b8860b;
+
+    font-size:24px;
+
+    font-weight:bold;
 
 }
 
 
-button{
-
-background:#c89b19;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:25px;
-cursor:pointer;
-
-}
 
 
-/* Checkout */
 
-.checkout{
+.add{
 
-display:none;
-background:white;
-margin:30px;
-padding:30px;
-border-radius:25px;
+    background:
 
-}
+    linear-gradient(45deg,#b8860b,#ffd700);
 
+    color:white;
 
-input{
+    border:none;
 
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:10px;
-border:1px solid #ccc;
+    padding:13px 30px;
+
+    border-radius:30px;
+
+    cursor:pointer;
+
+    font-size:16px;
 
 }
 
 
-.contact{
 
-text-align:center;
-padding:30px;
-font-size:20px;
-color:#8a6500;
+.add:hover{
+
+    transform:scale(1.05);
 
 }
+
+
 
 
 
 @media(max-width:900px){
 
 .products{
+
 grid-template-columns:repeat(2,1fr);
+
 }
 
 }
+
+
 
 </style>
 
+
 </head>
+
 
 
 <body>
 
 
+
 <header>
 
+
 <div class="logo">
+
 Yours ✨
+
 </div>
 
 
-<button class="cart-btn" onclick="showCart()">
+<button class="cart-btn">
+
 🛒 Cart
+
 </button>
 
 
@@ -207,26 +257,10 @@ Yours ✨
 
 
 
-<div class="cart" id="cart">
-
-<h2>Your Cart</h2>
-
-<ul id="cartItems"></ul>
-
-<p>
-Total: <span id="total">0</span>
-</p>
-
-<button onclick="checkout()">
-Checkout 🛍️
-</button>
-
-</div>
 
 
+<section class="products">
 
-
-<div class="products">
 
 
 <div class="card">
@@ -237,11 +271,16 @@ Checkout 🛍️
 
 <p class="price">800</p>
 
-<button onclick="add('Shampoo',800)">
+<button class="add">
+
 Add to Cart
+
 </button>
 
+
 </div>
+
+
 
 
 
@@ -253,11 +292,17 @@ Add to Cart
 
 <p class="price">800</p>
 
-<button onclick="add('Conditioner',800)">
+<button class="add">
+
 Add to Cart
+
 </button>
 
+
 </div>
+
+
+
 
 
 
@@ -269,11 +314,18 @@ Add to Cart
 
 <p class="price">800</p>
 
-<button onclick="add('Hair Mask',800)">
+<button class="add">
+
 Add to Cart
+
 </button>
 
+
 </div>
+
+
+
+
 
 
 
@@ -285,60 +337,130 @@ Add to Cart
 
 <p class="price">550</p>
 
-<button onclick="add('Serum',550)">
+<button class="add">
+
 Add to Cart
+
+</button>
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+</body>
+
+</html>
+<!-- CART -->
+
+<div id="cartBox" style="
+display:none;
+position:fixed;
+top:90px;
+right:30px;
+width:330px;
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 15px 40px #0004;
+z-index:20;
+">
+
+<h2 style="color:#b8860b;">Your Cart 🛒</h2>
+
+<ul id="cartItems"></ul>
+
+<h3>
+Total:
+<span id="total">0</span>
+</h3>
+
+<button class="add" onclick="openCheckout()">
+Checkout 🛍️
 </button>
 
 </div>
 
 
-</div>
+
+<!-- CHECKOUT -->
+
+<div id="checkout" style="
+
+display:none;
+margin:50px auto;
+max-width:600px;
+background:white;
+padding:35px;
+border-radius:30px;
+box-shadow:0 20px 40px #0003;
+
+">
+
+
+<h1 style="color:#b8860b;">
+Complete Your Order
+</h1>
+
+
+<input placeholder="Full Name"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
+
+
+<input placeholder="Email"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
 
 
 
-
-<div class="checkout" id="checkout">
-
-
-<h1>Complete Your Order</h1>
+<input placeholder="Phone Number"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
 
 
-<input placeholder="Full Name">
 
-<input placeholder="Email">
-
-<input placeholder="Phone Number">
+<input placeholder="Governorate"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
 
 
-<input placeholder="Governorate">
 
-<input placeholder="City / Area">
-
-<input placeholder="Street Address">
+<input placeholder="Area"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
 
 
-<input placeholder="Building Number">
 
-<input placeholder="Floor">
-
-<input placeholder="Apartment Number">
+<input placeholder="City"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
 
 
-<button>
+
+<input placeholder="Street Address"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
+
+
+
+<input placeholder="Building Number"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
+
+
+
+<input placeholder="Floor"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
+
+
+
+<input placeholder="Apartment Number"
+style="width:100%;padding:12px;margin:8px;border-radius:10px;border:1px solid #ddd;">
+
+
+
+<button class="add">
 Confirm Order ✅
 </button>
 
-
-</div>
-
-
-
-
-<div class="contact">
-
-📞 Contact Us:
-<br>
-YOUR PHONE NUMBER
 
 </div>
 
@@ -349,33 +471,20 @@ YOUR PHONE NUMBER
 <script>
 
 
+let cart=[];
+
 let total=0;
 
 
-function add(name,price){
 
-let li=document.createElement("li");
+// فتح العربة
 
-li.innerHTML=name+" - "+price;
+document.querySelector(".cart-btn")
+.onclick=function(){
 
-document.getElementById("cartItems")
-.appendChild(li);
+let box=document.getElementById("cartBox");
 
-
-total+=price;
-
-document.getElementById("total")
-.innerHTML=total;
-
-}
-
-
-
-function showCart(){
-
-let box=document.getElementById("cart");
-
-if(box.style.display=="block"){
+if(box.style.display==="block"){
 
 box.style.display="none";
 
@@ -387,22 +496,89 @@ box.style.display="block";
 
 }
 
+};
+
+
+
+
+
+// إضافة المنتجات
+
+let buttons=document.querySelectorAll(".add");
+
+
+buttons.forEach((button,index)=>{
+
+
+button.onclick=function(){
+
+
+let products=[
+
+{name:"Shampoo",price:800},
+
+{name:"Conditioner",price:800},
+
+{name:"Hair Mask",price:800},
+
+{name:"Serum",price:550}
+
+];
+
+
+if(index<4){
+
+cart.push(products[index]);
+
+total+=products[index].price;
+
+
+let li=document.createElement("li");
+
+li.innerHTML=
+products[index].name+
+" - "+
+products[index].price;
+
+
+document.getElementById("cartItems")
+.appendChild(li);
+
+
+document.getElementById("total")
+.innerHTML=total;
+
+
+}
+
+
 }
 
 
 
-function checkout(){
+});
+
+
+
+
+
+function openCheckout(){
+
 
 document.getElementById("checkout")
 .style.display="block";
+
+
+document.getElementById("checkout")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
 
 }
 
 
 
 </script>
-
-
-
-</body>
-</html>
