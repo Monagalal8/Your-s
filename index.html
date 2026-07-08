@@ -1,199 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>YOURS Luxury Hair Care</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
+:root{
+
+--gold:#C6A85B;
+--gold-light:#E7D3A2;
+--black:#0A0A0A;
+--black2:#121212;
+--gray:#999;
+--white:#ffffff;
+
+}
+
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
 scroll-behavior:smooth;
-font-family:Arial,sans-serif;
-}
 
-:root{
---gold:#D4AF37;
---light:#F8E7A1;
---black:#080808;
 }
 
 body{
+
 background:var(--black);
+font-family:Arial,sans-serif;
 color:white;
 overflow-x:hidden;
+
 }
 
+/* Scroll */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:var(--gold);
+border-radius:20px;
+
+}
+
+/* Header */
+
 header{
-position:sticky;
+
+position:fixed;
 top:0;
-z-index:999;
+left:0;
+width:100%;
+padding:18px 45px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px 35px;
-background:#080808ee;
-backdrop-filter:blur(10px);
-border-bottom:1px solid var(--gold);
+background:rgba(10,10,10,.95);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(198,168,91,.35);
+z-index:9999;
+
 }
 
 .logo{
+
 font-family:'Bodoni Moda',serif;
-font-size:48px;
+font-size:46px;
 letter-spacing:12px;
+font-weight:700;
 color:var(--gold);
+
 }
 
 nav{
+
 display:flex;
-gap:30px;
+gap:28px;
+
 }
 
 nav a{
-text-decoration:none;
+
 color:white;
+text-decoration:none;
+font-size:16px;
 transition:.3s;
+
 }
 
 nav a:hover{
+
 color:var(--gold);
+
 }
 
-.cart-btn{
-background:linear-gradient(45deg,#8a6b25,#D4AF37,#ffe69a);
-padding:12px 25px;
-border-radius:40px;
+/* Cart */
+
+.cart{
+
+display:flex;
+align-items:center;
+gap:10px;
 cursor:pointer;
+background:linear-gradient(135deg,#b58d35,#d6b86d,#f0dfb4);
+color:#111;
+padding:12px 22px;
+border-radius:50px;
 font-weight:bold;
-color:black;
+transition:.3s;
+
 }
 
-.hero{
-height:90vh;
+.cart:hover{
+
+transform:translateY(-3px);
+
+}
+
+.cart span{
+
+background:black;
+color:white;
+width:24px;
+height:24px;
 display:flex;
 justify-content:center;
 align-items:center;
+border-radius:50%;
+
+}
+
+/* Hero */
+
+.hero{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 flex-direction:column;
+
 text-align:center;
+
 padding:20px;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.7)),
+url("images/hero.jpg") center/cover;
+
 }
 
 .hero h1{
-font-size:80px;
+
 font-family:'Bodoni Moda',serif;
+
+font-size:85px;
+
 color:var(--gold);
+
+margin-bottom:20px;
+
 }
 
 .hero p{
+
 font-size:22px;
-max-width:700px;
-margin-top:20px;
+
+max-width:750px;
+
 line-height:1.8;
+
+color:#ddd;
+
 }
 
-.gold-line{
-width:180px;
-height:3px;
-background:var(--gold);
-margin:30px auto;
-}
+.hero button{
 
-.btn{
-padding:15px 40px;
+margin-top:40px;
+
+padding:18px 45px;
+
 border:none;
+
 border-radius:40px;
-background:linear-gradient(45deg,#8a6b25,#D4AF37,#ffe69a);
-font-size:17px;
+
 cursor:pointer;
-margin-top:25px;
+
+font-size:18px;
+
 font-weight:bold;
+
+background:linear-gradient(135deg,#b58d35,#d6b86d,#f0dfb4);
+
+transition:.35s;
+
+}
+
+.hero button:hover{
+
+transform:scale(1.05);
+
 }
 
 .section-title{
-text-align:center;
-font-size:45px;
+
 font-family:'Bodoni Moda',serif;
-color:var(--gold);
-margin:70px 0 40px;
-}
 
-.carousel-container{
-overflow:hidden;
-padding:20px;
-}
-
-.carousel-track{
-display:flex;
-gap:25px;
-transition:.5s;
-}
-
-.product-card{
-min-width:280px;
-background:#141414;
-border:1px solid var(--gold);
-border-radius:30px;
-padding:25px;
 text-align:center;
-transition:.4s;
-cursor:pointer;
-}
 
-.product-card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 25px rgba(212,175,55,.4);
-}
+font-size:48px;
 
-.product-card img{
-width:100%;
-height:260px;
-object-fit:contain;
-}
+margin:80px 0 50px;
 
-.product-card h2{
 color:var(--gold);
-margin:15px 0;
+
 }
 
-.product-card p{
-color:#ddd;
-}
-
-.price{
-font-size:28px;
-color:var(--light);
-font-weight:bold;
-margin-top:15px;
-}
-
-@media(max-width:700px){
-
-nav{
-display:none;
-}
+@media(max-width:768px){
 
 .logo{
+
 font-size:30px;
-letter-spacing:8px;
+
+letter-spacing:6px;
+
+}
+
+nav{
+
+display:none;
+
 }
 
 .hero h1{
-font-size:45px;
+
+font-size:48px;
+
 }
 
 .hero p{
-font-size:18px;
+
+font-size:17px;
+
+}
+
+header{
+
+padding:15px 20px;
+
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
@@ -201,7 +278,9 @@ font-size:18px;
 <header>
 
 <div class="logo">
+
 YOURS
+
 </div>
 
 <nav>
@@ -216,9 +295,11 @@ YOURS
 
 </nav>
 
-<div class="cart-btn">
+<div class="cart" onclick="openCart()">
 
-🛒 <span id="cartCount">0</span>
+🛒
+
+<span id="cartCount">0</span>
 
 </div>
 
@@ -226,1400 +307,1948 @@ YOURS
 
 <section class="hero">
 
-<h1>Luxury Hair Ritual</h1>
+<h1>
 
-<div class="gold-line"></div>
+Luxury Hair Care
+
+</h1>
 
 <p>
 
-Professional Hair Care Made For Luxury Hair.
+Luxury formulas designed to transform your hair into its healthiest, softest and shiniest version.
 
 </p>
 
-<button class="btn">
+<button onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
 
 Shop Now ✨
 
 </button>
 
 </section>
-<!-- PRODUCTS -->
-
 <section id="products">
 
 <h2 class="section-title">
-Luxury Collection ✨
+Luxury Collection
 </h2>
 
-<div class="carousel-container">
+<div class="slider">
 
-<div class="carousel-track" id="productTrack">
+<button class="arrow left" onclick="slideLeft()">❮</button>
+
+<div class="slider-wrapper">
+
+<div class="slider-track" id="sliderTrack">
 
 <!-- Shampoo -->
 
-<div class="product-card" onclick="openProduct('shampoo')">
+<div class="product">
 
-<img src="images/shampoo.jpg" alt="Luxury Shampoo">
+<img src="images/shampoo.jpg">
 
 <h2>Luxury Shampoo</h2>
 
-<p>1000ml</p>
+<p>1000 ml</p>
 
-<div class="price">800 EGP</div>
+<h3>800 EGP</h3>
 
-<button class="btn" onclick="event.stopPropagation();addToCart('shampoo')">
-Add To Cart 🛒
-</button>
-
-</div>
-
-<!-- Conditioner -->
-
-<div class="product-card" onclick="openProduct('conditioner')">
-
-<img src="images/conditioner.jpg" alt="Conditioner">
-
-<h2>Luxury Conditioner</h2>
-
-<p>1000ml</p>
-
-<div class="price">800 EGP</div>
-
-<button class="btn" onclick="event.stopPropagation();addToCart('conditioner')">
-Add To Cart 🛒
-</button>
-
-</div>
-
-<!-- Hair Mask -->
-
-<div class="product-card" onclick="openProduct('mask')">
-
-<img src="images/mask.jpg" alt="Hair Mask">
-
-<h2>Hair Mask</h2>
-
-<p>500ml</p>
-
-<div class="price">800 EGP</div>
-
-<button class="btn" onclick="event.stopPropagation();addToCart('mask')">
-Add To Cart 🛒
-</button>
-
-</div>
-
-<!-- Serum -->
-
-<div class="product-card" onclick="openProduct('serum')">
-
-<img src="images/serum.jpg" alt="Serum">
-
-<h2>Luxury Serum</h2>
-
-<p>100ml</p>
-
-<div class="price">550 EGP</div>
-
-<button class="btn" onclick="event.stopPropagation();addToCart('serum')">
-Add To Cart 🛒
+<button onclick="openProduct('shampoo')">
+View Details
 </button>
 
 </div>
 
 <!-- Bundle -->
 
-<div class="product-card" onclick="openProduct('bundle')">
+<div class="product">
 
-<img src="images/bundle.jpg" alt="Bundle">
+<img src="images/bundle.jpg">
 
-<h2>Complete Bundle</h2>
+<h2>Luxury Bundle</h2>
 
-<p>Luxury Collection</p>
+<p>Complete Routine</p>
 
-<div class="price">2500 EGP</div>
+<h3>2500 EGP</h3>
 
-<button class="btn" onclick="event.stopPropagation();addToCart('bundle')">
+<button onclick="openProduct('bundle')">
+View Details
+</button>
+
+</div>
+
+<!-- Serum -->
+
+<div class="product">
+
+<img src="images/serum.jpg">
+
+<h2>Luxury Serum</h2>
+
+<p>100 ml</p>
+
+<h3>550 EGP</h3>
+
+<button onclick="openProduct('serum')">
+View Details
+</button>
+
+</div>
+
+<!-- Mask -->
+
+<div class="product">
+
+<img src="images/mask.jpg">
+
+<h2>Hair Mask</h2>
+
+<p>500 ml</p>
+
+<h3>800 EGP</h3>
+
+<button onclick="openProduct('mask')">
+View Details
+</button>
+
+</div>
+
+<!-- Conditioner -->
+
+<div class="product">
+
+<img src="images/conditioner.jpg">
+
+<h2>Luxury Conditioner</h2>
+
+<p>1000 ml</p>
+
+<h3>800 EGP</h3>
+
+<button onclick="openProduct('conditioner')">
+View Details
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<button class="arrow right" onclick="slideRight()">❯</button>
+
+</div>
+<!-- PRODUCT DETAILS -->
+
+<section id="productDetails" class="luxury-section" style="display:none;">
+
+<div class="details-container">
+
+<div class="details-image">
+
+<img id="detailImage" src="">
+
+</div>
+
+<div class="details-info">
+
+<h1 id="detailName"></h1>
+
+<h3 id="detailPrice"></h3>
+
+<h2>Benefits ✨</h2>
+
+<ul id="detailBenefits"></ul>
+
+<h2>Ingredients 🌿</h2>
+
+<p id="detailIngredients"></p>
+
+<h2>How To Use 💆‍♀️</h2>
+
+<p id="detailUsage"></p>
+
+<button class="btn" onclick="addCurrentProduct()">
+
 Add To Cart 🛒
+
+</button>
+
+<button class="btn" onclick="backProducts()">
+
+Back To Products
+
 </button>
 
 </div>
 
 </div>
 
+</section>
+<!-- CART SECTION -->
+
+<section id="cartSection" class="luxury-section">
+
+<div class="cart-container">
+
+<h1>Your Cart 🛒</h1>
+
+<div id="cartItems">
+
+</div>
+
+<div class="cart-total">
+
+<h2>Total: <span id="cartTotal">0</span> EGP</h2>
+
+</div>
+
+
+<button class="btn" onclick="checkout()">
+Checkout ✅
+</button>
+
+
 </div>
 
 </section>
 
+
+
+<!-- ORDER COMPLETE MESSAGE -->
+
+<div id="orderComplete" class="order-popup">
+
+<div class="order-box">
+
+<h1>🎉 Order Complete</h1>
+
+<p>
+Thank you for choosing YOURS Luxury Hair Care ✨
+</p>
+
+<p>
+Your order has been sent successfully.
+</p>
+
+<button class="btn" onclick="closeOrder()">
+Continue Shopping
+</button>
+
+</div>
+
+</div>
 <script>
 
-const products={
+let cart = [];
 
-shampoo:{
-name:"Luxury Shampoo",
-price:800,
-image:"images/shampoo.jpg"
-},
 
-conditioner:{
-name:"Luxury Conditioner",
-price:800,
-image:"images/conditioner.jpg"
-},
+function updateCart(){
 
-mask:{
-name:"Hair Mask",
-price:800,
-image:"images/mask.jpg"
-},
+    let cartBox = document.getElementById("cartItems");
 
-serum:{
-name:"Luxury Serum",
-price:550,
-image:"images/serum.jpg"
-},
+    cartBox.innerHTML="";
 
-bundle:{
-name:"Complete Bundle",
-price:2500,
-image:"images/bundle.jpg"
-}
+    let total = 0;
 
-};
 
-let cart=[];
+    cart.forEach((item,index)=>{
 
-function addToCart(id){
+        total += parseInt(item.price);
 
-cart.push(products[id]);
 
-document.getElementById("cartCount").innerHTML=cart.length;
+        cartBox.innerHTML += `
 
-alert(products[id].name+" Added To Cart ✨");
+        <div class="cart-item">
 
-}
+            <img src="${item.image}">
 
-</script>
-<section id="quiz" class="luxury-section">
+            <div>
 
-<h2 class="section-title">
-Find Your Hair Routine ✨
-</h2>
+                <h3>${item.name}</h3>
 
-<div class="quiz-box">
+                <p>${item.price}</p>
 
-<label>Hair Type</label>
+            </div>
 
-<select id="hairType">
 
-<option>Straight</option>
-<option>Wavy</option>
-<option>Curly</option>
-<option>Coily</option>
+            <button onclick="removeItem(${index})">
+            Remove ❌
+            </button>
 
-</select>
+        </div>
 
-<label>Hair Concern</label>
+        `;
 
-<select id="hairProblem">
+    });
 
-<option>Dryness</option>
-<option>Hair Fall</option>
-<option>Frizz</option>
-<option>Damaged Hair</option>
-<option>Split Ends</option>
 
-</select>
-
-<button class="btn" onclick="recommendRoutine()">
-Get My Routine ✨
-</button>
-
-<div id="routineResult"></div>
-
-</div>
-
-</section>
-<!-- CART -->
-
-<section id="cartPage" class="luxury-section" style="display:none;">
-
-<h2 class="section-title">
-Your Shopping Bag 🛒
-</h2>
-
-<div id="cartItems" class="cart-box"></div>
-
-<h2 style="text-align:center;color:#D4AF37;">
-Subtotal:
-<span id="subtotal">0</span> EGP
-</h2>
-
-<h3 style="text-align:center;color:#fff;">
-Delivery: 50 EGP
-</h3>
-
-<h2 style="text-align:center;color:#D4AF37;">
-Total:
-<span id="totalPrice">50</span> EGP
-</h2>
-
-<div style="text-align:center;margin-top:30px;">
-
-<button class="btn" onclick="goCheckout()">
-Checkout ✨
-</button>
-
-</div>
-
-</section>
-
-<style>
-
-.cart-box{
-max-width:700px;
-margin:auto;
-background:#141414;
-border:1px solid #D4AF37;
-border-radius:25px;
-padding:20px;
-}
-
-.cart-item{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:15px;
-border-bottom:1px solid #333;
-}
-
-.cart-item img{
-width:70px;
-height:70px;
-object-fit:contain;
-}
-
-.qty{
-display:flex;
-align-items:center;
-gap:10px;
-}
-
-.qty button{
-width:35px;
-height:35px;
-border:none;
-border-radius:50%;
-cursor:pointer;
-background:#D4AF37;
-font-size:18px;
-font-weight:bold;
-}
-
-.remove{
-background:#ff4d4d;
-color:white;
-border:none;
-padding:8px 15px;
-border-radius:20px;
-cursor:pointer;
-}
-
-</style>
-
-<script>
-
-function openCart(){
-
-document.getElementById("cartPage").style.display="block";
-
-showCart();
-
-window.scrollTo({
-top:document.getElementById("cartPage").offsetTop,
-behavior:"smooth"
-});
+    document.getElementById("cartTotal").innerHTML = total;
 
 }
 
-function showCart(){
 
-let html="";
-
-let subtotal=0;
-
-cart.forEach((item,index)=>{
-
-subtotal+=item.price;
-
-html+=`
-
-<div class="cart-item">
-
-<img src="${item.image}">
-
-<div>
-
-<h3>${item.name}</h3>
-
-<p>${item.price} EGP</p>
-
-</div>
-
-<button class="remove" onclick="removeItem(${index})">
-Delete
-</button>
-
-</div>
-
-`;
-
-});
-
-document.getElementById("cartItems").innerHTML=html;
-
-document.getElementById("subtotal").innerHTML=subtotal;
-
-document.getElementById("totalPrice").innerHTML=subtotal+50;
-
-}
 
 function removeItem(index){
 
-cart.splice(index,1);
+    cart.splice(index,1);
 
-document.getElementById("cartCount").innerHTML=cart.length;
-
-showCart();
+    updateCart();
 
 }
+
+
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        alert("Your cart is empty 🛒");
+
+        return;
+
+    }
+
+
+    let message =
+    "✨ YOURS Luxury Hair Care Order ✨%0A%0A";
+
+
+    let total = 0;
+
+
+    cart.forEach(item=>{
+
+        message += 
+        "• "+item.name+
+        " - "+item.price+
+        "%0A";
+
+
+        total += parseInt(item.price);
+
+    });
+
+
+    message +=
+    "%0ATotal: "+total+" EGP";
+
+
+    let phone="201003884148";
+
+
+    window.open(
+        "https://wa.me/"+phone+
+        "?text="+message,
+        "_blank"
+    );
+
+
+    document.getElementById("orderComplete").style.display="flex";
+
+
+}
+
+
+
+function closeOrder(){
+
+    document.getElementById("orderComplete").style.display="none";
+
+}
+
+
 
 </script>
-<!-- CHECKOUT -->
-
-<section id="checkoutPage" style="display:none;">
-
-<h2 class="section-title">
-Checkout ✨
-</h2>
-
-<div class="checkout-box">
-
-<input type="text" id="customerName" placeholder="Full Name">
-
-<input type="text" id="customerPhone" placeholder="WhatsApp Number">
-
-<input type="text" id="customerAddress" placeholder="Address">
-
-<h3>Payment Method</h3>
-
-<select id="paymentMethod">
-
-<option>Cash On Delivery 💵</option>
-
-<option>InstaPay 📲</option>
-
-<option>Visa 💳</option>
-
-</select>
-
-<button class="btn" onclick="confirmOrder()">
-
-Confirm Order
-
-</button>
-
-</div>
-
-</section>
-
 <style>
 
-.checkout-box{
+/* ===== LUXURY COLORS ===== */
 
-max-width:500px;
+:root{
+    --gold:#D4AF37;
+    --black:#111;
+    --cream:#faf7f0;
+}
 
-margin:auto;
 
-background:#151515;
+/* ===== GLOBAL ===== */
 
-padding:30px;
+body{
 
-border-radius:25px;
-
-border:1px solid #D4AF37;
+    margin:0;
+    font-family:'Bodoni Moda',serif;
+    background:var(--cream);
+    color:#222;
 
 }
 
-.checkout-box input,
-.checkout-box select{
 
-width:100%;
+.luxury-section{
 
-padding:15px;
+    padding:60px 20px;
 
-margin:12px 0;
+}
 
-border-radius:12px;
 
-border:none;
+
+/* ===== BUTTON ===== */
+
+.btn{
+
+    background:var(--gold);
+    color:white;
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+    margin:10px;
+    transition:.3s;
+
+}
+
+
+.btn:hover{
+
+    transform:scale(1.05);
+    background:#b89020;
+
+}
+
+
+
+/* ===== PRODUCT DETAILS ===== */
+
+.details-container{
+
+    display:flex;
+    gap:50px;
+    align-items:center;
+    justify-content:center;
+    max-width:1100px;
+    margin:auto;
+
+}
+
+
+.details-image img{
+
+    width:350px;
+    border-radius:20px;
+
+}
+
+
+.details-info{
+
+    max-width:450px;
+
+}
+
+
+.details-info h1{
+
+    font-size:40px;
+    color:var(--gold);
+
+}
+
+
+
+.details-info h2{
+
+    color:#b89020;
+
+}
+
+
+
+.details-info li{
+
+    margin:10px;
+
+}
+
+
+
+/* ===== CART ===== */
+
+.cart-container{
+
+    max-width:900px;
+    margin:auto;
+
+}
+
+
+.cart-item{
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:white;
+    padding:15px;
+    margin:15px 0;
+    border-radius:20px;
+    box-shadow:0 5px 20px #0001;
+
+}
+
+
+.cart-item img{
+
+    width:80px;
+    height:80px;
+    object-fit:cover;
+    border-radius:15px;
+
+}
+
+
+.cart-item button{
+
+    background:#111;
+    color:white;
+    border:none;
+    padding:10px;
+    border-radius:20px;
+
+}
+
+
+
+/* ===== ORDER POPUP ===== */
+
+.order-popup{
+
+    display:none;
+    position:fixed;
+    inset:0;
+    background:#0008;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+
+}
+
+
+.order-box{
+
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    text-align:center;
+    border:3px solid var(--gold);
+
+}
+
+
+.order-box h1{
+
+    color:var(--gold);
+
+}
+
+
+
+/* ===== MOBILE ===== */
+
+@media(max-width:768px){
+
+
+.details-container{
+
+    flex-direction:column;
+    text-align:center;
+
+}
+
+
+.details-image img{
+
+    width:280px;
+
+}
+
+
+.details-info h1{
+
+    font-size:30px;
+
+}
+
+
+.cart-item{
+
+    flex-direction:column;
+    gap:15px;
+
+}
+
 
 }
 
 </style>
+<!-- PRODUCTS SECTION -->
 
-<script>
+<section id="products" class="luxury-section">
 
-function goCheckout(){
-
-document.getElementById("cartPage").style.display="none";
-
-document.getElementById("checkoutPage").style.display="block";
-
-}
-
-function confirmOrder(){
-
-let name=document.getElementById("customerName").value;
-
-let phone=document.getElementById("customerPhone").value;
-
-let address=document.getElementById("customerAddress").value;
-
-let payment=document.getElementById("paymentMethod").value;
-
-if(name==""||phone==""||address==""){
-
-alert("Please fill all fields");
-
-return;
-
-}
-
-let message="✨ YOURS Luxury Hair Order ✨\n\n";
-
-message+="👤 Name: "+name+"\n";
-
-message+="📱 Phone: "+phone+"\n";
-
-message+="📍 Address: "+address+"\n\n";
-
-message+="Products:\n";
-
-let total=50;
-
-cart.forEach(item=>{
-
-message+="• "+item.name+" - "+item.price+" EGP\n";
-
-total+=item.price;
-
-});
-
-message+="\n🚚 Delivery: 50 EGP";
-
-message+="\n💳 Payment: "+payment;
-
-message+="\n\n💰 Total: "+total+" EGP";
-
-window.open(
-
-"https://wa.me/201003884148?text="+encodeURIComponent(message),
-
-"_blank"
-
-);
-
-}
-
-</script>
-<!-- ORDER COMPLETE -->
-
-<section id="orderSuccess" class="luxury-section" style="display:none;">
-
-<div class="success-box">
-
-<div class="checkmark">
-✔
-</div>
-
-<h1>
-Order Complete ✨
+<h1 class="section-title">
+YOURS Luxury Collection ✨
 </h1>
 
-<p>
 
-Thank you for choosing YOURS Luxury Hair Care.
+<div class="products-container">
 
-</p>
 
-<h3>
+<!-- PRODUCT 1 -->
 
-Your order has been prepared successfully.
+<div class="product-card">
 
-</h3>
+<img src="images/serum.jpg" alt="Hair Serum">
 
-<button class="btn" onclick="sendOrderWhatsApp()">
+<h2>Luxury Hair Serum</h2>
 
-Send Order To WhatsApp 💬
+<p>350 EGP</p>
 
+<button class="btn" onclick="openProduct('serum')">
+View Details
 </button>
 
-<button class="btn" onclick="backHome()">
+</div>
 
-Continue Shopping
 
+
+<!-- PRODUCT 2 -->
+
+<div class="product-card">
+
+<img src="images/shampoo.jpg" alt="Hair Shampoo">
+
+<h2>Luxury Hair Shampoo</h2>
+
+<p>280 EGP</p>
+
+<button class="btn" onclick="openProduct('shampoo')">
+View Details
 </button>
+
+</div>
+
+
+
+<!-- PRODUCT 3 -->
+
+<div class="product-card">
+
+<img src="images/mask.jpg" alt="Hair Mask">
+
+<h2>Deep Repair Mask</h2>
+
+<p>420 EGP</p>
+
+<button class="btn" onclick="openProduct('mask')">
+View Details
+</button>
+
+</div>
+
 
 </div>
 
 </section>
+<!-- HEADER -->
 
-<style>
+<header class="header">
 
-.success-box{
-
-max-width:600px;
-margin:auto;
-padding:40px;
-text-align:center;
-background:#151515;
-border:1px solid #D4AF37;
-border-radius:30px;
-
-}
-
-.checkmark{
-
-width:120px;
-height:120px;
-border-radius:50%;
-background:#D4AF37;
-color:black;
-font-size:70px;
-display:flex;
-align-items:center;
-justify-content:center;
-margin:auto;
-animation:pop .6s;
-
-}
-
-@keyframes pop{
-
-0%{
-transform:scale(0);
-}
-
-100%{
-transform:scale(1);
-}
-
-}
-
-</style>
-
-<script>
-
-function confirmOrder(){
-
-document.getElementById("checkoutPage").style.display="none";
-
-document.getElementById("orderSuccess").style.display="block";
-
-}
-
-function sendOrderWhatsApp(){
-
-let name=document.getElementById("customerName").value;
-
-let phone=document.getElementById("customerPhone").value;
-
-let address=document.getElementById("customerAddress").value;
-
-let payment=document.getElementById("paymentMethod").value;
-
-let message="✨ YOURS Luxury Hair Order ✨\n\n";
-
-message+="👤 Name: "+name+"\n";
-
-message+="📱 Phone: "+phone+"\n";
-
-message+="📍 Address: "+address+"\n\n";
-
-message+="🛍 Products:\n";
-
-let total=50;
-
-cart.forEach(item=>{
-
-message+="• "+item.name+" - "+item.price+" EGP\n";
-
-total+=item.price;
-
-});
-
-message+="\n🚚 Delivery: 50 EGP";
-
-message+="\n💳 Payment: "+payment;
-
-message+="\n\n💰 Final Total: "+total+" EGP";
-
-window.open(
-
-"https://wa.me/201003884148?text="+encodeURIComponent(message),
-
-"_blank"
-
-);
-
-}
-
-function backHome(){
-
-location.reload();
-
-}
-
-</script>
-<!-- HAIR QUIZ -->
-
-<section class="luxury-section" id="hairQuiz">
-
-<h2 class="section-title">
-
-Find Your Perfect Hair Routine ✨
-
-</h2>
-
-<div class="quiz-box">
-
-<label>Hair Type</label>
-
-<select id="hairType">
-
-<option>Straight</option>
-
-<option>Wavy</option>
-
-<option>Curly</option>
-
-<option>Coily</option>
-
-</select>
-
-<label>What's Your Hair Concern?</label>
-
-<select id="hairConcern">
-
-<option>Dry Hair</option>
-
-<option>Hair Fall</option>
-
-<option>Damaged Hair</option>
-
-<option>Frizz</option>
-
-<option>Split Ends</option>
-
-</select>
-
-<button class="btn" onclick="findRoutine()">
-
-Get My Routine ✨
-
-</button>
-
-<div id="routineResult"></div>
-
+<div class="logo">
+YOURS
 </div>
 
-</section>
 
-<style>
+<nav>
 
-.quiz-box{
-
-max-width:600px;
-
-margin:auto;
-
-background:#151515;
-
-border:1px solid #D4AF37;
-
-padding:35px;
-
-border-radius:30px;
-
-}
-
-.quiz-box select{
-
-width:100%;
-
-padding:15px;
-
-margin:15px 0;
-
-border:none;
-
-border-radius:15px;
-
-font-size:17px;
-
-}
-
-#routineResult{
-
-margin-top:30px;
-
-text-align:center;
-
-}
-
-.recommend-card{
-
-background:#222;
-
-padding:25px;
-
-border-radius:25px;
-
-border:1px solid #D4AF37;
-
-}
-
-.recommend-card h2{
-
-color:#D4AF37;
-
-}
-
-</style>
-
-<script>
-
-function findRoutine(){
-
-let concern=document.getElementById("hairConcern").value;
-
-let html="";
-
-if(concern=="Dry Hair"){
-
-html=`
-
-<div class="recommend-card">
-
-<h2>Recommended Routine ✨</h2>
-
-<p>
-
-✔ Luxury Shampoo<br>
-
-✔ Luxury Conditioner<br>
-
-✔ Hair Mask<br>
-
-✔ Shine Serum
-
-</p>
-
-<button class="btn" onclick="addRoutine('dry')">
-
-Add Complete Routine 🛒
-
-</button>
-
-</div>
-
-`;
-
-}
-
-else if(concern=="Hair Fall"){
-
-html=`
-
-<div class="recommend-card">
-
-<h2>Recommended Routine ✨</h2>
-
-<p>
-
-✔ Luxury Shampoo<br>
-
-✔ Shine Serum
-
-</p>
-
-<button class="btn" onclick="addRoutine('fall')">
-
-Add To Cart 🛒
-
-</button>
-
-</div>
-
-`;
-
-}
-
-else if(concern=="Damaged Hair"){
-
-html=`
-
-<div class="recommend-card">
-
-<h2>Recommended Routine ✨</h2>
-
-<p>
-
-✔ Hair Mask<br>
-
-✔ Conditioner<br>
-
-✔ Serum
-
-</p>
-
-<button class="btn" onclick="addRoutine('damage')">
-
-Add To Cart 🛒
-
-</button>
-
-</div>
-
-`;
-
-}
-
-else{
-
-html=`
-
-<div class="recommend-card">
-
-<h2>Recommended Routine ✨</h2>
-
-<p>
-
-✔ Shampoo<br>
-
-✔ Conditioner
-
-</p>
-
-<button class="btn" onclick="addRoutine('basic')">
-
-Add To Cart 🛒
-
-</button>
-
-</div>
-
-`;
-
-}
-
-document.getElementById("routineResult").innerHTML=html;
-
-}
-
-function addRoutine(type){
-
-if(type=="dry"){
-
-cart.push(products.shampoo);
-
-cart.push(products.conditioner);
-
-cart.push(products.mask);
-
-cart.push(products.serum);
-
-}
-
-else if(type=="fall"){
-
-cart.push(products.shampoo);
-
-cart.push(products.serum);
-
-}
-
-else if(type=="damage"){
-
-cart.push(products.mask);
-
-cart.push(products.conditioner);
-
-cart.push(products.serum);
-
-}
-
-else{
-
-cart.push(products.shampoo);
-
-cart.push(products.conditioner);
-
-}
-
-updateCartCount();
-
-alert("Routine Added To Cart ✨");
-
-}
-
-</script>
-<!-- REVIEWS -->
-
-<section class="luxury-section" id="reviews">
-
-<h2 class="section-title">
-
-Customer Reviews ⭐
-
-</h2>
-
-<div class="review-box">
-
-<input type="text" id="reviewName" placeholder="Your Name">
-
-<select id="reviewStars">
-
-<option>★★★★★</option>
-<option>★★★★☆</option>
-<option>★★★☆☆</option>
-<option>★★☆☆☆</option>
-<option>★☆☆☆☆</option>
-
-</select>
-
-<textarea id="reviewText" placeholder="Write your review..."></textarea>
-
-<button class="btn" onclick="addReview()">
-
-Submit Review
-
-</button>
-
-</div>
-
-<div id="reviewList"></div>
-
-</section>
-
-
-<!-- BEAUTY CLUB -->
-
-<section class="luxury-section">
-
-<h2 class="section-title">
-
-YOURS Beauty Club 👑
-
-</h2>
-
-<div class="review-box">
-
-<input type="text" id="clubName" placeholder="Your Name">
-
-<input type="text" id="clubPhone" placeholder="WhatsApp Number">
-
-<button class="btn" onclick="joinClub()">
-
-Join Now
-
-</button>
-
-<p id="clubResult"></p>
-
-</div>
-
-</section>
-
-
-<!-- COUPON -->
-
-<section class="luxury-section">
-
-<h2 class="section-title">
-
-Discount Coupon 🎁
-
-</h2>
-
-<div class="review-box">
-
-<input type="text" id="couponCode" placeholder="Enter Coupon">
-
-<button class="btn" onclick="applyCoupon()">
-
-Apply Coupon
-
-</button>
-
-<p id="couponResult"></p>
-
-</div>
-
-</section>
-
-
-<style>
-
-.review-box{
-
-max-width:600px;
-
-margin:auto;
-
-background:#151515;
-
-padding:30px;
-
-border:1px solid #D4AF37;
-
-border-radius:25px;
-
-}
-
-.review-box input,
-.review-box textarea,
-.review-box select{
-
-width:100%;
-
-padding:15px;
-
-margin:12px 0;
-
-border:none;
-
-border-radius:12px;
-
-}
-
-.review-box textarea{
-
-height:120px;
-
-}
-
-.review-card{
-
-background:#202020;
-
-padding:20px;
-
-margin-top:20px;
-
-border-radius:20px;
-
-border:1px solid #D4AF37;
-
-}
-
-</style>
-
-<script>
-
-function addReview(){
-
-let name=document.getElementById("reviewName").value;
-
-let stars=document.getElementById("reviewStars").value;
-
-let text=document.getElementById("reviewText").value;
-
-if(name==""||text==""){
-
-alert("Please complete your review.");
-
-return;
-
-}
-
-document.getElementById("reviewList").innerHTML+=`
-
-<div class="review-card">
-
-<h3>${stars}</h3>
-
-<h3>${name}</h3>
-
-<p>${text}</p>
-
-</div>
-
-`;
-
-document.getElementById("reviewName").value="";
-document.getElementById("reviewText").value="";
-
-}
-
-function joinClub(){
-
-let name=document.getElementById("clubName").value;
-
-document.getElementById("clubResult").innerHTML=
-
-"Welcome "+name+" 👑";
-
-}
-
-let discount=0;
-
-function applyCoupon(){
-
-let code=document.getElementById("couponCode").value;
-
-if(code=="YOURS10"){
-
-discount=10;
-
-document.getElementById("couponResult").innerHTML=
-
-"Coupon Applied ✅ 10% OFF";
-
-}
-
-else{
-
-document.getElementById("couponResult").innerHTML=
-
-"Invalid Coupon";
-
-}
-
-}
-
-</script>
-<!-- LOADING SCREEN -->
-
-<div id="loader">
-
-<h1>YOURS</h1>
-
-</div>
-
-<style>
-
-#loader{
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100%;
-
-height:100%;
-
-background:#080808;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-z-index:99999;
-
-transition:1s;
-
-}
-
-#loader h1{
-
-font-family:'Bodoni Moda',serif;
-
-font-size:70px;
-
-color:#D4AF37;
-
-letter-spacing:15px;
-
-animation:pulse 1.2s infinite;
-
-}
-
-@keyframes pulse{
-
-0%{opacity:.4;}
-
-50%{opacity:1;}
-
-100%{opacity:.4;}
-
-}
-
-footer{
-
-margin-top:80px;
-
-padding:50px 20px;
-
-background:#050505;
-
-border-top:1px solid #D4AF37;
-
-text-align:center;
-
-}
-
-footer h1{
-
-font-family:'Bodoni Moda',serif;
-
-font-size:50px;
-
-letter-spacing:12px;
-
-color:#D4AF37;
-
-}
-
-footer a{
-
-color:white;
-
-text-decoration:none;
-
-margin:10px;
-
-}
-
-footer a:hover{
-
-color:#D4AF37;
-
-}
-
-.floating-whatsapp{
-
-position:fixed;
-
-right:20px;
-
-bottom:20px;
-
-width:65px;
-
-height:65px;
-
-border-radius:50%;
-
-background:#25D366;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:32px;
-
-text-decoration:none;
-
-color:white;
-
-z-index:999;
-
-}
-
-</style>
-
-<footer>
-
-<h1>YOURS</h1>
-
-<p>
-
-Luxury Hair Care Experience ✨
-
-</p>
-
-<div>
-
+<a href="#home">Home</a>
 <a href="#products">Products</a>
+<a href="#cartSection">Cart 🛒</a>
 
-<a href="#reviews">Reviews</a>
+</nav>
 
-<a href="#hairQuiz">Hair Quiz</a>
+</header>
 
-<a href="#club">Beauty Club</a>
+
+
+
+<!-- HERO SLIDER -->
+
+<section id="home" class="hero">
+
+
+<div class="slider">
+
+
+<div class="slides" id="slides">
+
+
+<img src="images/banner1.jpg">
+
+<img src="images/banner2.jpg">
+
+<img src="images/banner3.jpg">
+
 
 </div>
 
+
+</div>
+
+
+</section>
+<!-- FOOTER -->
+
+<footer class="footer">
+
+
+<div class="footer-content">
+
+
+<h1>YOURS ✨</h1>
+
 <p>
-
-© YOURS Luxury Hair Care
-
+Luxury Hair Care For Beautiful Hair
 </p>
+
+
+<div class="contact">
+
+<p>
+📞 01003884148
+</p>
+
+<p>
+✨ Premium Hair Products
+</p>
+
+<p>
+🌿 Natural Care • Luxury Results
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="copyright">
+
+© 2026 YOURS Luxury Hair Care. All Rights Reserved.
+
+</div>
+
 
 </footer>
 
-<a href="https://wa.me/201003884148"
 
-class="floating-whatsapp"
 
+
+
+<!-- WHATSAPP FLOAT BUTTON -->
+
+<a 
+href="https://wa.me/201003884148"
+class="whatsapp"
 target="_blank">
 
 💬
 
 </a>
+<style>
 
-<script>
+/* FOOTER */
 
-window.onload=function(){
+.footer{
 
-setTimeout(()=>{
-
-document.getElementById("loader").style.opacity="0";
-
-setTimeout(()=>{
-
-document.getElementById("loader").style.display="none";
-
-},1000);
-
-},1500);
+background:#111;
+color:white;
+text-align:center;
+padding:50px 20px;
+margin-top:50px;
 
 }
 
-// Swipe بسيط
 
-let track=document.getElementById("productTrack");
+.footer h1{
 
-let startX=0;
+color:#D4AF37;
+font-size:45px;
+letter-spacing:5px;
 
-track.addEventListener("touchstart",e=>{
+}
 
-startX=e.touches[0].clientX;
+
+.footer p{
+
+font-size:18px;
+
+}
+
+
+.copyright{
+
+margin-top:30px;
+font-size:14px;
+opacity:.7;
+
+}
+
+
+
+/* WHATSAPP BUTTON */
+
+.whatsapp{
+
+position:fixed;
+right:25px;
+bottom:25px;
+
+width:60px;
+height:60px;
+
+background:#25D366;
+color:white;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:30px;
+
+text-decoration:none;
+
+box-shadow:0 5px 20px #0005;
+
+z-index:999;
+
+transition:.3s;
+
+}
+
+
+.whatsapp:hover{
+
+transform:scale(1.1);
+
+}
+
+
+
+</style>
+<!-- LUCKY WHEEL -->
+
+<div id="wheelPopup" class="wheel-popup">
+
+<div class="wheel-box">
+
+<h1>🎁 Spin & Win</h1>
+
+<p>Try your luck and get a discount!</p>
+
+
+<div id="wheel" class="wheel">
+
+<div class="wheel-text">
+10% OFF
+</div>
+
+</div>
+
+
+<button class="btn" onclick="spinWheel()">
+SPIN NOW 🎡
+</button>
+
+
+<h2 id="discountResult"></h2>
+
+
+</div>
+
+</div>
+
+
+
+<!-- COUPON -->
+
+<div id="couponBox">
+
+Your Coupon:
+<span id="couponCode"></span>
+
+</div>
+<!-- CHECKOUT FORM -->
+
+<section id="checkoutPage" class="luxury-section" style="display:none;">
+
+<div class="checkout-container">
+
+<h1>Complete Your Order ✨</h1>
+
+
+<input 
+type="text" 
+id="customerName" 
+placeholder="Your Name">
+
+
+<input 
+type="tel" 
+id="customerPhone" 
+placeholder="Phone Number">
+
+
+<input 
+type="text" 
+id="customerAddress" 
+placeholder="Your Address">
+
+
+<textarea 
+id="customerNotes" 
+placeholder="Order Notes (Optional)">
+</textarea>
+
+
+<button class="btn" onclick="sendOrder()">
+Confirm Order ✅
+</button>
+
+
+</div>
+
+</section>
+<style>
+
+.checkout-container{
+
+max-width:500px;
+margin:auto;
+text-align:center;
+
+}
+
+
+.checkout-container input,
+.checkout-container textarea{
+
+width:100%;
+padding:15px;
+margin:10px 0;
+
+border-radius:15px;
+border:1px solid #D4AF37;
+
+font-size:16px;
+
+}
+
+
+.checkout-container textarea{
+
+height:120px;
+resize:none;
+
+}
+
+</style>
+<script>
+
+function sendOrder(){
+
+
+let name =
+document.getElementById("customerName").value;
+
+
+let phone =
+document.getElementById("customerPhone").value;
+
+
+let address =
+document.getElementById("customerAddress").value;
+
+
+let notes =
+document.getElementById("customerNotes").value;
+
+
+
+if(name=="" || phone=="" || address==""){
+
+alert("Please complete your information");
+
+return;
+
+}
+
+
+
+let message =
+"✨ YOURS Luxury Hair Care Order ✨%0A%0A";
+
+
+message +=
+"👤 Name: "+name+"%0A";
+
+
+message +=
+"📞 Phone: "+phone+"%0A";
+
+
+message +=
+"📍 Address: "+address+"%0A";
+
+
+message +=
+"📝 Notes: "+notes+"%0A%0A";
+
+
+
+message += "Products:%0A";
+
+
+
+cart.forEach(item=>{
+
+message +=
+"• "+item.name+
+" - "+item.price+
+"%0A";
 
 });
 
-track.addEventListener("touchmove",e=>{
 
-let move=e.touches[0].clientX;
 
-track.scrollLeft+=(startX-move);
+window.open(
 
-startX=move;
+"https://wa.me/201003884148?text="+message,
 
-});
+"_blank"
 
-console.log("YOURS Luxury Hair Care Ready ✨");
+);
+
+
+
+document.getElementById("orderComplete").style.display="flex";
+
+
+}
+
 
 </script>
+<!-- CUSTOMER REVIEWS -->
 
-</body>
+<section class="reviews luxury-section">
 
-</html>
+<h1 class="section-title">
+What Our Customers Say ✨
+</h1>
+
+
+<div class="reviews-container">
+
+
+<div class="review-card">
+
+<h2>⭐⭐⭐⭐⭐</h2>
+
+<p>
+"Best hair products I have ever tried. My hair feels softer and healthier."
+</p>
+
+<h3>
+- Sara
+</h3>
+
+</div>
+
+
+
+<div class="review-card">
+
+<h2>⭐⭐⭐⭐⭐</h2>
+
+<p>
+"Luxury quality and beautiful results. I love YOURS products!"
+</p>
+
+<h3>
+- Mariam
+</h3>
+
+</div>
+
+
+
+<div class="review-card">
+
+<h2>⭐⭐⭐⭐⭐</h2>
+
+<p>
+"Fast delivery and amazing hair care experience."
+</p>
+
+<h3>
+- Lina
+</h3>
+
+</div>
+
+
+</div>
+
+</section>
+<style>
+
+
+/* REVIEWS */
+
+
+.reviews-container{
+
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+
+}
+
+
+
+.review-card{
+
+background:white;
+width:280px;
+padding:25px;
+border-radius:25px;
+
+text-align:center;
+
+box-shadow:0 10px 30px #0002;
+
+animation:fadeUp 1s ease;
+
+}
+
+
+.review-card h2{
+
+color:#D4AF37;
+
+}
+
+
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(30px);
+
+}
+
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/* SMOOTH SCROLL */
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+
+
+/* IMAGE ANIMATION */
+
+.product-card img,
+.details-image img{
+
+transition:.5s;
+
+}
+
+
+.product-card img:hover,
+.details-image img:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
+</style>
+<!-- ABOUT SECTION -->
+
+<section id="about" class="luxury-section about">
+
+
+<div class="about-container">
+
+
+<div class="about-text">
+
+
+<h1>
+About YOURS ✨
+</h1>
+
+
+<p>
+
+YOURS Luxury Hair Care was created to bring premium hair care
+with elegant formulas that help every woman feel confident
+and beautiful.
+
+</p>
+
+
+<p>
+
+We combine luxury, nature, and innovation to create products
+designed for healthy, shiny, and strong hair.
+
+</p>
+
+
+</div>
+
+
+
+<div class="about-features">
+
+
+<div class="feature">
+
+<h2>🌿 Natural Care</h2>
+
+<p>
+Carefully selected ingredients for your hair.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h2>✨ Luxury Quality</h2>
+
+<p>
+Premium products with elegant results.
+</p>
+
+</div>
+
+
+
+<div class="feature">
+
+<h2>💆‍♀️ Hair Confidence</h2>
+
+<p>
+Helping you love and care for your hair.
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+<style>
+
+
+.about-container{
+
+max-width:1100px;
+margin:auto;
+
+display:flex;
+
+gap:50px;
+
+align-items:center;
+
+}
+
+
+
+.about-text{
+
+flex:1;
+
+}
+
+
+.about-text h1{
+
+font-size:40px;
+
+color:#D4AF37;
+
+}
+
+
+
+.about-text p{
+
+font-size:18px;
+
+line-height:1.8;
+
+}
+
+
+
+.about-features{
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+
+
+.feature{
+
+background:white;
+
+padding:25px;
+
+border-radius:25px;
+
+box-shadow:0 10px 25px #0002;
+
+}
+
+
+
+.feature h2{
+
+color:#D4AF37;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.about-container{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+
+.about-text h1{
+
+font-size:32px;
+
+}
+
+
+}
+
+
+</style>
+<!-- FAQ SECTION -->
+
+<section id="faq" class="luxury-section">
+
+
+<h1 class="section-title">
+Frequently Asked Questions ❓
+</h1>
+
+
+
+<div class="faq-container">
+
+
+<div class="faq-item">
+
+<button onclick="toggleFAQ(this)">
+How long does delivery take? +
+</button>
+
+<p>
+Delivery usually takes 2-5 business days depending on your location.
+</p>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button onclick="toggleFAQ(this)">
+Are YOURS products suitable for all hair types? +
+</button>
+
+<p>
+Yes, our products are designed to provide care for different hair needs.
+</p>
+
+</div>
+
+
+
+
+<div class="faq-item">
+
+<button onclick="toggleFAQ(this)">
+Can I exchange or return my order? +
+</button>
+
+<p>
+You can contact our support team for return and exchange requests.
+</p>
+
+</div>
+
+
+
+<div class="faq-item">
+
+<button onclick="toggleFAQ(this)">
+How can I track my order? +
+</button>
+
+<p>
+You can contact us through WhatsApp with your order details.
+</p>
+
+</div>
+
+
+</div>
+
+
+</section>
+<style>
+
+
+.faq-container{
+
+max-width:800px;
+margin:auto;
+
+}
+
+
+
+.faq-item{
+
+background:white;
+margin:15px 0;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 8px 20px #0002;
+
+}
+
+
+
+.faq-item button{
+
+width:100%;
+padding:20px;
+
+border:none;
+background:#111;
+
+color:#D4AF37;
+
+font-size:18px;
+
+text-align:left;
+
+cursor:pointer;
+
+}
+
+
+
+.faq-item p{
+
+display:none;
+
+padding:20px;
+
+font-size:16px;
+
+line-height:1.7;
+
+}
+
+
+
+</style>
+<script>
+
+function toggleFAQ(button){
+
+let answer = button.nextElementSibling;
+
+
+if(answer.style.display === "block"){
+
+answer.style.display="none";
+
+}
+
+else{
+
+answer.style.display="block";
+
+}
+
+
+}
+
+</script>
+<!-- LANGUAGE BUTTON -->
+
+<button id="langBtn" class="lang-btn" onclick="changeLanguage()">
+عربي
+</button>
+<style>
+
+.lang-btn{
+
+background:#D4AF37;
+color:white;
+
+border:none;
+
+padding:10px 20px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+font-size:15px;
+
+}
+
+
+
+@media(max-width:768px){
+
+.header nav{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+
+.product-card{
+
+width:90%;
+
+}
+
+
+.details-info h1{
+
+font-size:28px;
+
+}
+
+
+.btn{
+
+width:90%;
+
+}
+
+
+}
+
+</style>
+<script>
+
+let arabic = false;
+
+
+function changeLanguage(){
+
+
+arabic = !arabic;
+
+
+let btn =
+document.getElementById("langBtn");
+
+
+
+if(arabic){
+
+
+document.documentElement.lang="ar";
+
+
+document.body.style.direction="rtl";
+
+
+btn.innerHTML="English";
+
+
+
+}
+
+else{
+
+
+document.documentElement.lang="en";
+
+
+document.body.style.direction="ltr";
+
+
+btn.innerHTML="عربي";
+
+
+}
+
+
+}
+
+</script>
+<!-- SEARCH & FILTER -->
+
+<section class="luxury-section">
+
+
+<div class="search-box">
+
+
+<input 
+type="text" 
+id="searchInput"
+placeholder="Search products..."
+onkeyup="searchProducts()">
+
+
+
+<div class="filter-buttons">
+
+<button class="btn" onclick="filterProducts('all')">
+All
+</button>
+
+<button class="btn" onclick="filterProducts('serum')">
+Serum
+</button>
+
+<button class="btn" onclick="filterProducts('shampoo')">
+Shampoo
+</button>
+
+<button class="btn" onclick="filterProducts('mask')">
+Mask
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+<style>
+
+
+.search-box{
+
+text-align:center;
+max-width:700px;
+margin:auto;
+
+}
+
+
+.search-box input{
+
+width:80%;
+
+padding:15px;
+
+border-radius:30px;
+
+border:2px solid #D4AF37;
+
+font-size:16px;
+
+}
+
+
+
+.filter-buttons{
+
+margin-top:20px;
+
+}
+
+
+
+.filter-buttons .btn{
+
+padding:10px 20px;
+
+}
+
+
+</style>
+<script>
+
+
+function searchProducts(){
+
+
+let input =
+document.getElementById("searchInput")
+.value
+.toLowerCase();
+
+
+
+let cards =
+document.querySelectorAll(".product-card");
+
+
+
+cards.forEach(card=>{
+
+
+let name =
+card.innerText.toLowerCase();
+
+
+
+if(name.includes(input)){
+
+card.style.display="block";
+
+}
+
+else{
+
+card.style.display="none";
+
+}
+
+
+});
+
+
+}
+
+
+
+
+function filterProducts(category){
+
+
+let cards =
+document.querySelectorAll(".product-card");
+
+
+
+cards.forEach(card=>{
+
+
+let type =
+card.getAttribute("data-type");
+
+
+
+if(category=="all" || type==category){
+
+card.style.display="block";
+
+}
+
+else{
+
+card.style.display="none";
+
+}
+
+
+});
+
+
+}
+
+
+</script>
+<div class="product-card" data-type="serum">
+<div class="product-card" data-type="shampoo">
+<div class="product-card" data-type="mask">
+<a href="#cartSection">
+Cart 🛒 
+<span id="cartCount">0</span>
+</a>
+<style>
+
+#cartCount{
+
+background:#D4AF37;
+
+color:white;
+
+border-radius:50%;
+
+padding:3px 8px;
+
+font-size:13px;
+
+}
+
+</style>
+<script>
+
+let cart = JSON.parse(localStorage.getItem("YOURS-Cart")) || [];
+
+
+function saveCart(){
+
+localStorage.setItem(
+"YOURS-Cart",
+JSON.stringify(cart)
+);
+
+}
+
+
+
+function updateCart(){
+
+
+let cartBox =
+document.getElementById("cartItems");
+
+
+cartBox.innerHTML="";
+
+
+let total = 0;
+
+
+
+cart.forEach((item,index)=>{
+
+
+total += parseInt(item.price);
+
+
+
+cartBox.innerHTML += `
+
+<div class="cart-item">
+
+
+<img src="${item.image}">
+
+
+<div>
+
+<h3>${item.name}</h3>
+
+<p>${item.price}</p>
+
+</div>
+
+
+<button onclick="removeItem(${index})">
+Remove ❌
+</button>
+
+
+</div>
+
+`;
+
+
+});
+
+
+
+document.getElementById("cartTotal").innerHTML =
+total;
+
+
+
+document.getElementById("cartCount").innerHTML =
+cart.length;
+
+
+
+saveCart();
+
+
+}
+
+
+
+function removeItem(index){
+
+cart.splice(index,1);
+
+updateCart();
+
+}
+
+
+
+window.onload=function(){
+
+updateCart();
+
+}
+
+
+
+</script>
