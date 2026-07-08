@@ -515,167 +515,220 @@
         // Section Router
         function showSection(view) {
             document.getElementById('home-view').style.display = view === 'home' ? 'block' : 'none';
-            document.getElementById('product-details-view').style.display = view === 'product' ? 'block' : 'none';
-            document.getElementById('bundle-details-view').style.display = view === 'bundle' ? 'block' : 'none';
+            document.getElementById('product-details-view').style.display = view === 'product-details' ? 'block' : 'none';
+            document.getElementById('bundle-details-view').style.display = view === 'bundle-details' ? 'block' : 'none';
             document.getElementById('cart-view').style.display = view === 'cart' ? 'block' : 'none';
             document.getElementById('checkout-view').style.display = view === 'checkout' ? 'block' : 'none';
+            
+            // Keeps single details views clear from bottom panels
             document.getElementById('community-footer-sections').style.display = view === 'home' ? 'block' : 'none';
-            window.scrollTo({top: 0});
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Product Logic Open
+        // --- PRODUCT DETAILS CONTROLLER ---
         function openProduct(key) {
             currentProductKey = key;
-            const data = products[key];
-            document.getElementById('detailImg').src = data.image;
-            document.getElementById('detailTitle').innerText = data.name;
-            document.getElementById('detailSize').innerText = data.size;
-            document.getElementById('detailPrice').innerText = data.price + " EGP";
+            const prod = products[key];
             
-            let bHtml = "";
-            data.benefits.forEach(b => bHtml += `<li>${b}</li>`);
-            document.getElementById('detailBenefits').innerHTML = bHtml;
-            document.getElementById('detailUse').innerText = data.use;
-            
-            showSection('product');
+            document.getElementById('detailImg').src = prod.image;
+            document.getElementById('detailTitle').innerText = prod.name;
+            document.getElementById('detailSize').innerText = prod.size;
+            document.getElementById('detailPrice').innerText = prod.price + " EGP";
+            document.getElementById('detailUse').innerText = prod.use;
+
+            const benefitsUl = document.getElementById('detailBenefits');
+            benefitsUl.innerHTML = "";
+            prod.benefits.forEach(b => {
+                benefitsUl.innerHTML += `<li>${b}</li>`;
+            });
+
+            showSection('product-details');
         }
 
         function openBundle() {
-            showSection('bundle');
+            showSection('bundle-details');
         }
 
-        // Cart Actions
-        function triggeredFeedback() {
-            const sound = document.getElementById("cartSound");
-            if(sound) { sound.currentTime = 0; sound.play().catch(()=>{}); }
-            if (navigator.vibrate) navigator.vibrate(150);
-            const toast = document.getElementById("toast");
-            toast.style.display = "block";
-            setTimeout(() => toast.style.display = "none", 2000);
+        // --- SHOPPING CART SYSTEM ---
+        function triggerToast() {
+            const toast = document.getElementById('toast');
+            const sound = document.getElementById('cartSound');
+            if (sound) sound.play().catch(() => {});
+            
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 2500);
+        }
+
+        function updateCartCounter() {
+            document.getElementById('cartCount').innerText = cart.length;
         }
 
         function addProductToCart() {
-            const item = products[currentProductKey];
-            cart.push({ name: item.name, price: item.price });
-            document.getElementById('cartCount').innerText = cart.length;
-            triggeredFeedback();
+            if (!currentProductKey) return;
+            const prod = products[currentProductKey];
+            cart.push({ name: prod.name, price: prod.price });
+            updateCartCounter();
+            triggerToast();
         }
 
         function addBundleToCart() {
-            cart.push({ name: "Complete Hair Ritual Bundle", price: 2500 });
-            document.getElementById('cartCount').innerText = cart.length;
-            triggeredFeedback();
+            cart.push({ name: "Complete Hair Ritual Bundle ✨", price: 2500 });
+            updateCartCounter();
+            triggerToast();
         }
 
         function openCart() {
-            const box = document.getElementById('cartItems');
-            box.innerHTML = "";
+            const itemsContainer = document.getElementById('cartItems');
+            itemsContainer.innerHTML = "";
             let sum = 0;
-            
+
             if(cart.length === 0) {
-                box.innerHTML = "<p style='text-align:center; color:#777;'>Your luxury shopping bag is empty.</p>";
+                itemsContainer.innerHTML = `<p style="text-align:center; color:#888; padding:20px;">Your bag is currently empty.</p>`;
             } else {
                 cart.forEach((item, idx) => {
                     sum += item.price;
-                    box.innerHTML += `
+                    itemsContainer.innerHTML += `
                         <div class="cart-item">
-                            <span>${item.name}</span>
-                            <span>${item.price} EGP <button onclick="removeCartItem(${idx})">❌</button></span>
-                        </div>`;
+                            <div>
+                                <h4>${item.name}</h4>
+                                <span style="color:var(--gold);">${item.price} EGP</span>
+                            </div>
+                            <button onclick="removeCartItem(${idx})">🗑️</button>
+                        </div>
+                    `;
                 });
             }
+
             document.getElementById('subtotal').innerText = sum;
             showSection('cart');
         }
 
         function removeCartItem(idx) {
             cart.splice(idx, 1);
-            document.getElementById('cartCount').innerText = cart.length;
+            updateCartCounter();
             openCart();
         }
 
-        // Checkout
+        // --- CHECKOUT LOGIC & WHATSAPP ENGINE ---
         function goCheckout() {
-            if(cart.length === 0) { alert("Please add products first ✨"); return; }
+            if (cart.length === 0) {
+                alert("Please add items to your cart before proceeding.");
+                return;
+            }
             showSection('checkout');
             calculateCheckout();
         }
 
+        let totalForProducts = 0;
+        let grandTotal = 0;
+
         function calculateCheckout() {
-            let subtotal = 0;
-            cart.forEach(i => subtotal += i.price);
-            let gift = document.getElementById('giftPack').checked ? 50 : 0;
-            
-            document.getElementById('chkSubtotal').innerText = subtotal;
-            document.getElementById('chkGift').innerText = gift;
-            document.getElementById('chkFinal').innerText = subtotal + 50 + gift;
+            totalForProducts = cart.reduce((acc, current) => acc + current.price, 0);
+            const isGiftChecked = document.getElementById('giftPack').checked;
+            const giftFee = isGiftChecked ? 50 : 0;
+            const deliveryFee = 50;
+
+            grandTotal = totalForProducts + deliveryFee + giftFee;
+
+            document.getElementById('chkSubtotal').innerText = totalForProducts;
+            document.getElementById('chkGift').innerText = giftFee;
+            document.getElementById('chkFinal').innerText = grandTotal;
         }
 
-        // WhatsApp Order Formulation
         function confirmAndSend() {
             const name = document.getElementById('customerName').value.trim();
             const phone = document.getElementById('customerPhone').value.trim();
             const address = document.getElementById('customerAddress').value.trim();
-            const payment = document.getElementById('paymentMethod').value;
-            
-            if(!name || !phone || !address) { alert("Please complete your luxury shipping parameters ✨"); return; }
-            
-            let prodText = "";
-            let subtotal = 0;
-            cart.forEach(i => { prodText += `• ${i.name} - ${i.price} EGP\n`; subtotal += i.price; });
-            
-            let gift = document.getElementById('giftPack').checked ? 50 : 0;
-            let finalCost = subtotal + 50 + gift;
+            const method = document.getElementById('paymentMethod').value;
+            const giftSelected = document.getElementById('giftPack').checked ? "Yes (🎀 +50 EGP)" : "No";
 
-            let msg = `✨ *YOURS Luxury Hair Order* ✨\n\n`;
-            msg += `👤 *Client Name:* ${name}\n`;
-            msg += `📱 *Phone:* ${phone}\n`;
-            msg += `📍 *Address:* ${address}\n\n`;
-            msg += `🛍 *Products Ordered:* \n${prodText}\n`;
-            msg += `💰 *Subtotal:* ${subtotal} EGP\n`;
-            msg += `🚚 *Delivery:* 50 EGP\n`;
-            msg += `🎀 *Gift Pack:* ${gift} EGP\n`;
-            msg += `💳 *Payment Method:* ${payment}\n\n`;
-            msg += `👑 *Total Amount:* ${finalCost} EGP\n\n`;
-            msg += `Thank you for choosing YOURS 🤍`;
+            if(!name || !phone || !address) {
+                alert("Please fill out your complete shipping details.");
+                return;
+            }
 
-            const targetPhone = "201XXXXXXXXX"; // وضعي رقم الواتساب الحقيقي هنا
-            window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(msg)}`, '_blank');
+            // Constructing WhatsApp Text Structure
+            let orderItemsText = "";
+            cart.forEach((item, i) => {
+                orderItemsText += `${i + 1}. ${item.name} - ${item.price} EGP\n`;
+            });
+
+            const message = `✨ *NEW ORDER - YOURS LUXURY HAIR CARE* ✨\n\n` +
+                            `👤 *Customer Name:* ${name}\n` +
+                            `📞 *WhatsApp:* ${phone}\n` +
+                            `📍 *Address:* ${address}\n\n` +
+                            `🛍️ *Ordered Products:*\n${orderItemsText}\n` +
+                            `🎀 *Luxury Packaging:* ${giftSelected}\n` +
+                            `💳 *Payment Choice:* ${method}\n\n` +
+                            `💵 *Products Total:* ${totalForProducts} EGP\n` +
+                            `🚚 *Shipping Delivery:* 50 EGP\n` +
+                            `💰 *TOTAL DUE:* ${grandTotal} EGP\n\n` +
+                            `Thank you for choosing YOURS Luxury Hair Ritual ✨`;
+
+            const encodedMessage = encodeURIComponent(message);
+            // Replaces placeholder with direct API endpoint target
+            const whatsappLink = `https://wa.me/201XXXXXXXXX?text=${encodedMessage}`;
+            window.open(whatsappLink, '_blank');
         }
 
-        // Why Interactive Effects
-        function selectWhy(card) {
-            card.classList.toggle("active");
-            const reaction = card.querySelector(".reaction");
-            reaction.innerHTML = card.classList.contains("active") ? "❤️ ⭐" : "";
-        }
+        // --- AUXILIARY REVIEWS & CLUB LOGIC ---
+        const reviews = [
+            { name: "Mariam K.", stars: "★★★★★", text: "المجموعة بجد وهمية! السيروم بيخلي الشعر بيلمع من غير ما يدهن خالص والشامبو ريحته تجنن." },
+            { name: "Nouran A.", stars: "★★★★★", text: "The Treatment Mask transformed my split ends after only three uses. Absolute luxury feel." }
+        ];
 
-        // Reviews Node
+        function renderReviews() {
+            const container = document.getElementById('reviewsList');
+            container.innerHTML = "";
+            reviews.forEach(r => {
+                container.innerHTML += `
+                    <div class="info-card" style="text-align: left; width: 45%; min-width:280px;">
+                        <h3 style="margin:0 0 5px; color:#fff;">${r.name}</h3>
+                        <div style="color:var(--gold); margin-bottom:10px;">${r.stars}</div>
+                        <p style="color:#ccc; font-style:italic; margin:0;">"${r.text}"</p>
+                    </div>
+                `;
+            });
+        }
+        renderReviews();
+
         function addReview() {
             const name = document.getElementById('reviewName').value.trim();
-            const text = document.getElementById('reviewText').value.trim();
             const stars = document.getElementById('stars').value;
-            if(!name || !text) return;
+            const text = document.getElementById('reviewText').value.trim();
 
-            document.getElementById('reviewsList').innerHTML += `
-                <div class="info-card" style="width:280px; padding:20px; text-align:left;">
-                    <div style="color:var(--gold); margin-bottom:5px;">${stars}</div>
-                    <h4>${name}</h4>
-                    <p style="font-size:14px; color:#ccc;">"${text}"</p>
-                </div>`;
-            
+            if (!name || !text) {
+                alert("Please enter your name and feedback description.");
+                return;
+            }
+
+            reviews.unshift({ name, stars, text });
+            renderReviews();
+
             document.getElementById('reviewName').value = "";
             document.getElementById('reviewText').value = "";
         }
 
-        // Beauty Club Node
         function joinClub() {
             const name = document.getElementById('clubName').value.trim();
             const phone = document.getElementById('clubPhone').value.trim();
-            if(!name || !phone) return;
-            document.getElementById('clubMessage').innerText = "Welcome to the elite circle, beautiful! ✨";
+            const msg = document.getElementById('clubMessage');
+
+            if(!name || !phone) {
+                msg.innerText = "Please complete credentials fields.";
+                return;
+            }
+            msg.innerText = `Welcome, ${name}! You are now on our private priority broadcast list. ✨`;
             document.getElementById('clubName').value = "";
             document.getElementById('clubPhone').value = "";
+        }
+
+        function selectWhy(element) {
+            document.querySelectorAll('.why-card').forEach(c => c.classList.remove('active'));
+            element.classList.add('active');
+            const reactions = ["✨👑✨", "💖💎💖", "🌟💆‍♀️🌟"];
+            const index = Array.from(element.parentNode.children).indexOf(element);
+            element.querySelector('.reaction').innerText = reactions[index] || "✨";
         }
     </script>
 </body>
