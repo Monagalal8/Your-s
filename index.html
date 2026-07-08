@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>YOURS Luxury Hair Care</title>
+<title>YOURS Luxury</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="style.css">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<script src="https://kit.fontawesome.com/6f2d8c8d5e.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-
-<!-- HEADER -->
 
 <header>
 
@@ -36,281 +37,132 @@ YOURS ✨
 
 <a href="#bundles">Bundles</a>
 
-<a href="#consultation">Consultation</a>
-
 <a href="#reviews">Reviews</a>
+
+<a href="#consultation">Consultation</a>
 
 <a href="#story">Our Story</a>
 
-<a href="#contact">Contact</a>
-
 </nav>
 
-<div class="header-buttons">
+<button class="cart-btn" onclick="openCheckout()">
 
-<button onclick="openCart()">
-
-<i class="fa-solid fa-bag-shopping"></i>
-
-Beauty Bag
+🛒 Beauty Bag
 
 <span id="cartCount">0</span>
 
 </button>
 
-</div>
-
 </header>
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 
-<div class="hero-content">
-
-<h1>
-
-Luxury Hair Care
-
-</h1>
+<h1>Luxury Hair Care</h1>
 
 <p>
 
-Professional formulas created to repair, nourish and transform your hair.
+Professional Hair Care Made With Science & Luxury.
 
 </p>
 
-<button onclick="scrollProducts()">
+<a href="#products">
 
-Shop Collection
+<button>
+
+Shop Now
 
 </button>
 
-</div>
+</a>
 
 </section>
-
-<!-- COUNTDOWN -->
-
-<section class="offer">
-
-<h2>
-
-Luxury Summer Offer
-
-</h2>
-
-<div id="countdown">
-
-Loading...
-
-</div>
-
-</section>
-
-<!-- FILTER -->
-
-<section class="filter">
-
-<h2>
-
-Find Your Perfect Routine
-
-</h2>
-
-<select id="hairFilter" onchange="filterProducts()">
-
-<option value="all">
-
-All Hair Types
-
-</option>
-
-<option value="dry">
-
-Dry Hair
-
-</option>
-
-<option value="oily">
-
-Oily Hair
-
-</option>
-
-<option value="damaged">
-
-Damaged Hair
-
-</option>
-
-<option value="colored">
-
-Colored Hair
-
-</option>
-
-<option value="curly">
-
-Curly Hair
-
-</option>
-
-</select>
-
-</section>
-
 <!-- PRODUCTS -->
 
 <section class="products" id="products">
 
 <div class="card damaged dry">
 
-<img src="images/shampoo.jpg">
+<img src="images/shampoo.jpg" alt="Shampoo">
 
-<h2>
+<h2>YOURS Deep Repair Shampoo</h2>
 
-YOURS Deep Repair Shampoo
+<p>500 ml</p>
 
-</h2>
-
-<p>
-
-500 ml
-
-</p>
-
-<p class="price">
-
-800 EGP
-
-</p>
+<p class="price">800 EGP</p>
 
 <p>
-
-Repairs damaged hair, deeply cleanses and restores shine.
-
+Repairs damaged hair and restores softness & shine.
 </p>
 
 <button onclick="addToCart('Deep Repair Shampoo',800)">
-
 Add to Beauty Bag
-
 </button>
 
 </div>
 
 <div class="card damaged">
 
-<img src="images/conditioner.jpg">
+<img src="images/conditioner.jpg" alt="Conditioner">
 
-<h2>
+<h2>YOURS Intensive Conditioner</h2>
 
-YOURS Conditioner
+<p>500 ml</p>
 
-</h2>
-
-<p>
-
-500 ml
-
-</p>
-
-<p class="price">
-
-800 EGP
-
-</p>
+<p class="price">800 EGP</p>
 
 <p>
-
-Deep hydration and smooth finish for healthy-looking hair.
-
+Deep hydration and smooth finish for healthy hair.
 </p>
 
 <button onclick="addToCart('Conditioner',800)">
-
 Add to Beauty Bag
-
 </button>
 
 </div>
 
-<div class="card dry damaged">
+<div class="card damaged dry">
 
-<img src="images/hairmask.jpg">
+<img src="images/hairmask.jpg" alt="Hair Mask">
 
-<h2>
+<h2>YOURS Hair Mask</h2>
 
-YOURS Hair Mask
+<p>500 ml</p>
 
-</h2>
-
-<p>
-
-500 ml
-
-</p>
-
-<p class="price">
-
-800 EGP
-
-</p>
+<p class="price">800 EGP</p>
 
 <p>
-
-Professional intensive treatment for dry and damaged hair.
-
+Professional intensive treatment for damaged hair.
 </p>
 
 <button onclick="addToCart('Hair Mask',800)">
-
 Add to Beauty Bag
-
 </button>
 
 </div>
 
-<div class="card all">
+<div class="card">
 
-<img src="images/serum.jpg">
+<img src="images/serum.jpg" alt="Serum">
 
-<h2>
+<h2>YOURS Ultimate Shine Serum</h2>
 
-YOURS Shine Serum
+<p>100 ml</p>
 
-</h2>
-
-<p>
-
-100 ml
-
-</p>
-
-<p class="price">
-
-550 EGP
-
-</p>
+<p class="price">550 EGP</p>
 
 <p>
-
-Lightweight shine and heat protection.
-
+Lightweight serum for shine and heat protection.
 </p>
 
 <button onclick="addToCart('Serum',550)">
-
 Add to Beauty Bag
-
 </button>
 
 </div>
 
 </section>
 <!-- ===================== -->
-<!-- BUNDLES -->
+<!-- LUXURY BUNDLES -->
 <!-- ===================== -->
 
 <section class="bundles" id="bundles">
@@ -321,15 +173,15 @@ Add to Beauty Bag
 
 <h2>Complete Repair Set</h2>
 
-<p>✔ Shampoo</p>
+<p>✔ Deep Repair Shampoo</p>
 
-<p>✔ Conditioner</p>
+<p>✔ Intensive Conditioner</p>
 
 <p>✔ Hair Mask</p>
 
-<h3><del>2400 EGP</del></h3>
+<p><del>2400 EGP</del></p>
 
-<h2 class="gold">2200 EGP</h2>
+<h3 class="price">2200 EGP</h3>
 
 <button onclick="addBundle()">
 Add Bundle
@@ -341,13 +193,13 @@ Add Bundle
 
 <h2>Luxury Shine Set</h2>
 
-<p>✔ Shampoo</p>
+<p>✔ Deep Repair Shampoo</p>
 
-<p>✔ Serum</p>
+<p>✔ Ultimate Shine Serum</p>
 
-<h3><del>1350 EGP</del></h3>
+<p><del>1350 EGP</del></p>
 
-<h2 class="gold">1200 EGP</h2>
+<h3 class="price">1200 EGP</h3>
 
 <button onclick="addShineBundle()">
 Add Bundle
@@ -367,20 +219,19 @@ Add Bundle
 
 <div class="gallery-grid">
 
-<img src="images/before1.jpg">
+<img src="images/before1.jpg" alt="Before">
 
-<img src="images/after1.jpg">
+<img src="images/after1.jpg" alt="After">
 
-<img src="images/before2.jpg">
+<img src="images/before2.jpg" alt="Before">
 
-<img src="images/after2.jpg">
+<img src="images/after2.jpg" alt="After">
 
 </div>
 
 </section>
-
 <!-- ===================== -->
-<!-- INGREDIENTS -->
+<!-- INGREDIENT SPOTLIGHT -->
 <!-- ===================== -->
 
 <section class="ingredients">
@@ -392,7 +243,7 @@ Add Bundle
 <h2>Vitamin E</h2>
 
 <p>
-Protects hair from damage and increases shine.
+Helps protect hair from damage and adds natural shine.
 </p>
 
 </div>
@@ -402,7 +253,7 @@ Protects hair from damage and increases shine.
 <h2>Argan Oil</h2>
 
 <p>
-Deep nourishment and softness.
+Deeply nourishes hair and reduces dryness.
 </p>
 
 </div>
@@ -412,17 +263,7 @@ Deep nourishment and softness.
 <h2>Keratin</h2>
 
 <p>
-Repairs damaged hair fibers.
-</p>
-
-</div>
-
-<div class="ingredient">
-
-<h2>Amino Acids</h2>
-
-<p>
-Strengthens hair and reduces breakage.
+Repairs damaged hair fibers and improves strength.
 </p>
 
 </div>
@@ -432,7 +273,7 @@ Strengthens hair and reduces breakage.
 <h2>Panthenol</h2>
 
 <p>
-Provides deep hydration and elasticity.
+Provides moisture and softness while reducing frizz.
 </p>
 
 </div>
@@ -453,7 +294,7 @@ id="conName"
 placeholder="Full Name">
 
 <input
-type="text"
+type="tel"
 id="conPhone"
 placeholder="Phone Number">
 
@@ -473,7 +314,7 @@ placeholder="Phone Number">
 
 <textarea
 id="problem"
-placeholder="Tell us about your hair problem">
+placeholder="Tell us about your hair...">
 </textarea>
 
 <button onclick="sendConsultation()">
@@ -485,7 +326,7 @@ Request Consultation
 </section>
 
 <!-- ===================== -->
-<!-- REVIEWS -->
+<!-- CUSTOMER REVIEWS -->
 <!-- ===================== -->
 
 <section id="reviews">
@@ -497,9 +338,7 @@ Request Consultation
 ⭐⭐⭐⭐⭐
 
 <p>
-
-Best shampoo I've ever used.
-
+"The shampoo completely changed my hair!"
 </p>
 
 <h3>- Sara</h3>
@@ -511,9 +350,7 @@ Best shampoo I've ever used.
 ⭐⭐⭐⭐⭐
 
 <p>
-
-My hair became softer after one week.
-
+"My hair became much softer after one week."
 </p>
 
 <h3>- Nada</h3>
@@ -525,9 +362,7 @@ My hair became softer after one week.
 ⭐⭐⭐⭐⭐
 
 <p>
-
-Amazing hair mask.
-
+"The Hair Mask is amazing."
 </p>
 
 <h3>- Mariam</h3>
@@ -545,17 +380,12 @@ Amazing hair mask.
 
 <p>
 
-YOURS was created with one mission:
-to provide luxurious, science-based
-hair care that delivers real results.
+YOURS was created to combine luxury with science.
 
-Every formula is carefully developed
-using premium ingredients to repair,
-hydrate and strengthen hair while
-maintaining its natural beauty.
+Every formula is carefully designed to nourish,
+repair and protect every hair type using premium ingredients.
 
-Because every woman deserves healthy,
-strong and luxurious hair.
+Healthy Hair Starts Here.
 
 </p>
 
@@ -589,7 +419,7 @@ type="text"
 id="customerCity"
 placeholder="City">
 
-<h2>Payment Method</h2>
+<h2>Select Payment Method</h2>
 
 <label>
 
@@ -625,15 +455,11 @@ Visa / Mastercard
 
 </label>
 
-<div id="instapayBox">
+<div id="instapayBox" style="display:none;">
 
 <h3>InstaPay Number</h3>
 
-<p>
-
-01003884148
-
-</p>
+<p>01003884148</p>
 
 </div>
 
@@ -643,9 +469,9 @@ Place Order
 
 </button>
 
-<h2 id="doneMessage">
+<h2 id="doneMessage" style="display:none;">
 
-Order Completed Successfully 🎉
+🎉 Order Completed Successfully
 
 </h2>
 
@@ -659,12 +485,6 @@ Order Completed Successfully 🎉
 
 <h1>Contact Us</h1>
 
-<p>
-
-WhatsApp
-
-</p>
-
 <a
 href="https://wa.me/201003884148"
 target="_blank">
@@ -675,18 +495,16 @@ Chat on WhatsApp
 
 </section>
 
-<!-- FLOATING WHATSAPP -->
+<!-- Floating WhatsApp -->
 
 <a
 class="floating-whatsapp"
 href="https://wa.me/201003884148"
 target="_blank">
 
-<i class="fa-brands fa-whatsapp"></i>
+💬
 
 </a>
-
-<!-- FOOTER -->
 
 <footer>
 
@@ -703,1234 +521,3 @@ target="_blank">
 </body>
 
 </html>
-/* ========================= */
-/* YOURS LUXURY STYLE */
-/* ========================= */
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-scroll-behavior:smooth;
-}
-
-:root{
-
---gold:#D4AF37;
-
---dark:#050505;
-
---card:#111111;
-
---white:#ffffff;
-
---gray:#d9d9d9;
-
-}
-
-body{
-
-background:var(--dark);
-
-color:var(--white);
-
-overflow-x:hidden;
-
-}
-
-header{
-
-position:sticky;
-
-top:0;
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-padding:20px 60px;
-
-background:#000;
-
-border-bottom:1px solid var(--gold);
-
-z-index:999;
-
-}
-
-.logo{
-
-font-size:40px;
-
-font-weight:bold;
-
-letter-spacing:5px;
-
-color:var(--gold);
-
-}
-
-nav{
-
-display:flex;
-
-gap:25px;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-color:white;
-
-font-size:17px;
-
-transition:.4s;
-
-}
-
-nav a:hover{
-
-color:var(--gold);
-
-}
-
-.header-buttons button{
-
-background:linear-gradient(45deg,#8b6508,#d4af37,#f5d76e);
-
-color:#000;
-
-padding:15px 25px;
-
-border:none;
-
-border-radius:40px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.4s;
-
-}
-
-.header-buttons button:hover{
-
-transform:scale(1.05);
-
-box-shadow:0 0 20px var(--gold);
-
-}
-
-.hero{
-
-height:90vh;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-text-align:center;
-
-background:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url(images/hero.jpg);
-
-background-size:cover;
-
-background-position:center;
-
-}
-
-.hero h1{
-
-font-size:70px;
-
-color:var(--gold);
-
-margin-bottom:20px;
-
-}
-
-.hero p{
-
-font-size:22px;
-
-color:#ddd;
-
-margin-bottom:30px;
-
-max-width:700px;
-
-}
-
-.hero button{
-
-padding:18px 45px;
-
-font-size:18px;
-
-border:none;
-
-border-radius:40px;
-
-background:linear-gradient(45deg,#8b6508,#d4af37);
-
-cursor:pointer;
-
-font-weight:bold;
-
-transition:.4s;
-
-}
-
-.hero button:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 25px var(--gold);
-
-}
-
-.offer{
-
-padding:70px;
-
-text-align:center;
-
-}
-
-.offer h2{
-
-color:var(--gold);
-
-font-size:42px;
-
-margin-bottom:25px;
-
-}
-
-#countdown{
-
-font-size:35px;
-
-font-weight:bold;
-
-color:white;
-
-}
-
-.filter{
-
-padding:50px;
-
-text-align:center;
-
-}
-
-.filter h2{
-
-color:var(--gold);
-
-margin-bottom:20px;
-
-}
-
-.filter select{
-
-padding:15px;
-
-border-radius:15px;
-
-background:#111;
-
-color:white;
-
-border:1px solid var(--gold);
-
-font-size:17px;
-
-width:280px;
-
-}
-/* ========================= */
-/* PRODUCTS */
-/* ========================= */
-
-.products{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-gap:35px;
-
-padding:60px;
-
-}
-
-.card{
-
-background:#111;
-
-border:1px solid var(--gold);
-
-border-radius:30px;
-
-padding:25px;
-
-text-align:center;
-
-transition:.4s;
-
-}
-
-.card:hover{
-
-transform:translateY(-10px);
-
-box-shadow:0 0 30px rgba(212,175,55,.5);
-
-}
-
-.card img{
-
-width:100%;
-
-height:280px;
-
-object-fit:cover;
-
-border-radius:20px;
-
-margin-bottom:20px;
-
-}
-
-.card h2{
-
-color:var(--gold);
-
-margin-bottom:10px;
-
-}
-
-.card p{
-
-line-height:1.7;
-
-color:#ddd;
-
-margin-bottom:12px;
-
-}
-
-.price{
-
-font-size:26px;
-
-font-weight:bold;
-
-color:var(--gold);
-
-}
-
-.card button{
-
-width:100%;
-
-padding:15px;
-
-border:none;
-
-border-radius:30px;
-
-background:linear-gradient(45deg,#8b6508,#d4af37);
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-.card button:hover{
-
-transform:scale(1.04);
-
-}
-
-/* ========================= */
-/* BUNDLES */
-/* ========================= */
-
-.bundles{
-
-padding:80px 60px;
-
-text-align:center;
-
-}
-
-.bundles h1{
-
-color:var(--gold);
-
-margin-bottom:40px;
-
-font-size:45px;
-
-}
-
-.bundle-card{
-
-max-width:450px;
-
-margin:30px auto;
-
-padding:35px;
-
-background:#111;
-
-border:1px solid var(--gold);
-
-border-radius:30px;
-
-}
-
-.bundle-card h2{
-
-color:var(--gold);
-
-margin-bottom:20px;
-
-}
-
-.bundle-card p{
-
-margin:10px 0;
-
-color:#ddd;
-
-}
-
-.bundle-card button{
-
-margin-top:25px;
-
-padding:15px 35px;
-
-border:none;
-
-border-radius:30px;
-
-background:linear-gradient(45deg,#8b6508,#d4af37);
-
-cursor:pointer;
-
-font-weight:bold;
-
-}
-
-/* ========================= */
-/* BEFORE & AFTER */
-/* ========================= */
-
-.gallery{
-
-padding:80px 60px;
-
-text-align:center;
-
-}
-
-.gallery h1{
-
-color:var(--gold);
-
-margin-bottom:35px;
-
-}
-
-.gallery-grid{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-
-gap:25px;
-
-}
-
-.gallery-grid img{
-
-width:100%;
-
-height:320px;
-
-object-fit:cover;
-
-border-radius:20px;
-
-border:1px solid var(--gold);
-
-transition:.3s;
-
-}
-
-.gallery-grid img:hover{
-
-transform:scale(1.03);
-
-}
-
-/* ========================= */
-/* INGREDIENTS */
-/* ========================= */
-
-.ingredients{
-
-padding:80px 60px;
-
-}
-
-.ingredients h1{
-
-text-align:center;
-
-color:var(--gold);
-
-margin-bottom:40px;
-
-}
-
-.ingredient{
-
-background:#111;
-
-border-left:5px solid var(--gold);
-
-padding:25px;
-
-margin-bottom:20px;
-
-border-radius:15px;
-
-}
-
-.ingredient h2{
-
-color:var(--gold);
-
-margin-bottom:10px;
-
-}
-
-.ingredient p{
-
-color:#ddd;
-
-line-height:1.7;
-
-}
-/* ========================= */
-/* CONSULTATION */
-/* ========================= */
-
-#consultation{
-
-padding:80px 20px;
-
-text-align:center;
-
-}
-
-#consultation h1{
-
-color:var(--gold);
-
-font-size:45px;
-
-margin-bottom:35px;
-
-}
-
-#consultation input,
-#consultation select,
-#consultation textarea{
-
-width:100%;
-
-max-width:650px;
-
-margin:15px auto;
-
-display:block;
-
-padding:18px;
-
-background:#111;
-
-color:white;
-
-border:1px solid var(--gold);
-
-border-radius:20px;
-
-font-size:16px;
-
-outline:none;
-
-}
-
-#consultation textarea{
-
-height:160px;
-
-resize:none;
-
-}
-
-#consultation button{
-
-margin-top:20px;
-
-padding:16px 40px;
-
-border:none;
-
-border-radius:30px;
-
-background:linear-gradient(45deg,#8b6508,#d4af37);
-
-font-weight:bold;
-
-cursor:pointer;
-
-transition:.3s;
-
-}
-
-#consultation button:hover{
-
-transform:scale(1.05);
-
-box-shadow:0 0 20px rgba(212,175,55,.5);
-
-}
-
-/* ========================= */
-/* REVIEWS */
-/* ========================= */
-
-#reviews{
-
-padding:80px 40px;
-
-text-align:center;
-
-}
-
-#reviews h1{
-
-color:var(--gold);
-
-margin-bottom:40px;
-
-font-size:45px;
-
-}
-
-.review{
-
-max-width:700px;
-
-margin:25px auto;
-
-background:#111;
-
-padding:30px;
-
-border-radius:25px;
-
-border:1px solid var(--gold);
-
-}
-
-.review p{
-
-margin:20px 0;
-
-line-height:1.8;
-
-color:#ddd;
-
-}
-
-.review h3{
-
-color:var(--gold);
-
-}
-
-/* ========================= */
-/* OUR STORY */
-/* ========================= */
-
-.story{
-
-padding:90px 40px;
-
-text-align:center;
-
-}
-
-.story h1{
-
-font-size:50px;
-
-color:var(--gold);
-
-margin-bottom:30px;
-
-}
-
-.story p{
-
-max-width:900px;
-
-margin:auto;
-
-line-height:2;
-
-font-size:18px;
-
-color:#ddd;
-
-}
-
-/* ========================= */
-/* CHECKOUT */
-/* ========================= */
-
-.checkout{
-
-padding:80px 20px;
-
-text-align:center;
-
-}
-
-.checkout h1{
-
-color:var(--gold);
-
-margin-bottom:35px;
-
-}
-
-.checkout input{
-
-width:100%;
-
-max-width:600px;
-
-padding:18px;
-
-margin:15px auto;
-
-display:block;
-
-background:#111;
-
-color:white;
-
-border:1px solid var(--gold);
-
-border-radius:20px;
-
-}
-
-.checkout label{
-
-display:block;
-
-margin:15px;
-
-font-size:18px;
-
-}
-
-.checkout button{
-
-margin-top:30px;
-
-padding:18px 45px;
-
-border:none;
-
-border-radius:30px;
-
-background:linear-gradient(45deg,#8b6508,#d4af37);
-
-cursor:pointer;
-
-font-weight:bold;
-
-font-size:18px;
-
-}
-
-#doneMessage{
-
-display:none;
-
-margin-top:35px;
-
-color:var(--gold);
-
-font-size:30px;
-
-}
-/* ========================= */
-/* CONTACT */
-/* ========================= */
-
-#contact{
-
-padding:80px 20px;
-
-text-align:center;
-
-background:#0b0b0b;
-
-}
-
-#contact h1{
-
-color:var(--gold);
-
-font-size:42px;
-
-margin-bottom:25px;
-
-}
-
-#contact p{
-
-font-size:20px;
-
-margin-bottom:20px;
-
-color:#ddd;
-
-}
-
-#contact a{
-
-display:inline-block;
-
-padding:18px 40px;
-
-background:linear-gradient(45deg,#8b6508,#d4af37);
-
-color:black;
-
-font-weight:bold;
-
-border-radius:40px;
-
-text-decoration:none;
-
-transition:.3s;
-
-}
-
-#contact a:hover{
-
-transform:translateY(-5px);
-
-box-shadow:0 0 25px rgba(212,175,55,.6);
-
-}
-
-/* ========================= */
-/* FLOATING WHATSAPP */
-/* ========================= */
-
-.floating-whatsapp{
-
-position:fixed;
-
-bottom:25px;
-
-right:25px;
-
-width:70px;
-
-height:70px;
-
-background:#25D366;
-
-border-radius:50%;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-font-size:34px;
-
-color:white;
-
-text-decoration:none;
-
-box-shadow:0 0 20px rgba(0,0,0,.4);
-
-z-index:9999;
-
-transition:.3s;
-
-}
-
-.floating-whatsapp:hover{
-
-transform:scale(1.12);
-
-}
-
-/* ========================= */
-/* FOOTER */
-/* ========================= */
-
-footer{
-
-padding:30px;
-
-text-align:center;
-
-background:#000;
-
-border-top:1px solid var(--gold);
-
-}
-
-footer p{
-
-color:#aaa;
-
-}
-
-/* ========================= */
-/* RESPONSIVE */
-/* ========================= */
-
-@media(max-width:768px){
-
-header{
-
-flex-direction:column;
-
-padding:20px;
-
-}
-
-nav{
-
-flex-wrap:wrap;
-
-justify-content:center;
-
-margin:20px 0;
-
-}
-
-.hero h1{
-
-font-size:45px;
-
-}
-
-.hero p{
-
-font-size:18px;
-
-padding:0 20px;
-
-}
-
-.products{
-
-padding:25px;
-
-}
-
-.gallery{
-
-padding:25px;
-
-}
-
-.bundles{
-
-padding:25px;
-
-}
-
-.ingredients{
-
-padding:25px;
-
-}
-
-.story{
-
-padding:25px;
-
-}
-
-#consultation input,
-#consultation textarea,
-.checkout input{
-
-width:95%;
-
-}
-
-}
-
-/* ========================= */
-/* SCROLLBAR */
-/* ========================= */
-
-::-webkit-scrollbar{
-
-width:10px;
-
-}
-
-::-webkit-scrollbar-track{
-
-background:#111;
-
-}
-
-::-webkit-scrollbar-thumb{
-
-background:var(--gold);
-
-border-radius:10px;
-
-}
-// =========================
-// YOURS LUXURY
-// =========================
-
-let cart = [];
-let total = 0;
-
-// إضافة منتج
-
-function addToCart(product, price){
-
-cart.push({
-name: product,
-price: price
-});
-
-total += price;
-
-document.getElementById("cartCount").innerHTML = cart.length;
-
-alert(product + " added to your Beauty Bag ✨");
-
-}
-
-// =========================
-// إضافة الباندلز
-// =========================
-
-function addBundle(){
-
-cart.push(
-{name:"Deep Repair Shampoo",price:800},
-{name:"Conditioner",price:800},
-{name:"Hair Mask",price:800}
-);
-
-total +=2200;
-
-document.getElementById("cartCount").innerHTML = cart.length;
-
-alert("Complete Repair Bundle Added ✨");
-
-}
-
-function addShineBundle(){
-
-cart.push(
-{name:"Deep Repair Shampoo",price:800},
-{name:"Shine Serum",price:550}
-);
-
-total +=1200;
-
-document.getElementById("cartCount").innerHTML = cart.length;
-
-alert("Luxury Shine Bundle Added ✨");
-
-}
-
-// =========================
-// فتح Checkout
-// =========================
-
-function openCart(){
-
-document.getElementById("checkout").scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-
-// =========================
-// فلترة المنتجات
-// =========================
-
-function filterProducts(){
-
-let value=document.getElementById("hairFilter").value;
-
-let cards=document.querySelectorAll(".card");
-
-cards.forEach(card=>{
-
-if(value==="all"){
-
-card.style.display="block";
-
-}
-
-else{
-
-if(card.classList.contains(value)){
-
-card.style.display="block";
-
-}
-
-else{
-
-card.style.display="none";
-
-}
-
-}
-
-});
-
-}
-
-// =========================
-// النزول للمنتجات
-// =========================
-
-function scrollProducts(){
-
-document.getElementById("products").scrollIntoView({
-
-behavior:"smooth"
-
-});
-
-}
-// =========================
-// إظهار رقم InstaPay
-// =========================
-
-document.addEventListener("DOMContentLoaded", function(){
-
-const paymentOptions = document.getElementsByName("payment");
-const box = document.getElementById("instapayBox");
-
-if(box){
-box.style.display="none";
-}
-
-paymentOptions.forEach(option=>{
-
-option.addEventListener("change",function(){
-
-if(this.value==="InstaPay"){
-
-box.style.display="block";
-
-}else{
-
-box.style.display="none";
-
-}
-
-});
-
-});
-
-});
-
-// =========================
-// إكمال الطلب
-// =========================
-
-function completeOrder(){
-
-let name=document.getElementById("customerName").value;
-let phone=document.getElementById("customerPhone").value;
-let address=document.getElementById("customerAddress").value;
-let city=document.getElementById("customerCity").value;
-
-if(name==="" || phone==="" || address===""){
-
-alert("Please complete your information");
-return;
-
-}
-
-let payment=document.querySelector('input[name="payment"]:checked').value;
-
-let orderText="";
-
-cart.forEach(item=>{
-
-orderText += item.name + " - " + item.price + " EGP\n";
-
-});
-
-let message =
-"✨ NEW YOURS ORDER ✨\n\n"+
-"Customer: "+name+"\n"+
-"Phone: "+phone+"\n"+
-"Address: "+address+"\n"+
-"City: "+city+"\n"+
-"Payment: "+payment+"\n\n"+
-"Order:\n"+
-orderText+
-"\nTotal: "+total+" EGP";
-
-window.open(
-"https://wa.me/201003884148?text="+encodeURIComponent(message),
-"_blank"
-);
-
-document.getElementById("doneMessage").style.display="block";
-
