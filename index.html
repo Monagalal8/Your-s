@@ -44,7 +44,18 @@
         .product-card .price { color: var(--gold); font-size: 20px; font-weight: bold; margin: 10px 0; }
         .bundle-card { width: 100%; max-width: 500px; margin: auto; }
 
-        /* 5. Product & Bundle Details */
+        /* 5. Hair Quiz (New Section) */
+        .quiz-container { max-width: 700px; margin: auto; background: var(--dark-bg); border: 2px solid var(--gold); border-radius: 30px; padding: 40px; text-align: center; }
+        .quiz-step { display: none; }
+        .quiz-step.active { display: block; }
+        .quiz-options { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 30px 0; }
+        .quiz-opt { background: #0b0b0b; border: 1px solid #444; padding: 20px; border-radius: 20px; cursor: pointer; transition: 0.3s; font-size: 16px; font-weight: bold; }
+        .quiz-opt:hover, .quiz-opt.selected { border-color: var(--gold); background: #1a1510; color: var(--light); }
+        .result-box { display: none; border-top: 1px solid var(--gold); margin-top: 25px; padding-top: 25px; text-align: left; }
+        .result-product { display: flex; align-items: center; gap: 20px; background: #0b0b0b; padding: 15px; border-radius: 20px; margin-top: 15px; border: 1px solid #333; }
+        .result-product img { width: 80px; height: 80px; object-fit: cover; border-radius: 10px; border: 1px solid var(--gold); }
+
+        /* 6. Product & Bundle Details */
         .details-box { display: flex; justify-content: center; align-items: center; gap: 50px; flex-wrap: wrap; margin-top: 20px; }
         .detail-img { width: 400px; height: 400px; object-fit: cover; border-radius: 30px; border: 1px solid var(--gold); background: var(--dark-bg); }
         .details-text { max-width: 500px; }
@@ -53,7 +64,7 @@
         .details-text h3 { color: var(--gold); border-bottom: 1px solid #333; padding-bottom: 5px; }
         .details-text ul { padding-left: 20px; line-height: 1.8; }
 
-        /* 6. Cart & Checkout Boxes */
+        /* 7. Cart & Checkout Boxes */
         .interactive-box { max-width: 600px; margin: auto; background: var(--dark-bg); border: 1px solid var(--gold); border-radius: 30px; padding: 35px; }
         .cart-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding: 15px 0; }
         .cart-item button { background: none; border: none; color: #ff5c5c; cursor: pointer; font-size: 18px; }
@@ -62,7 +73,7 @@
         .price-summary { margin-top: 25px; border-top: 1px solid var(--gold); padding-top: 20px; line-height: 2; }
         .price-summary span { float: right; color: var(--light); }
 
-        /* 7. Grids (Why, Guide, Spotlight) */
+        /* 8. Grids */
         .info-grid { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
         .info-card { background: var(--dark-bg); border: 1px solid var(--gold); border-radius: 30px; padding: 30px; width: 320px; text-align: center; cursor: pointer; transition: .4s; }
         .info-card:hover { transform: translateY(-5px); }
@@ -72,7 +83,7 @@
         .gallery img { width: 280px; height: 350px; object-fit: cover; border-radius: 20px; border: 1px solid var(--gold); }
         .reviews-list { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; margin-top: 30px; }
 
-        /* 8. Toast, Floating & Footer */
+        /* 9. Toast, Floating & Footer */
         .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #111; padding: 15px 40px; border-radius: 30px; display: none; z-index: 9999; font-weight: bold; font-size: 18px; box-shadow: 0 5px 15px rgba(0,0,0,0.5); }
         .floating-whatsapp { position: fixed; right: 25px; bottom: 25px; width: 65px; height: 65px; border-radius: 50%; background: #25D366; color: white; display: flex; align-items: center; justify-content: center; font-size: 32px; text-decoration: none; z-index: 9999; box-shadow: 0 4px 10px rgba(0,0,0,0.3); }
         footer { background: #050505; border-top: 1px solid var(--gold); padding: 60px 20px; text-align: center; margin-top: 60px; }
@@ -90,6 +101,7 @@
             .section-title { font-size: 32px; }
             .product-card, .info-card { width: 100%; }
             .detail-img { width: 100%; height: auto; }
+            .quiz-options { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -109,8 +121,8 @@
         <nav>
             <a href="#products" onclick="showSection('home')">Products</a>
             <a href="#bundles" onclick="showSection('home')">Bundles</a>
+            <a href="#quiz-section" onclick="showSection('home')">Hair Guide Quiz</a>
             <a href="#why" onclick="showSection('home')">Why YOURS</a>
-            <a href="#consultant">Hair Guide</a>
         </nav>
         <div class="cart-btn" onclick="openCart()">🛒 <span id="cartCount">0</span></div>
     </header>
@@ -128,11 +140,45 @@
                 <button class="btn" onclick="document.getElementById('products').scrollIntoView();">Shop Collection ✨</button>
             </section>
 
-            <!-- New Collection Banner -->
-            <section class="new-banner">
-                <h2>New Collection Coming Soon ✨</h2>
-                <p>Stay tuned for our latest luxury hair experience. Get ready to elevate your ritual.</p>
-                <button class="btn" onclick="document.getElementById('club').scrollIntoView();">Get VIP Access</button>
+            <!-- HAIR CONSULTANT QUIZ SECTION -->
+            <section class="luxury-section" id="quiz-section">
+                <h2 class="section-title">YOURS Hair Consultant ✨</h2>
+                <div class="quiz-container">
+                    <!-- Step 1: Hair Type -->
+                    <div id="step-1" class="quiz-step active">
+                        <h2>ما هو نوع شعركِ؟ / What is your hair type?</h2>
+                        <p style="color: #aaa;">اختاري طبيعة شعرك الحالية للحصول على أفضل روتين مخصص</p>
+                        <div class="quiz-options">
+                            <div class="quiz-opt" onclick="selectHairType('dry', this)">جاف ومتقصف / Dry & Brittle 💧</div>
+                            <div class="quiz-opt" onclick="selectHairType('oily', this)">دهني / Oily Scalp 🧴</div>
+                            <div class="quiz-opt" onclick="selectHairType('normal', this)">عادي / Normal Hair ✨</div>
+                            <div class="quiz-opt" onclick="selectHairType('dyed', this)">مصبوغ أو معالج كيميائياً / Treated 🎨</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Hair Problem -->
+                    <div id="step-2" class="quiz-step">
+                        <h2>ما هي المشكلة الأساسية التي تواجهكِ؟</h2>
+                        <p style="color: #aaa;">What is your primary hair concern?</p>
+                        <div class="quiz-options">
+                            <div class="quiz-opt" onclick="selectConcern('damage', this)">التلف والهيشان / Frizz & Damage ⚡</div>
+                            <div class="quiz-opt" onclick="selectConcern('loss', this)">التساقط والضعف / Hair Loss & Weakness 📉</div>
+                            <div class="quiz-opt" onclick="selectConcern('oil', this)">فروة دهنية وقشرة / Dandruff & Excess Oils ❄️</div>
+                            <div class="quiz-opt" onclick="selectConcern('dull', this)">الباهت وفقدان اللمعان / Dull & No Shine ☁️</div>
+                        </div>
+                        <button class="btn" onclick="prevQuizStep(1)" style="background: none; border: 1px solid var(--gold); color: white; margin-top: 15px;">← العودة / Back</button>
+                    </div>
+
+                    <!-- Step 3: Result View -->
+                    <div id="step-3" class="quiz-step">
+                        <h2 style="color: var(--gold);">✨ روتينكِ الفاخر المخصص من YOURS ✨</h2>
+                        <p id="quiz-analysis-text" style="line-height: 1.6; color: #eee; font-size: 18px;"></p>
+                        
+                        <div id="quiz-results-holder"></div>
+
+                        <button class="btn" onclick="restartQuiz()" style="margin-top: 25px; background: none; border: 1px solid var(--gold); color: white; width: 100%;">إعادة الاختبار / Retake Quiz 🔄</button>
+                    </div>
+                </div>
             </section>
 
             <!-- Products Carousel -->
@@ -140,28 +186,28 @@
                 <h2 class="section-title">Luxury Collection ✨</h2>
                 <div class="carousel-container">
                     <div class="carousel-track" id="product-track">
-                        <!-- Card 1 (Real Shampoo Image) -->
+                        <!-- Card 1 -->
                         <div class="product-card" onclick="openProduct('shampoo')">
                             <img src="be92c3e2-8ee4-44f3-a061-2696cffa14dd.jpeg" alt="Luxury Shampoo">
                             <h2>Luxury Shampoo</h2>
                             <p style="color:#aaa;">1000ml</p>
                             <div class="price">800 EGP</div>
                         </div>
-                        <!-- Card 2 (Real Conditioner Image) -->
+                        <!-- Card 2 -->
                         <div class="product-card" onclick="openProduct('conditioner')">
                             <img src="78a4e8aa-4b9e-4186-bc77-03e7b7712c03.jpeg" alt="Luxury Conditioner">
                             <h2>Luxury Conditioner</h2>
                             <p style="color:#aaa;">1000ml</p>
                             <div class="price">800 EGP</div>
                         </div>
-                        <!-- Card 3 (Real Mask Image) -->
+                        <!-- Card 3 -->
                         <div class="product-card" onclick="openProduct('mask')">
                             <img src="b81ee2c9-2169-450d-a0e9-7680c587813a.jpeg" alt="Repair Treatment Mask">
                             <h2>Repair Treatment Mask</h2>
                             <p style="color:#aaa;">500ml</p>
                             <div class="price">800 EGP</div>
                         </div>
-                        <!-- Card 4 (Real Serum Image) -->
+                        <!-- Card 4 -->
                         <div class="product-card" onclick="openProduct('serum')">
                             <img src="5a214e20-5c11-4baf-9220-8cc1b7ed44e5_2.jpeg" alt="Shine Serum">
                             <h2>Shine Serum</h2>
@@ -177,7 +223,6 @@
                 <h2 class="section-title">YOURS Signature Bundles 🎁</h2>
                 <div class="carousel-container">
                     <div class="carousel-track" id="bundle-track">
-                        <!-- Bundle Card (Real Bundle Image) -->
                         <div class="product-card bundle-card" onclick="openBundle()">
                             <img src="80794169-cd17-4561-b558-2a3c4efc161a.jpeg" alt="Complete Hair Ritual Bundle">
                             <h2>Complete Hair Ritual Bundle ✨</h2>
@@ -208,39 +253,6 @@
                         <h2>💎 Personal Care</h2>
                         <p>A meticulous routine designed precisely for your hair's unique lifestyle.</p>
                         <span class="reaction"></span>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Ingredient Spotlight & Instructions -->
-            <section class="luxury-section">
-                <h2 class="section-title">Ingredient Spotlight 🧪</h2>
-                <div class="info-grid">
-                    <div class="info-card"><h3>Shampoo ✨</h3><p>Deep cleansing nutrients that refresh the scalp completely.</p></div>
-                    <div class="info-card"><h3>Repair Mask 💎</h3><p>Intensive therapy designed to heal structurally damaged fibers.</p></div>
-                    <div class="info-card"><h3>Shine Serum 🌟</h3><p>Seals outer cuticles perfectly to lock out frizz and maximize reflection.</p></div>
-                </div>
-            </section>
-
-            <!-- Guides & Diary -->
-            <section class="luxury-section" id="consultant">
-                <h2 class="section-title">Seasonal Hair Guide ☀️❄️</h2>
-                <div class="info-grid">
-                    <div class="info-card" style="text-align: left;">
-                        <h3 style="text-align: center;">☀️ Summer Care</h3>
-                        <ul style="padding-left:15px; color:#ccc;">
-                            <li>Wash 2-3 times maximum weekly.</li>
-                            <li>Use lightweight moisture products.</li>
-                            <li>Protect completely from pool chlorine.</li>
-                        </ul>
-                    </div>
-                    <div class="info-card" style="text-align: left;">
-                        <h3 style="text-align: center;">❄️ Winter Care</h3>
-                        <ul style="padding-left:15px; color:#ccc;">
-                            <li>Wash 1-2 times strictly.</li>
-                            <li>Double up rich deep conditioning treatments.</li>
-                            <li>Avoid washing with boiling hot water.</li>
-                        </ul>
                     </div>
                 </div>
             </section>
@@ -376,17 +388,12 @@
     <footer>
         <h1>YOURS</h1>
         <p>Luxury Hair Care Experience ✨</p>
-        <div class="footer-links">
-            <a href="#" onclick="showSection('home')">Home</a>
-            <a href="#products" onclick="showSection('home')">Products</a>
-            <a href="#bundles" onclick="showSection('home')">Bundles</a>
-        </div>
         <p class="copyright">© YOURS Luxury Hair Care. All Rights Reserved.</p>
     </footer>
 
     <!-- JavaScript logic -->
     <script>
-        // Database Matrix updated with all your real luxury images
+        // Database Matrix
         const products = {
             shampoo: { name: "Luxury Shampoo", size: "1000ml", price: 800, image: "be92c3e2-8ee4-44f3-a061-2696cffa14dd.jpeg", benefits: ["Deep cleansing matrix", "Fresh premium scalp sensation", "Silky post-wash structure"], use: "Massage thoroughly through wet strands, lather carefully, then rinse elegantly." },
             conditioner: { name: "Luxury Conditioner", size: "1000ml", price: 800, image: "78a4e8aa-4b9e-4186-bc77-03e7b7712c03.jpeg", benefits: ["Instant cuticle hydration", "Zero-friction effortless detangling", "Satin glossy finish"], use: "Apply uniformly across mid-lengths down to ends post-shampoo. Leave 3 minutes, rinse." },
@@ -396,6 +403,100 @@
 
         let cart = [];
         let currentProductKey = null;
+
+        // --- HAIR QUIZ SYSTEM LOGIC ---
+        let userHairType = "";
+        let userConcern = "";
+
+        function selectHairType(type, element) {
+            userHairType = type;
+            document.querySelectorAll('#step-1 .quiz-opt').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            setTimeout(() => {
+                document.getElementById('step-1').classList.remove('active');
+                document.getElementById('step-2').classList.add('active');
+            }, 300);
+        }
+
+        function selectConcern(concern, element) {
+            userConcern = concern;
+            document.querySelectorAll('#step-2 .quiz-opt').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            setTimeout(() => {
+                document.getElementById('step-2').classList.remove('active');
+                document.getElementById('step-3').classList.add('active');
+                calculateQuizResult();
+            }, 300);
+        }
+
+        function prevQuizStep(step) {
+            document.getElementById('step-2').classList.remove('active');
+            document.getElementById('step-1').classList.add('active');
+        }
+
+        function calculateQuizResult() {
+            const analysisText = document.getElementById('quiz-analysis-text');
+            const holder = document.getElementById('quiz-results-holder');
+            holder.innerHTML = "";
+
+            let recommendedKeys = [];
+            let advice = "";
+
+            // Custom Smart Engine Analysis
+            if (userConcern === 'damage' || userHairType === 'dry') {
+                advice = "شَعركِ يحتاج إلى ترميم وترطيب مكثف وعميق لإعادة بناء الروابط التالفة وتغذية الخصلات الجافة. الروتين المثالي لكِ يتضمن الشامبو والبلسم مع قناع الترطيب العميق والسيروم لحمايته من الهيشان.";
+                recommendedKeys = ['shampoo', 'conditioner', 'mask', 'serum'];
+            } else if (userConcern === 'dull') {
+                advice = "شَعركِ يفتقد الحيوية واللمعان الساحر نتيجة العوامل الخارجية. ننصحكِ بدمج السيروم الفاخر مع الشامبو والبلسم لغلق حراشف الشعرة وعكس الضوء لأقصى بريق ممكن.";
+                recommendedKeys = ['shampoo', 'conditioner', 'serum'];
+            } else if (userConcern === 'oil') {
+                advice = "فروة رأسكِ تحتاج إلى تنظيف عميق ومتوازن بدون تجفيف الأطراف. الشامبو والبلسم من YOURS مع السيروم الخفيف على الأطراف فقط سيعيد التوازن المثالي لشعركِ.";
+                recommendedKeys = ['shampoo', 'conditioner', 'serum'];
+            } else {
+                advice = "للحفاظ على قوة شعركِ وحمايته المستمرة من العوامل الجوية والبيئية، نقترح عليكِ روتين التغذية الكامل لضمان بقائه في قمة صحته ونعومته.";
+                recommendedKeys = ['shampoo', 'conditioner', 'mask'];
+            }
+
+            analysisText.innerText = advice;
+
+            // Render Recommended Items Indivudally with direct Add to Cart CTA
+            recommendedKeys.forEach(key => {
+                const prod = products[key];
+                holder.innerHTML += `
+                    <div class="result-product">
+                        <img src="${prod.image}" alt="${prod.name}">
+                        <div style="flex-grow: 1;">
+                            <h4 style="margin: 0 0 5px; color: var(--light);">${prod.name}</h4>
+                            <span style="color: var(--gold); font-weight: bold;">${prod.price} EGP</span>
+                        </div>
+                        <button class="btn" onclick="directQuizAdd('${key}')" style="padding: 10px 20px; font-size: 13px;">Add 🛒</button>
+                    </div>
+                `;
+            });
+
+            // Special Promo if they want the whole bundle
+            if(recommendedKeys.length === 4) {
+                holder.innerHTML += `
+                    <div style="margin-top:20px; padding:15px; background:rgba(197,160,89,0.1); border:1px dashed var(--gold); border-radius:20px; text-align:center;">
+                        <p style="margin:0 0 10px; color:#fff; font-weight:bold;">💡 وفرّي واحصلي على المجموعة الكاملة (Bundle) بخصم خاص!</p>
+                        <button class="btn" onclick="addBundleToCart()" style="font-size:14px; padding:10px 25px;">شراء المجموعة كاملة ✨</button>
+                    </div>
+                `;
+            }
+        }
+
+        function directQuizAdd(key) {
+            currentProductKey = key;
+            addProductToCart();
+        }
+
+        function restartQuiz() {
+            userHairType = "";
+            userConcern = "";
+            document.querySelectorAll('.quiz-opt').forEach(opt => opt.classList.remove('selected'));
+            document.getElementById('step-3').classList.remove('active');
+            document.getElementById('step-1').classList.add('active');
+        }
 
         // Auto Scroll Carousel System
         function setupAutoScroll(trackId) {
@@ -418,8 +519,6 @@
             document.getElementById('bundle-details-view').style.display = view === 'bundle' ? 'block' : 'none';
             document.getElementById('cart-view').style.display = view === 'cart' ? 'block' : 'none';
             document.getElementById('checkout-view').style.display = view === 'checkout' ? 'block' : 'none';
-            
-            // Toggle visibility of lower widgets
             document.getElementById('community-footer-sections').style.display = view === 'home' ? 'block' : 'none';
             window.scrollTo({top: 0});
         }
@@ -512,7 +611,7 @@
             document.getElementById('chkFinal').innerText = subtotal + 50 + gift;
         }
 
-        // WhatsApp Formulation API
+        // WhatsApp Order Formulation
         function confirmAndSend() {
             const name = document.getElementById('customerName').value.trim();
             const phone = document.getElementById('customerPhone').value.trim();
@@ -540,8 +639,7 @@
             msg += `👑 *Total Amount:* ${finalCost} EGP\n\n`;
             msg += `Thank you for choosing YOURS 🤍`;
 
-            // Replace with real business number
-            const targetPhone = "201XXXXXXXXX"; 
+            const targetPhone = "201XXXXXXXXX"; // وضعي رقم الواتساب الحقيقي هنا
             window.open(`https://wa.me/${targetPhone}?text=${encodeURIComponent(msg)}`, '_blank');
         }
 
