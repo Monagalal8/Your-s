@@ -9,13 +9,140 @@
 
 <title>YOURS Luxury</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+*{
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+scroll-behavior:smooth;
+}
 
-<link rel="stylesheet" href="style.css">
+body{
+margin:0;
+background:#050505;
+color:white;
+}
 
-<script src="https://kit.fontawesome.com/6f2d8c8d5e.js" crossorigin="anonymous"></script>
+:root{
+--gold:#D4AF37;
+--dark:#111;
+}
+
+header{
+
+padding:20px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#000;
+border-bottom:1px solid var(--gold);
+position:sticky;
+top:0;
+z-index:1000;
+
+}
+
+.logo{
+
+font-size:40px;
+font-weight:bold;
+letter-spacing:5px;
+color:var(--gold);
+
+}
+
+nav a{
+
+color:white;
+text-decoration:none;
+margin:10px;
+}
+
+nav a:hover{
+
+color:var(--gold);
+
+}
+
+button{
+
+background:linear-gradient(45deg,#8b6508,#D4AF37);
+border:none;
+padding:15px 30px;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+
+}
+
+.hero{
+
+height:80vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+
+}
+
+.hero h1{
+
+font-size:65px;
+color:var(--gold);
+
+}
+
+.hero p{
+
+font-size:22px;
+color:#ddd;
+
+}
+
+.products{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:30px;
+padding:50px;
+
+}
+
+.card{
+
+background:#111;
+border:1px solid var(--gold);
+border-radius:25px;
+padding:25px;
+text-align:center;
+
+}
+
+.card img{
+
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:20px;
+
+}
+
+.card h2{
+
+color:var(--gold);
+
+}
+
+.price{
+
+color:var(--gold);
+font-size:24px;
+font-weight:bold;
+
+}
+
+</style>
 
 </head>
 
@@ -24,75 +151,44 @@
 <header>
 
 <div class="logo">
-
 YOURS ✨
-
 </div>
 
 <nav>
-
-<a href="#home">Home</a>
-
 <a href="#products">Products</a>
-
 <a href="#bundles">Bundles</a>
-
-<a href="#reviews">Reviews</a>
-
 <a href="#consultation">Consultation</a>
-
-<a href="#story">Our Story</a>
-
+<a href="#checkout">Order</a>
 </nav>
 
-<button class="cart-btn" onclick="openCheckout()">
-
-🛒 Beauty Bag
-
-<span id="cartCount">0</span>
-
+<button onclick="openCheckout()">
+🛒 Checkout
 </button>
 
 </header>
 
-<section class="hero" id="home">
+<section class="hero">
 
-<h1>Luxury Hair Care</h1>
+<h1>YOURS Luxury</h1>
 
-<p>
-
-Professional Hair Care Made With Science & Luxury.
-
-</p>
-
-<a href="#products">
-
-<button>
-
-Shop Now
-
-</button>
-
-</a>
+<p>Premium Hair Care Collection</p>
 
 </section>
 <!-- PRODUCTS -->
 
 <section class="products" id="products">
 
-<div class="card damaged dry">
+<div class="card">
 
-<img src="images/shampoo.jpg" alt="Shampoo">
+<img src="images/shampoo.jpg">
 
 <h2>YOURS Deep Repair Shampoo</h2>
 
-<p>500 ml</p>
+<p>
+Luxury shampoo that repairs damaged hair and restores softness.
+</p>
 
 <p class="price">800 EGP</p>
-
-<p>
-Repairs damaged hair and restores softness & shine.
-</p>
 
 <button onclick="addToCart('Deep Repair Shampoo',800)">
 Add to Beauty Bag
@@ -100,39 +196,37 @@ Add to Beauty Bag
 
 </div>
 
-<div class="card damaged">
 
-<img src="images/conditioner.jpg" alt="Conditioner">
+<div class="card">
+
+<img src="images/conditioner.jpg">
 
 <h2>YOURS Intensive Conditioner</h2>
 
-<p>500 ml</p>
+<p>
+Deep hydration formula for smooth and healthy hair.
+</p>
 
 <p class="price">800 EGP</p>
 
-<p>
-Deep hydration and smooth finish for healthy hair.
-</p>
-
-<button onclick="addToCart('Conditioner',800)">
+<button onclick="addToCart('Intensive Conditioner',800)">
 Add to Beauty Bag
 </button>
 
 </div>
 
-<div class="card damaged dry">
 
-<img src="images/hairmask.jpg" alt="Hair Mask">
+<div class="card">
+
+<img src="images/hairmask.jpg">
 
 <h2>YOURS Hair Mask</h2>
 
-<p>500 ml</p>
+<p>
+Professional treatment that improves strength and shine.
+</p>
 
 <p class="price">800 EGP</p>
-
-<p>
-Professional intensive treatment for damaged hair.
-</p>
 
 <button onclick="addToCart('Hair Mask',800)">
 Add to Beauty Bag
@@ -140,48 +234,42 @@ Add to Beauty Bag
 
 </div>
 
+
 <div class="card">
 
-<img src="images/serum.jpg" alt="Serum">
+<img src="images/serum.jpg">
 
-<h2>YOURS Ultimate Shine Serum</h2>
+<h2>YOURS Shine Serum</h2>
 
-<p>100 ml</p>
+<p>
+Lightweight serum for smoothness and beautiful shine.
+</p>
 
 <p class="price">550 EGP</p>
 
-<p>
-Lightweight serum for shine and heat protection.
-</p>
-
-<button onclick="addToCart('Serum',550)">
+<button onclick="addToCart('Shine Serum',550)">
 Add to Beauty Bag
 </button>
 
 </div>
 
 </section>
-<!-- ===================== -->
-<!-- LUXURY BUNDLES -->
-<!-- ===================== -->
 
-<section class="bundles" id="bundles">
 
-<h1>Luxury Bundles ✨</h1>
 
-<div class="bundle-card">
+<!-- BUNDLES -->
 
-<h2>Complete Repair Set</h2>
+<section id="bundles" class="products">
 
-<p>✔ Deep Repair Shampoo</p>
+<div class="card">
 
-<p>✔ Intensive Conditioner</p>
+<h2>Complete Repair Bundle ✨</h2>
 
-<p>✔ Hair Mask</p>
+<p>
+Shampoo + Conditioner + Hair Mask
+</p>
 
-<p><del>2400 EGP</del></p>
-
-<h3 class="price">2200 EGP</h3>
+<p class="price">2200 EGP</p>
 
 <button onclick="addBundle()">
 Add Bundle
@@ -189,17 +277,16 @@ Add Bundle
 
 </div>
 
-<div class="bundle-card">
 
-<h2>Luxury Shine Set</h2>
+<div class="card">
 
-<p>✔ Deep Repair Shampoo</p>
+<h2>Luxury Shine Bundle ✨</h2>
 
-<p>✔ Ultimate Shine Serum</p>
+<p>
+Shampoo + Shine Serum
+</p>
 
-<p><del>1350 EGP</del></p>
-
-<h3 class="price">1200 EGP</h3>
+<p class="price">1200 EGP</p>
 
 <button onclick="addShineBundle()">
 Add Bundle
@@ -209,96 +296,70 @@ Add Bundle
 
 </section>
 
-<!-- ===================== -->
+
+
+<!-- INGREDIENTS -->
+
+<section class="products">
+
+<div class="card">
+
+<h2>Ingredient Spotlight</h2>
+
+<p>
+Vitamin E: protects hair and adds shine.
+<br><br>
+Argan Oil: nourishes dry hair.
+<br><br>
+Keratin: strengthens damaged hair.
+</p>
+
+</div>
+
+</section>
 <!-- BEFORE & AFTER -->
-<!-- ===================== -->
 
-<section class="gallery">
+<section class="products">
 
-<h1>Before & After</h1>
+<div class="card">
 
-<div class="gallery-grid">
+<h2>Before & After ✨</h2>
 
-<img src="images/before1.jpg" alt="Before">
+<img src="images/before1.jpg">
 
-<img src="images/after1.jpg" alt="After">
-
-<img src="images/before2.jpg" alt="Before">
-
-<img src="images/after2.jpg" alt="After">
-
-</div>
-
-</section>
-<!-- ===================== -->
-<!-- INGREDIENT SPOTLIGHT -->
-<!-- ===================== -->
-
-<section class="ingredients">
-
-<h1>Ingredient Spotlight</h1>
-
-<div class="ingredient">
-
-<h2>Vitamin E</h2>
+<img src="images/after1.jpg">
 
 <p>
-Helps protect hair from damage and adds natural shine.
-</p>
-
-</div>
-
-<div class="ingredient">
-
-<h2>Argan Oil</h2>
-
-<p>
-Deeply nourishes hair and reduces dryness.
-</p>
-
-</div>
-
-<div class="ingredient">
-
-<h2>Keratin</h2>
-
-<p>
-Repairs damaged hair fibers and improves strength.
-</p>
-
-</div>
-
-<div class="ingredient">
-
-<h2>Panthenol</h2>
-
-<p>
-Provides moisture and softness while reducing frizz.
+Real results from YOURS Hair Care routine.
 </p>
 
 </div>
 
 </section>
 
-<!-- ===================== -->
+
+
 <!-- CONSULTATION -->
-<!-- ===================== -->
 
-<section id="consultation">
+<section class="products" id="consultation">
 
-<h1>Consult the Hair Expert</h1>
+<div class="card">
 
-<input
-type="text"
-id="conName"
-placeholder="Full Name">
+<h2>Consult the Hair Expert 👩‍🔬</h2>
 
-<input
-type="tel"
-id="conPhone"
-placeholder="Phone Number">
 
-<select id="hairType">
+<input id="conName"
+placeholder="Your Name"
+style="width:90%;padding:15px;margin:10px;border-radius:15px;">
+
+
+<input id="conPhone"
+placeholder="Phone Number"
+style="width:90%;padding:15px;margin:10px;border-radius:15px;">
+
+
+<select id="hairType"
+style="width:90%;padding:15px;margin:10px;border-radius:15px;">
 
 <option>Dry Hair</option>
 
@@ -308,160 +369,139 @@ placeholder="Phone Number">
 
 <option>Colored Hair</option>
 
-<option>Curly Hair</option>
-
 </select>
 
-<textarea
-id="problem"
-placeholder="Tell us about your hair...">
+
+<textarea id="problem"
+placeholder="Your Hair Problem"
+style="width:90%;height:120px;padding:15px;margin:10px;border-radius:15px;">
 </textarea>
+
 
 <button onclick="sendConsultation()">
 
-Request Consultation
+Send Request
 
 </button>
 
-</section>
-
-<!-- ===================== -->
-<!-- CUSTOMER REVIEWS -->
-<!-- ===================== -->
-
-<section id="reviews">
-
-<h1>Customer Reviews</h1>
-
-<div class="review">
-
-⭐⭐⭐⭐⭐
-
-<p>
-"The shampoo completely changed my hair!"
-</p>
-
-<h3>- Sara</h3>
-
-</div>
-
-<div class="review">
-
-⭐⭐⭐⭐⭐
-
-<p>
-"My hair became much softer after one week."
-</p>
-
-<h3>- Nada</h3>
-
-</div>
-
-<div class="review">
-
-⭐⭐⭐⭐⭐
-
-<p>
-"The Hair Mask is amazing."
-</p>
-
-<h3>- Mariam</h3>
 
 </div>
 
 </section>
-<!-- ===================== -->
+
+
+
+
+<!-- REVIEWS -->
+
+<section class="products">
+
+<div class="card">
+
+<h2>Customer Reviews ⭐</h2>
+
+<p>
+⭐⭐⭐⭐⭐
+<br>
+"My hair feels healthier and softer."
+</p>
+
+<p>
+⭐⭐⭐⭐⭐
+<br>
+"Luxury quality and amazing results."
+</p>
+
+</div>
+
+</section>
+
+
+
+
 <!-- OUR STORY -->
-<!-- ===================== -->
 
-<section id="story" class="story">
+<section class="products" id="story">
 
-<h1>Our Story</h1>
+<div class="card">
+
+<h2>Our Story</h2>
 
 <p>
 
-YOURS was created to combine luxury with science.
-
-Every formula is carefully designed to nourish,
-repair and protect every hair type using premium ingredients.
-
-Healthy Hair Starts Here.
+YOURS combines science and luxury to create professional hair care formulas designed to restore beauty and confidence.
 
 </p>
 
+</div>
+
 </section>
 
-<!-- ===================== -->
+
+
+
 <!-- CHECKOUT -->
-<!-- ===================== -->
 
-<section id="checkout" class="checkout">
+<section class="products" id="checkout">
 
-<h1>Complete Your Order</h1>
+<div class="card">
 
-<input
-type="text"
-id="customerName"
-placeholder="Full Name">
+<h2>Complete Your Order ✨</h2>
 
-<input
-type="text"
-id="customerPhone"
-placeholder="Phone Number">
 
-<input
-type="text"
-id="customerAddress"
-placeholder="Address">
+<input id="customerName"
+placeholder="Full Name"
+style="width:90%;padding:15px;margin:10px;border-radius:15px;">
 
-<input
-type="text"
-id="customerCity"
-placeholder="City">
 
-<h2>Select Payment Method</h2>
+<input id="customerPhone"
+placeholder="Phone Number"
+style="width:90%;padding:15px;margin:10px;border-radius:15px;">
+
+
+<input id="customerAddress"
+placeholder="Address"
+style="width:90%;padding:15px;margin:10px;border-radius:15px;">
+
+
+<input id="customerCity"
+placeholder="City"
+style="width:90%;padding:15px;margin:10px;border-radius:15px;">
+
+
+<h3>Payment Method</h3>
+
 
 <label>
-
-<input
-type="radio"
-name="payment"
-value="Cash"
-checked>
-
-Cash on Delivery
-
+<input type="radio" name="payment" value="Cash" checked>
+Cash
 </label>
 
+<br>
+
 <label>
-
-<input
-type="radio"
-name="payment"
-value="InstaPay">
-
+<input type="radio" name="payment" value="InstaPay">
 InstaPay
-
 </label>
+
+<br>
 
 <label>
-
-<input
-type="radio"
-name="payment"
-value="Visa">
-
-Visa / Mastercard
-
+<input type="radio" name="payment" value="Visa">
+Visa
 </label>
 
-<div id="instapayBox" style="display:none;">
 
-<h3>InstaPay Number</h3>
+<div id="instapayBox">
 
-<p>01003884148</p>
+<p>
+InstaPay Number:
+<br>
+01003884148
+</p>
 
 </div>
+
 
 <button onclick="completeOrder()">
 
@@ -469,54 +509,243 @@ Place Order
 
 </button>
 
-<h2 id="doneMessage" style="display:none;">
 
-🎉 Order Completed Successfully
+<h2 id="doneMessage"></h2>
 
-</h2>
 
-</section>
-
-<!-- ===================== -->
-<!-- CONTACT -->
-<!-- ===================== -->
-
-<section id="contact">
-
-<h1>Contact Us</h1>
-
-<a
-href="https://wa.me/201003884148"
-target="_blank">
-
-Chat on WhatsApp
-
-</a>
+</div>
 
 </section>
+<!-- WHATSAPP BUTTON -->
 
-<!-- Floating WhatsApp -->
-
-<a
-class="floating-whatsapp"
-href="https://wa.me/201003884148"
-target="_blank">
+<a href="https://wa.me/201003884148"
+style="
+position:fixed;
+bottom:25px;
+right:25px;
+background:#25D366;
+color:white;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+">
 
 💬
 
 </a>
 
-<footer>
 
-<p>
+<footer style="
+padding:30px;
+text-align:center;
+background:#000;
+border-top:1px solid #D4AF37;
+">
 
-© 2026 YOURS Luxury Hair Care
-
-</p>
+© 2026 YOURS Luxury
 
 </footer>
 
-<script src="script.js"></script>
+
+
+<script>
+
+let cart=[];
+
+let total=0;
+
+
+
+function addToCart(name,price){
+
+cart.push({
+
+name:name,
+price:price
+
+});
+
+total += price;
+
+alert(name+" Added ✨");
+
+}
+
+
+
+function addBundle(){
+
+cart.push(
+{name:"Complete Repair Bundle",price:2200}
+);
+
+total+=2200;
+
+alert("Bundle Added ✨");
+
+}
+
+
+
+function addShineBundle(){
+
+cart.push(
+{name:"Luxury Shine Bundle",price:1200}
+);
+
+total+=1200;
+
+alert("Bundle Added ✨");
+
+}
+
+
+
+
+function openCheckout(){
+
+document.getElementById("checkout")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+
+
+
+function completeOrder(){
+
+
+let name =
+document.getElementById("customerName").value;
+
+
+let phone =
+document.getElementById("customerPhone").value;
+
+
+let address =
+document.getElementById("customerAddress").value;
+
+
+let city =
+document.getElementById("customerCity").value;
+
+
+
+let payment =
+document.querySelector('input[name="payment"]:checked').value;
+
+
+
+let order="";
+
+
+cart.forEach(item=>{
+
+order += item.name+" - "+item.price+" EGP\n";
+
+});
+
+
+
+let message =
+
+"✨ YOURS NEW ORDER ✨\n\n"+
+
+"Name: "+name+"\n"+
+
+"Phone: "+phone+"\n"+
+
+"Address: "+address+"\n"+
+
+"City: "+city+"\n"+
+
+"Payment: "+payment+"\n\n"+
+
+"Order:\n"+order+"\n"+
+
+"Total: "+total+" EGP";
+
+
+
+window.open(
+
+"https://wa.me/201003884148?text="+
+encodeURIComponent(message),
+
+"_blank"
+
+);
+
+
+
+document.getElementById("doneMessage").innerHTML=
+
+"🎉 Order Completed Successfully";
+
+
+}
+
+
+
+
+function sendConsultation(){
+
+
+let name=
+document.getElementById("conName").value;
+
+
+let phone=
+document.getElementById("conPhone").value;
+
+
+let type=
+document.getElementById("hairType").value;
+
+
+let problem=
+document.getElementById("problem").value;
+
+
+
+let message=
+
+"👩‍🔬 YOURS Consultation Request\n\n"+
+
+"Name: "+name+"\n"+
+
+"Phone: "+phone+"\n"+
+
+"Hair Type: "+type+"\n"+
+
+"Problem: "+problem;
+
+
+
+window.open(
+
+"https://wa.me/201003884148?text="+
+encodeURIComponent(message),
+
+"_blank"
+
+);
+
+
+}
+
+</script>
+
 
 </body>
 
