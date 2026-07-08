@@ -21,21 +21,25 @@ scroll-behavior:smooth;
 
 
 body{
+
 margin:0;
 background:#1A1A1A;
 color:white;
 font-family:Arial,sans-serif;
+
 }
 
 
 :root{
+
 --gold:#C5A059;
 --black:#1A1A1A;
+
 }
 
 
 
-/* LUXURY INTRO */
+/* INTRO */
 
 .intro{
 
@@ -43,8 +47,8 @@ position:fixed;
 inset:0;
 background:#1A1A1A;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 flex-direction:column;
 z-index:9999;
 animation:introHide 3s forwards;
@@ -79,21 +83,25 @@ animation:goldMove 4s infinite;
 .intro p{
 
 letter-spacing:6px;
-color:white;
 
 }
+
 
 
 
 @keyframes introHide{
 
 0%,80%{
+
 opacity:1;
+
 }
 
 100%{
+
 opacity:0;
 visibility:hidden;
+
 }
 
 }
@@ -160,19 +168,11 @@ animation:goldMove 5s infinite;
 }
 
 
-
 nav a{
 
 color:white;
 text-decoration:none;
 margin:0 12px;
-
-}
-
-
-nav a:hover{
-
-color:#C5A059;
 
 }
 
@@ -187,7 +187,7 @@ background:linear-gradient(
 #E8D39A
 );
 
-border:none;
+border:0;
 padding:15px 25px;
 border-radius:40px;
 font-weight:bold;
@@ -208,6 +208,7 @@ text-align:center;
 }
 
 
+
 .hero h1{
 
 font-family:'Bodoni Moda',serif;
@@ -216,6 +217,7 @@ letter-spacing:8px;
 color:#C5A059;
 
 }
+
 
 
 .hero p{
@@ -239,12 +241,13 @@ margin:20px;
 
 
 
-/* PRODUCTS */
+
+/* PRODUCT CAROUSEL */
 
 
 .luxury-products{
 
-padding:60px 50px;
+padding:60px 40px;
 
 }
 
@@ -256,17 +259,29 @@ text-align:center;
 font-family:'Bodoni Moda',serif;
 font-size:45px;
 color:#C5A059;
-margin-bottom:45px;
+margin-bottom:40px;
 
 }
 
 
 
-.product-row{
+.slider-container{
 
-display:grid;
-grid-template-columns:repeat(4,1fr);
+display:flex;
+align-items:center;
+gap:20px;
+
+}
+
+
+
+.product-slider{
+
+display:flex;
 gap:25px;
+overflow:hidden;
+scroll-behavior:smooth;
+width:100%;
 
 }
 
@@ -274,13 +289,13 @@ gap:25px;
 
 .product-box{
 
+min-width:260px;
 background:#111;
 border:1px solid #C5A059;
 border-radius:25px;
 padding:20px;
 text-align:center;
 transition:.5s;
-overflow:hidden;
 
 }
 
@@ -289,20 +304,16 @@ overflow:hidden;
 .product-box:hover{
 
 transform:translateY(-12px);
-
-box-shadow:
-
-0 0 35px rgba(197,160,89,.35);
+box-shadow:0 0 35px rgba(197,160,89,.35);
 
 }
-
 
 
 
 .product-box img{
 
 width:100%;
-height:240px;
+height:230px;
 object-fit:contain;
 transition:.5s;
 
@@ -329,9 +340,8 @@ font-size:22px;
 
 .size{
 
-display:block;
 color:#E8D39A;
-font-size:16px;
+display:block;
 margin:10px;
 
 }
@@ -342,7 +352,7 @@ margin:10px;
 
 font-size:15px;
 line-height:1.6;
-min-height:70px;
+min-height:65px;
 
 }
 
@@ -351,12 +361,11 @@ min-height:70px;
 .price{
 
 color:#C5A059;
-font-size:25px;
+font-size:24px;
 font-weight:bold;
 margin:15px;
 
 }
-
 
 
 
@@ -388,6 +397,18 @@ transform:scale(1.05);
 
 
 
+.slide-btn{
+
+background:#C5A059;
+color:#1A1A1A;
+font-size:30px;
+width:50px;
+height:50px;
+border-radius:50%;
+padding:0;
+
+}
+
 
 
 .product-box.glow{
@@ -400,6 +421,7 @@ animation:goldGlow .8s;
 
 @keyframes goldGlow{
 
+
 50%{
 
 box-shadow:0 0 50px #C5A059;
@@ -411,26 +433,14 @@ box-shadow:0 0 50px #C5A059;
 
 
 
+@media(max-width:700px){
 
-@media(max-width:1000px){
+.product-box{
 
-.product-row{
-
-grid-template-columns:repeat(2,1fr);
-
-}
+min-width:85%;
 
 }
 
-
-
-@media(max-width:600px){
-
-.product-row{
-
-grid-template-columns:1fr;
-
-}
 
 }
 </style>
@@ -439,7 +449,6 @@ grid-template-columns:1fr;
 
 
 <body>
-
 
 
 <div class="intro">
@@ -455,6 +464,7 @@ LUXURY HAIR CARE
 
 
 
+
 <header>
 
 
@@ -463,14 +473,20 @@ YOURS ✨
 </div>
 
 
-
 <nav>
 
-<a href="#products">Products</a>
+<a href="#products">
+Products
+</a>
 
-<a href="#routine">Hair Routine</a>
+<a href="#routine">
+Routine
+</a>
 
-<a href="#checkout">Checkout</a>
+<a href="#checkout">
+Checkout
+</a>
+
 
 </nav>
 
@@ -478,13 +494,14 @@ YOURS ✨
 
 <button class="cart-btn" onclick="goCheckout()">
 
-🛒 Beauty Bag
-(<span id="count">0</span>)
+🛒 Bag (<span id="count">0</span>)
 
 </button>
 
 
+
 </header>
+
 
 
 
@@ -504,11 +521,12 @@ Luxury Hair Care
 
 
 <p>
-Professional Hair Care Designed For Every Hair Type
+Premium Hair Care For Healthy And Beautiful Hair
 </p>
 
 
 </section>
+
 
 
 
@@ -528,17 +546,32 @@ Shop Your Routine ✨
 
 
 
-<div class="product-row">
+<div class="slider-container">
+
+
+<button class="slide-btn" onclick="slideProducts(-1)">
+❮
+</button>
+
+
+
+
+<div class="product-slider" id="productSlider">
+
+
 
 
 
 <div class="product-box">
 
+
 <img src="images/shampoo.jpg">
+
 
 <h3>
 Luxury Shampoo
 </h3>
+
 
 <span class="size">
 1000ml
@@ -546,7 +579,7 @@ Luxury Shampoo
 
 
 <p>
-A gentle cleansing formula that refreshes the scalp and leaves hair soft, clean and healthy.
+Gentle cleansing formula that refreshes the scalp and leaves hair soft, clean and healthy.
 </p>
 
 
@@ -567,13 +600,17 @@ Add To Bag ✨
 
 
 
+
 <div class="product-box">
 
+
 <img src="images/conditioner.jpg">
+
 
 <h3>
 Luxury Conditioner
 </h3>
+
 
 <span class="size">
 1000ml
@@ -581,7 +618,7 @@ Luxury Conditioner
 
 
 <p>
-Deep hydration formula that helps detangle hair and improves smoothness and softness.
+Deep hydration formula that helps detangle hair and improves smoothness.
 </p>
 
 
@@ -605,7 +642,9 @@ Add To Bag ✨
 
 <div class="product-box">
 
+
 <img src="images/hairmask.jpg">
+
 
 <h3>
 Repair Treatment Mask
@@ -618,7 +657,7 @@ Repair Treatment Mask
 
 
 <p>
-Professional repairing treatment designed to restore damaged and weak hair.
+Professional repairing treatment that restores damaged and weak hair.
 </p>
 
 
@@ -642,7 +681,9 @@ Add To Bag ✨
 
 <div class="product-box">
 
+
 <img src="images/serum.jpg">
+
 
 <h3>
 Shine Serum
@@ -673,6 +714,17 @@ Add To Bag ✨
 
 
 
+
+</div>
+
+
+
+
+<button class="slide-btn" onclick="slideProducts(1)">
+❯
+</button>
+
+
 </div>
 
 
@@ -698,14 +750,12 @@ Find Your Hair Routine ✨
 
 
 
-<div class="product-row">
-
-
 <div class="product-box">
 
 
+
 <h3>
-Hair Type
+Choose Your Hair Type
 </h3>
 
 
@@ -728,7 +778,6 @@ style="width:90%;padding:12px;border-radius:15px;">
 
 
 </select>
-
 
 
 
@@ -757,8 +806,8 @@ style="width:90%;padding:12px;border-radius:15px;">
 
 
 
-
 <br><br>
+
 
 
 <button onclick="hairAdvice()">
@@ -768,13 +817,8 @@ Get My Routine ✨
 </button>
 
 
-<h3 id="routineResult"
-style="color:#C5A059;">
 
-</h3>
-
-
-</div>
+<h3 id="routineResult" style="color:#C5A059;"></h3>
 
 
 
@@ -782,15 +826,7 @@ style="color:#C5A059;">
 
 
 </section>
-
-
-
-
-
-
-
 <!-- HAIR GUIDE -->
-
 
 <section class="luxury-products">
 
@@ -800,7 +836,19 @@ Luxury Hair Guide ✨
 </h2>
 
 
-<div class="product-row">
+
+<div class="slider-container">
+
+
+<button class="slide-btn" onclick="guideSlide(-1)">
+❮
+</button>
+
+
+
+<div class="product-slider" id="guideSlider">
+
+
 
 
 
@@ -811,10 +859,12 @@ Oily Hair
 </h3>
 
 <p>
-Avoid heavy oils on the scalp and choose lightweight products.
+Avoid heavy oils on the scalp.
+Choose lightweight products and wash with a suitable shampoo.
 </p>
 
 </div>
+
 
 
 
@@ -826,10 +876,12 @@ Curly Hair
 </h3>
 
 <p>
-Avoid brushing dry curls and avoid drying ingredients. Keep curls hydrated.
+Avoid brushing dry curls and avoid drying ingredients.
+Keep curls moisturized and defined.
 </p>
 
 </div>
+
 
 
 
@@ -841,10 +893,12 @@ Weak Hair
 </h3>
 
 <p>
-Avoid excessive heat and tight hairstyles. Use strengthening treatments.
+Avoid excessive heat and tight hairstyles.
+Use strengthening and repairing treatments.
 </p>
 
 </div>
+
 
 
 
@@ -856,18 +910,39 @@ Dry & Damaged Hair
 </h3>
 
 <p>
-Avoid over-washing and harsh treatments. Use repairing masks regularly.
+Avoid over-washing and harsh treatments.
+Use deep repair masks regularly.
 </p>
 
 </div>
 
 
 
+
+</div>
+
+
+
+<button class="slide-btn" onclick="guideSlide(1)">
+❯
+</button>
+
+
 </div>
 
 
 </section>
+
+
+
+
+
+
+
+
+
 <!-- PAYMENT -->
+
 
 <section class="luxury-products">
 
@@ -877,19 +952,17 @@ Payment ✨
 </h2>
 
 
-<div class="product-row">
-
 
 <div class="product-box">
 
 
 <h3>
-Secure Payment
+InstaPay Payment
 </h3>
 
 
 <p>
-Pay easily through InstaPay.
+Fast and secure payment through InstaPay.
 </p>
 
 
@@ -905,7 +978,7 @@ font-weight:bold;
 text-decoration:none;
 ">
 
-Open InstaPay ✨
+Pay With InstaPay ✨
 
 </a>
 
@@ -914,10 +987,8 @@ Open InstaPay ✨
 </div>
 
 
-</div>
-
-
 </section>
+
 
 
 
@@ -938,26 +1009,45 @@ Complete Your Order ✨
 
 
 
+
 <div class="product-box">
 
 
-<input id="name" placeholder="Full Name"
+
+<input id="name"
+
+placeholder="Full Name"
+
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 
 
 
-<input id="phone" placeholder="Phone Number"
+
+<input id="phone"
+
+placeholder="Phone Number"
+
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 
 
 
-<input id="address" placeholder="Address"
+
+<input id="address"
+
+placeholder="Address"
+
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 
 
 
-<input id="city" placeholder="City"
+
+
+<input id="city"
+
+placeholder="City"
+
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
+
 
 
 
@@ -965,6 +1055,7 @@ style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 <h3 style="color:#C5A059;">
 Payment Method
 </h3>
+
 
 
 
@@ -977,7 +1068,9 @@ Cash 💵
 </label>
 
 
+
 <br><br>
+
 
 
 <label>
@@ -989,7 +1082,10 @@ InstaPay 📲
 </label>
 
 
+
+
 <br><br>
+
 
 
 <label>
@@ -1005,6 +1101,8 @@ Visa 💳
 <br><br>
 
 
+
+
 <button onclick="completeOrder()">
 
 Confirm Order ✅
@@ -1012,10 +1110,13 @@ Confirm Order ✅
 </button>
 
 
+
 <h3 id="success" style="color:#C5A059;"></h3>
 
 
+
 </div>
+
 
 
 </section>
@@ -1025,10 +1126,7 @@ Confirm Order ✅
 
 
 
-
-
-<!-- WHATSAPP BUTTON -->
-
+<!-- WHATSAPP -->
 
 <a href="https://wa.me/201003884148"
 
@@ -1051,19 +1149,25 @@ text-decoration:none;
 💬
 
 </a>
+<div id="toast"
 
-
-
-
-
-
-
-<div id="toast">
+style="
+position:fixed;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+background:#C5A059;
+color:#1A1A1A;
+padding:15px 35px;
+border-radius:40px;
+font-weight:bold;
+display:none;
+z-index:9999;
+">
 
 Added To Bag ✨
 
 </div>
-
 
 
 
@@ -1080,7 +1184,9 @@ let total=0;
 
 
 
+
 function addToCart(button,name,price){
+
 
 
 button.parentElement.classList.add("glow");
@@ -1092,6 +1198,7 @@ setTimeout(()=>{
 button.parentElement.classList.remove("glow");
 
 },800);
+
 
 
 
@@ -1109,7 +1216,8 @@ total += price;
 
 
 
-document.getElementById("count").innerHTML = cart.length;
+document.getElementById("count").innerHTML=cart.length;
+
 
 
 
@@ -1119,15 +1227,57 @@ let toast=document.getElementById("toast");
 toast.style.display="block";
 
 
+
 setTimeout(()=>{
 
+
 toast.style.display="none";
+
 
 },1500);
 
 
 
 }
+
+
+
+
+
+
+
+
+function slideProducts(direction){
+
+
+let slider=document.getElementById("productSlider");
+
+
+slider.scrollLeft += direction * 300;
+
+
+}
+
+
+
+
+
+
+
+
+function guideSlide(direction){
+
+
+let slider=document.getElementById("guideSlider");
+
+
+slider.scrollLeft += direction * 300;
+
+
+}
+
+
+
 
 
 
@@ -1153,10 +1303,14 @@ behavior:"smooth"
 
 
 
+
+
 function hairAdvice(){
 
 
+
 let type=document.getElementById("hairType").value;
+
 
 let concern=document.getElementById("hairProblem").value;
 
@@ -1168,55 +1322,77 @@ let result="";
 
 if(type=="Oily Hair"){
 
+
 result="Routine: Lightweight Shampoo + Shine Serum ✨";
 
+
 }
+
 
 
 else if(type=="Dry Hair"){
 
+
 result="Routine: Hydrating Conditioner + Repair Mask ✨";
 
+
 }
+
 
 
 else if(type=="Curly Hair"){
 
+
 result="Routine: Moisture Care + Curl Protection ✨";
 
+
 }
+
 
 
 else if(type=="Weak Hair"){
 
-result="Routine: Strengthening Treatment + Repair Mask ✨";
+
+result="Routine: Strength Treatment + Repair Mask ✨";
+
 
 }
+
 
 
 else if(type=="Damaged Hair"){
 
-result="Routine: Repair Treatment + Deep Care Mask ✨";
+
+result="Routine: Deep Repair Treatment + Hair Mask ✨";
+
 
 }
+
 
 
 else{
 
+
 result="Routine: YOURS Complete Luxury Collection ✨";
 
-}
-
-
-
-
-document.getElementById("routineResult").innerHTML=
-
-result+"<br>Concern: "+concern;
-
-
 
 }
+
+
+
+
+document.getElementById("routineResult").innerHTML =
+
+result +
+
+"<br>Concern: " +
+
+concern;
+
+
+
+}
+
 
 
 
@@ -1228,13 +1404,18 @@ result+"<br>Concern: "+concern;
 function completeOrder(){
 
 
+
 let name=document.getElementById("name").value;
+
 
 let phone=document.getElementById("phone").value;
 
+
 let address=document.getElementById("address").value;
 
+
 let city=document.getElementById("city").value;
+
 
 
 
@@ -1247,6 +1428,7 @@ let payment=document.querySelector(
 
 
 
+
 let products="";
 
 
@@ -1254,7 +1436,13 @@ let products="";
 cart.forEach(item=>{
 
 
-products += item.name+" - "+item.price+" EGP\n";
+products += item.name +
+
+" - " +
+
+item.price +
+
+" EGP\n";
 
 
 });
@@ -1262,23 +1450,33 @@ products += item.name+" - "+item.price+" EGP\n";
 
 
 
-let message=
 
-"✨ YOURS Luxury Order ✨\n\n"+
 
-"Name: "+name+"\n"+
+let message =
 
-"Phone: "+phone+"\n"+
 
-"Address: "+address+"\n"+
+"✨ YOURS Luxury Order ✨\n\n" +
 
-"City: "+city+"\n"+
+"Name: " + name + "\n" +
 
-"Payment: "+payment+"\n\n"+
+"Phone: " + phone + "\n" +
 
-"Products:\n"+products+"\n"+
+"Address: " + address + "\n" +
 
-"Total: "+total+" EGP";
+"City: " + city + "\n" +
+
+"Payment: " + payment + "\n\n" +
+
+"Products:\n" +
+
+products +
+
+"\nTotal: " +
+
+total +
+
+" EGP";
+
 
 
 
@@ -1286,19 +1484,26 @@ let message=
 
 window.open(
 
-"https://wa.me/201003884148?text="+
+
+"https://wa.me/201003884148?text=" +
 
 encodeURIComponent(message),
 
+
 "_blank"
+
 
 );
 
 
 
-document.getElementById("success").innerHTML=
+
+
+
+document.getElementById("success").innerHTML =
 
 "🎉 Order Sent Successfully";
+
 
 
 }
@@ -1306,6 +1511,8 @@ document.getElementById("success").innerHTML=
 
 
 </script>
+
+
 
 
 
