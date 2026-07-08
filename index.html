@@ -15,18 +15,11 @@
 
 <style>
 
+
 *{
+
 box-sizing:border-box;
 scroll-behavior:smooth;
-font-family:Arial,sans-serif;
-}
-
-
-:root{
-
---gold:#C5A059;
---black:#1A1A1A;
---white:#ffffff;
 
 }
 
@@ -34,14 +27,25 @@ font-family:Arial,sans-serif;
 body{
 
 margin:0;
-background:var(--black);
+background:#1A1A1A;
 color:white;
+font-family:Arial,sans-serif;
 
 }
 
 
 
-/* LUXURY INTRO */
+:root{
+
+--gold:#C5A059;
+--black:#1A1A1A;
+
+}
+
+
+
+/* OPENING LUXURY SCREEN */
+
 
 .intro{
 
@@ -49,34 +53,51 @@ position:fixed;
 inset:0;
 background:#1A1A1A;
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 flex-direction:column;
 z-index:9999;
-animation:hideIntro 3s forwards;
+animation:introHide 3s forwards;
 
 }
+
 
 
 .intro h1{
 
 font-family:'Bodoni Moda',serif;
-font-size:70px;
+font-size:75px;
 letter-spacing:15px;
-color:var(--gold);
+
+background:linear-gradient(
+90deg,
+#C5A059,
+#E8D39A,
+#C5A059
+);
+
+background-size:200%;
+
+-webkit-background-clip:text;
+color:transparent;
+
+animation:goldMove 4s infinite;
 
 }
+
 
 
 .intro p{
 
+letter-spacing:6px;
 color:white;
-letter-spacing:5px;
 
 }
 
 
-@keyframes hideIntro{
+
+
+@keyframes introHide{
 
 0%,80%{
 
@@ -95,7 +116,41 @@ visibility:hidden;
 
 
 
+
+/* GOLD EFFECT */
+
+
+@keyframes goldMove{
+
+
+0%{
+
+background-position:0%;
+
+}
+
+
+50%{
+
+background-position:100%;
+
+}
+
+
+100%{
+
+background-position:0%;
+
+}
+
+
+}
+
+
+
+
 /* HEADER */
+
 
 header{
 
@@ -104,7 +159,7 @@ justify-content:space-between;
 align-items:center;
 padding:25px 50px;
 background:#111;
-border-bottom:1px solid var(--gold);
+border-bottom:1px solid #C5A059;
 position:sticky;
 top:0;
 z-index:100;
@@ -113,12 +168,12 @@ z-index:100;
 
 
 
+
 .logo{
 
 font-family:'Bodoni Moda',serif;
-font-size:55px;
+font-size:60px;
 letter-spacing:12px;
-color:var(--gold);
 
 background:linear-gradient(
 90deg,
@@ -138,44 +193,23 @@ animation:goldMove 5s infinite;
 
 
 
-@keyframes goldMove{
-
-0%{
-
-background-position:0%;
-
-}
-
-50%{
-
-background-position:100%;
-
-}
-
-100%{
-
-background-position:0%;
-
-}
-
-}
-
-
 
 nav a{
 
 color:white;
 text-decoration:none;
-margin:0 12px;
+margin:0 10px;
 
 }
+
 
 
 nav a:hover{
 
-color:var(--gold);
+color:#C5A059;
 
 }
+
 
 
 
@@ -188,8 +222,8 @@ background:linear-gradient(
 #E8D39A
 );
 
-border:none;
-padding:15px 30px;
+border:0;
+padding:15px 25px;
 border-radius:40px;
 font-weight:bold;
 cursor:pointer;
@@ -201,12 +235,13 @@ cursor:pointer;
 
 height:80vh;
 display:flex;
-justify-content:center;
 align-items:center;
+justify-content:center;
 flex-direction:column;
 text-align:center;
 
 }
+
 
 
 .hero h1{
@@ -214,27 +249,30 @@ text-align:center;
 font-family:'Bodoni Moda',serif;
 font-size:75px;
 letter-spacing:8px;
-color:var(--gold);
+color:#C5A059;
 
 }
+
 
 
 .hero p{
 
 font-size:22px;
-color:white;
 
 }
+
 
 
 .gold-line{
 
 width:130px;
 height:3px;
-background:var(--gold);
+background:#C5A059;
 margin:20px;
 
 }
+
+
 
 
 
@@ -251,27 +289,30 @@ padding:60px;
 
 
 
+
 .card{
 
 background:#111;
-border:1px solid var(--gold);
+border:1px solid #C5A059;
 border-radius:30px;
 padding:25px;
 text-align:center;
-opacity:0;
-animation:fadeUp 1s forwards;
 transition:.5s;
+opacity:0;
+animation:showCard 1s forwards;
 
 }
+
 
 
 
 .card:hover{
 
 transform:translateY(-12px);
-box-shadow:0 0 35px rgba(197,160,89,.35);
+box-shadow:0 0 35px rgba(197,160,89,.4);
 
 }
+
 
 
 
@@ -287,39 +328,44 @@ transition:.5s;
 
 
 
+
 .card:hover img{
 
 transform:scale(1.05);
-filter:drop-shadow(0 0 15px var(--gold));
+filter:drop-shadow(0 0 20px #C5A059);
 
 }
+
+
 
 
 
 .card h2{
 
-color:var(--gold);
+color:#C5A059;
 
 }
 
 
 
+
 .card p{
 
-color:white;
 line-height:1.7;
 
 }
 
 
 
+
 .price{
 
+color:#C5A059;
 font-size:25px;
 font-weight:bold;
-color:var(--gold)!important;
 
 }
+
 
 
 
@@ -342,43 +388,18 @@ cursor:pointer;
 
 
 
+
 button:hover{
 
-box-shadow:0 0 20px var(--gold);
+box-shadow:0 0 25px #C5A059;
 transform:scale(1.05);
 
 }
 
 
 
-/* PRODUCT APPEAR */
 
-.card:nth-child(1){
-
-animation-delay:.2s;
-
-}
-
-.card:nth-child(2){
-
-animation-delay:.4s;
-
-}
-
-.card:nth-child(3){
-
-animation-delay:.6s;
-
-}
-
-.card:nth-child(4){
-
-animation-delay:.8s;
-
-}
-
-
-@keyframes fadeUp{
+@keyframes showCard{
 
 from{
 
@@ -400,7 +421,39 @@ transform:translateY(0);
 
 
 
-/* ADD CART GOLD EFFECT */
+
+.card:nth-child(1){
+
+animation-delay:.2s;
+
+}
+
+
+.card:nth-child(2){
+
+animation-delay:.4s;
+
+}
+
+
+.card:nth-child(3){
+
+animation-delay:.6s;
+
+}
+
+
+.card:nth-child(4){
+
+animation-delay:.8s;
+
+}
+
+
+
+
+
+/* ADD TO CART EFFECT */
 
 
 .card.glow{
@@ -410,19 +463,18 @@ animation:goldGlow .8s;
 }
 
 
+
 @keyframes goldGlow{
 
 
 50%{
 
-box-shadow:
-0 0 50px var(--gold);
+box-shadow:0 0 50px #C5A059;
 
 }
 
 
 }
-
 
 
 
@@ -433,7 +485,7 @@ position:fixed;
 bottom:40px;
 left:50%;
 transform:translateX(-50%);
-background:var(--gold);
+background:#C5A059;
 color:#000;
 padding:15px 35px;
 border-radius:40px;
@@ -444,12 +496,11 @@ z-index:9999;
 }
 
 
-
 </style>
 
 
-
 </head>
+
 
 
 <body>
@@ -468,14 +519,11 @@ LUXURY HAIR CARE
 
 
 
-
 <header>
 
 
 <div class="logo">
-
 YOURS ✨
-
 </div>
 
 
@@ -483,6 +531,8 @@ YOURS ✨
 <nav>
 
 <a href="#products">Products</a>
+
+<a href="#hair-guide">Hair Guide</a>
 
 <a href="#bundles">Bundles</a>
 
@@ -492,13 +542,13 @@ YOURS ✨
 
 
 
+
 <button class="cart-btn" onclick="goCheckout()">
 
 🛒 Beauty Bag
 (<span id="count">0</span>)
 
 </button>
-
 
 
 </header>
@@ -523,9 +573,13 @@ Professional Hair Care Made With Science & Luxury
 
 
 </section>
-<!-- PRODUCTS -->
+
+
+
+
 
 <section class="products" id="products">
+
 
 
 <div class="card">
@@ -539,13 +593,13 @@ Deep Repair Shampoo
 
 
 <p>
-Luxury formula that repairs damaged hair and restores softness.
+Repairs damaged hair and restores softness.
 </p>
 
 
-<p class="price">
+<div class="price">
 800 EGP
-</p>
+</div>
 
 
 <button onclick="addToCart(this,'Deep Repair Shampoo',800)">
@@ -554,7 +608,6 @@ Add To Beauty Bag ✨
 
 
 </div>
-
 
 
 
@@ -570,13 +623,13 @@ Intensive Conditioner
 
 
 <p>
-Deep hydration for smooth and healthy hair.
+Deep hydration for smooth hair.
 </p>
 
 
-<p class="price">
+<div class="price">
 800 EGP
-</p>
+</div>
 
 
 <button onclick="addToCart(this,'Intensive Conditioner',800)">
@@ -585,11 +638,6 @@ Add To Beauty Bag ✨
 
 
 </div>
-
-
-
-
-
 <div class="card">
 
 <img src="images/hairmask.jpg">
@@ -601,13 +649,13 @@ Deep Care Hair Mask
 
 
 <p>
-Professional treatment for stronger and softer hair.
+Professional repair treatment for stronger hair.
 </p>
 
 
-<p class="price">
+<div class="price">
 800 EGP
-</p>
+</div>
 
 
 <button onclick="addToCart(this,'Deep Care Hair Mask',800)">
@@ -616,7 +664,6 @@ Add To Beauty Bag ✨
 
 
 </div>
-
 
 
 
@@ -633,13 +680,13 @@ Ultimate Shine Serum
 
 
 <p>
-Luxury shine without heavy feeling.
+Lightweight serum for luxury shine.
 </p>
 
 
-<p class="price">
+<div class="price">
 550 EGP
-</p>
+</div>
 
 
 <button onclick="addToCart(this,'Ultimate Shine Serum',550)">
@@ -648,7 +695,6 @@ Add To Beauty Bag ✨
 
 
 </div>
-
 
 
 </section>
@@ -678,10 +724,9 @@ Shampoo + Conditioner + Hair Mask
 </p>
 
 
-<p class="price">
+<div class="price">
 2200 EGP
-</p>
-
+</div>
 
 
 <button onclick="addBundle(this)">
@@ -690,7 +735,6 @@ Add Collection
 
 
 </div>
-
 
 
 
@@ -709,10 +753,9 @@ Shampoo + Shine Serum
 </p>
 
 
-<p class="price">
+<div class="price">
 1200 EGP
-</p>
-
+</div>
 
 
 <button onclick="addShineBundle(this)">
@@ -725,6 +768,185 @@ Add Collection
 
 </section>
 
+
+
+
+
+
+
+<!-- HAIR QUIZ -->
+
+
+<section class="products" id="hair-guide">
+
+
+<div class="card">
+
+
+<h2>
+Find Your Hair Routine ✨
+</h2>
+
+
+<p>
+Choose your hair type and get your personalized routine.
+</p>
+
+
+
+<select id="hairType"
+style="width:90%;padding:15px;border-radius:15px;margin:8px;">
+
+
+<option>
+Select Hair Type
+</option>
+
+
+<option>
+Oily Hair
+</option>
+
+
+<option>
+Dry Hair
+</option>
+
+
+<option>
+Damaged Hair
+</option>
+
+
+<option>
+Normal Hair
+</option>
+
+
+<option>
+Curly Hair
+</option>
+
+
+</select>
+
+
+
+
+<select id="hairProblem"
+style="width:90%;padding:15px;border-radius:15px;margin:8px;">
+
+
+<option>
+Hair Concern
+</option>
+
+
+<option>
+Hair Fall
+</option>
+
+
+<option>
+Frizz
+</option>
+
+
+<option>
+Split Ends
+</option>
+
+
+<option>
+Lack Of Shine
+</option>
+
+
+<option>
+Weak Hair
+</option>
+
+
+</select>
+
+
+
+<br><br>
+
+
+<button onclick="hairAdvice()">
+
+Get My Routine ✨
+
+</button>
+
+
+
+<h3 id="routineResult"
+style="color:#C5A059;">
+</h3>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- HAIR INSTRUCTIONS -->
+
+
+<section class="products">
+
+
+<div class="card">
+
+
+<h2>
+Luxury Hair Instructions ✨
+</h2>
+
+
+
+<p>
+
+🖤 <b>Oily Hair:</b>
+<br>
+Use lightweight products, avoid heavy oils on roots, and keep the scalp clean.
+
+<br><br>
+
+
+✨ <b>Dry Hair:</b>
+<br>
+Use hydration masks and avoid too much heat styling.
+
+<br><br>
+
+
+💎 <b>Damaged Hair:</b>
+<br>
+Use repairing treatments and nourishing routines.
+
+<br><br>
+
+
+🌸 <b>Healthy Hair Tips:</b>
+<br>
+Protect your hair from heat, use suitable products, and stay consistent.
+
+</p>
+
+
+</div>
+
+
+</section>
 
 
 
@@ -746,7 +968,7 @@ Payment ✨
 
 
 <p>
-Secure payment through InstaPay
+Pay securely with InstaPay
 </p>
 
 
@@ -755,15 +977,14 @@ Secure payment through InstaPay
 target="_blank"
 style="
 color:#C5A059;
-font-size:20px;
 font-weight:bold;
+font-size:20px;
 text-decoration:none;
 ">
 
-Pay with InstaPay ✨
+Open InstaPay ✨
 
 </a>
-
 
 
 </div>
@@ -776,13 +997,8 @@ Pay with InstaPay ✨
 
 
 
-<!-- TOAST -->
-
-
 <div id="toast">
-
 Added To Beauty Bag ✨
-
 </div>
 <!-- CHECKOUT -->
 
@@ -795,7 +1011,6 @@ Added To Beauty Bag ✨
 <h2>
 Complete Your Order ✨
 </h2>
-
 
 
 <input id="name" placeholder="Full Name"
@@ -857,10 +1072,9 @@ font-weight:bold;
 text-decoration:none;
 ">
 
-Open InstaPay Payment ✨
+Pay With InstaPay ✨
 
 </a>
-
 
 
 <br><br>
@@ -873,11 +1087,11 @@ Confirm Order ✅
 </button>
 
 
-
 <h3 id="success" style="color:#C5A059;"></h3>
 
 
 </div>
+
 
 </section>
 
@@ -886,7 +1100,9 @@ Confirm Order ✅
 
 
 
-<!-- WHATSAPP -->
+
+<!-- WHATSAPP BUTTON -->
+
 
 <a href="https://wa.me/201003884148"
 
@@ -925,7 +1141,6 @@ let total=0;
 
 
 
-
 function addToCart(button,name,price){
 
 
@@ -951,9 +1166,7 @@ price:price
 });
 
 
-
 total+=price;
-
 
 
 document.getElementById("count").innerHTML=cart.length;
@@ -971,9 +1184,6 @@ showToast();
 function addBundle(button){
 
 
-button.parentElement.classList.add("glow");
-
-
 cart.push({
 
 name:"Complete Repair Collection",
@@ -983,6 +1193,9 @@ price:2200
 
 
 total+=2200;
+
+
+button.parentElement.classList.add("glow");
 
 
 document.getElementById("count").innerHTML=cart.length;
@@ -999,9 +1212,6 @@ showToast();
 function addShineBundle(button){
 
 
-button.parentElement.classList.add("glow");
-
-
 cart.push({
 
 name:"Luxury Shine Collection",
@@ -1013,6 +1223,9 @@ price:1200
 total+=1200;
 
 
+button.parentElement.classList.add("glow");
+
+
 document.getElementById("count").innerHTML=cart.length;
 
 
@@ -1020,6 +1233,7 @@ showToast();
 
 
 }
+
 
 
 
@@ -1035,9 +1249,7 @@ toast.style.display="block";
 
 setTimeout(()=>{
 
-
 toast.style.display="none";
-
 
 },2000);
 
@@ -1065,17 +1277,69 @@ behavior:"smooth"
 
 
 
+function hairAdvice(){
+
+
+let type=document.getElementById("hairType").value;
+
+let problem=document.getElementById("hairProblem").value;
+
+
+let result="";
+
+
+
+if(type=="Oily Hair"){
+
+result="Routine: Lightweight Shampoo + Shine Serum ✨";
+
+}
+
+else if(type=="Dry Hair"){
+
+result="Routine: Hydrating Conditioner + Deep Care Mask ✨";
+
+}
+
+else if(type=="Damaged Hair"){
+
+result="Routine: Repair Shampoo + Hair Mask ✨";
+
+}
+
+else if(type=="Curly Hair"){
+
+result="Routine: Moisture Care + Nourishing Mask ✨";
+
+}
+
+else{
+
+result="Routine: YOURS Complete Luxury Collection ✨";
+
+}
+
+
+
+document.getElementById("routineResult").innerHTML=
+
+result+"<br>Focus: "+problem;
+
+
+}
+
+
+
+
+
 function completeOrder(){
 
 
 let name=document.getElementById("name").value;
 
-
 let phone=document.getElementById("phone").value;
 
-
 let address=document.getElementById("address").value;
-
 
 let city=document.getElementById("city").value;
 
@@ -1083,7 +1347,6 @@ let city=document.getElementById("city").value;
 let payment=document.querySelector(
 'input[name="payment"]:checked'
 ).value;
-
 
 
 
@@ -1097,7 +1360,6 @@ order+=item.name+" - "+item.price+" EGP\n";
 
 
 });
-
 
 
 
