@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -11,12 +10,15 @@
 <title>YOURS Luxury Hair Care</title>
 
 
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&display=swap" rel="stylesheet">
+
+
 <style>
 
 *{
 box-sizing:border-box;
-font-family:Arial, sans-serif;
 scroll-behavior:smooth;
+font-family:Arial,sans-serif;
 }
 
 
@@ -24,18 +26,70 @@ scroll-behavior:smooth;
 
 --gold:#C5A059;
 --black:#1A1A1A;
---card:#1A1A1A;
 --white:#ffffff;
 
 }
-
 
 
 body{
 
 margin:0;
 background:var(--black);
-color:var(--white);
+color:white;
+
+}
+
+
+
+/* LUXURY INTRO */
+
+.intro{
+
+position:fixed;
+inset:0;
+background:#1A1A1A;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+z-index:9999;
+animation:hideIntro 3s forwards;
+
+}
+
+
+.intro h1{
+
+font-family:'Bodoni Moda',serif;
+font-size:70px;
+letter-spacing:15px;
+color:var(--gold);
+
+}
+
+
+.intro p{
+
+color:white;
+letter-spacing:5px;
+
+}
+
+
+@keyframes hideIntro{
+
+0%,80%{
+
+opacity:1;
+
+}
+
+100%{
+
+opacity:0;
+visibility:hidden;
+
+}
 
 }
 
@@ -53,7 +107,7 @@ background:#111;
 border-bottom:1px solid var(--gold);
 position:sticky;
 top:0;
-z-index:1000;
+z-index:100;
 
 }
 
@@ -61,11 +115,48 @@ z-index:1000;
 
 .logo{
 
-font-size:45px;
-font-weight:bold;
-letter-spacing:8px;
+font-family:'Bodoni Moda',serif;
+font-size:55px;
+letter-spacing:12px;
 color:var(--gold);
-text-shadow:0 0 15px rgba(197,160,89,.5);
+
+background:linear-gradient(
+90deg,
+#C5A059,
+#E8D39A,
+#C5A059
+);
+
+background-size:200%;
+
+-webkit-background-clip:text;
+color:transparent;
+
+animation:goldMove 5s infinite;
+
+}
+
+
+
+@keyframes goldMove{
+
+0%{
+
+background-position:0%;
+
+}
+
+50%{
+
+background-position:100%;
+
+}
+
+100%{
+
+background-position:0%;
+
+}
 
 }
 
@@ -75,7 +166,7 @@ nav a{
 
 color:white;
 text-decoration:none;
-margin:0 10px;
+margin:0 12px;
 
 }
 
@@ -90,7 +181,13 @@ color:var(--gold);
 
 .cart-btn{
 
-background:linear-gradient(45deg,#8A6A2F,#C5A059,#E8D39A);
+background:linear-gradient(
+45deg,
+#8A6A2F,
+#C5A059,
+#E8D39A
+);
+
 border:none;
 padding:15px 30px;
 border-radius:40px;
@@ -98,11 +195,7 @@ font-weight:bold;
 cursor:pointer;
 
 }
-
-
-
 /* HERO */
-
 
 .hero{
 
@@ -116,30 +209,28 @@ text-align:center;
 }
 
 
-
 .hero h1{
 
+font-family:'Bodoni Moda',serif;
 font-size:75px;
+letter-spacing:8px;
 color:var(--gold);
-letter-spacing:6px;
 
 }
-
 
 
 .hero p{
 
 font-size:22px;
-color:#fff;
+color:white;
 
 }
 
 
-
 .gold-line{
 
+width:130px;
 height:3px;
-width:120px;
 background:var(--gold);
 margin:20px;
 
@@ -148,7 +239,6 @@ margin:20px;
 
 
 /* PRODUCTS */
-
 
 .products{
 
@@ -175,10 +265,11 @@ transition:.5s;
 }
 
 
+
 .card:hover{
 
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(197,160,89,.4);
+transform:translateY(-12px);
+box-shadow:0 0 35px rgba(197,160,89,.35);
 
 }
 
@@ -187,7 +278,7 @@ box-shadow:0 0 30px rgba(197,160,89,.4);
 .card img{
 
 width:100%;
-height:280px;
+height:300px;
 object-fit:cover;
 border-radius:25px;
 transition:.5s;
@@ -199,7 +290,7 @@ transition:.5s;
 .card:hover img{
 
 transform:scale(1.05);
-filter:drop-shadow(0 0 20px var(--gold));
+filter:drop-shadow(0 0 15px var(--gold));
 
 }
 
@@ -224,9 +315,9 @@ line-height:1.7;
 
 .price{
 
-color:var(--gold)!important;
 font-size:25px;
 font-weight:bold;
+color:var(--gold)!important;
 
 }
 
@@ -234,7 +325,13 @@ font-weight:bold;
 
 button{
 
-background:linear-gradient(45deg,#8A6A2F,#C5A059,#E8D39A);
+background:linear-gradient(
+45deg,
+#8A6A2F,
+#C5A059,
+#E8D39A
+);
+
 border:none;
 padding:15px 30px;
 border-radius:35px;
@@ -247,11 +344,38 @@ cursor:pointer;
 
 button:hover{
 
-box-shadow:0 0 25px var(--gold);
+box-shadow:0 0 20px var(--gold);
 transform:scale(1.05);
 
 }
 
+
+
+/* PRODUCT APPEAR */
+
+.card:nth-child(1){
+
+animation-delay:.2s;
+
+}
+
+.card:nth-child(2){
+
+animation-delay:.4s;
+
+}
+
+.card:nth-child(3){
+
+animation-delay:.6s;
+
+}
+
+.card:nth-child(4){
+
+animation-delay:.8s;
+
+}
 
 
 @keyframes fadeUp{
@@ -263,6 +387,7 @@ transform:translateY(40px);
 
 }
 
+
 to{
 
 opacity:1;
@@ -271,24 +396,12 @@ transform:translateY(0);
 }
 
 }
-.card:nth-child(1){
-animation-delay:.2s;
-}
-
-.card:nth-child(2){
-animation-delay:.4s;
-}
-
-.card:nth-child(3){
-animation-delay:.6s;
-}
-
-.card:nth-child(4){
-animation-delay:.8s;
-}
 
 
-/* ADD TO CART GOLD EFFECT */
+
+
+/* ADD CART GOLD EFFECT */
+
 
 .card.glow{
 
@@ -299,25 +412,18 @@ animation:goldGlow .8s;
 
 @keyframes goldGlow{
 
-0%{
-
-box-shadow:0 0 0 transparent;
-
-}
 
 50%{
 
-box-shadow:0 0 50px var(--gold);
+box-shadow:
+0 0 50px var(--gold);
 
 }
 
-100%{
-
-box-shadow:0 0 0 transparent;
 
 }
 
-}
+
 
 
 
@@ -333,12 +439,15 @@ padding:15px 35px;
 border-radius:40px;
 font-weight:bold;
 display:none;
-z-index:2000;
+z-index:9999;
 
 }
 
 
+
 </style>
+
+
 
 </head>
 
@@ -346,12 +455,29 @@ z-index:2000;
 <body>
 
 
+
+<div class="intro">
+
+<h1>YOURS</h1>
+
+<p>
+LUXURY HAIR CARE
+</p>
+
+</div>
+
+
+
+
 <header>
 
 
 <div class="logo">
+
 YOURS ✨
+
 </div>
+
 
 
 <nav>
@@ -359,8 +485,6 @@ YOURS ✨
 <a href="#products">Products</a>
 
 <a href="#bundles">Bundles</a>
-
-<a href="#consult">Consultation</a>
 
 <a href="#checkout">Order</a>
 
@@ -370,15 +494,14 @@ YOURS ✨
 
 <button class="cart-btn" onclick="goCheckout()">
 
-🛒 Beauty Bag 
-
+🛒 Beauty Bag
 (<span id="count">0</span>)
 
 </button>
 
 
-</header>
 
+</header>
 
 
 
@@ -387,7 +510,7 @@ YOURS ✨
 
 
 <h1>
-YOURS Luxury
+Luxury Hair Care
 </h1>
 
 
@@ -400,21 +523,12 @@ Professional Hair Care Made With Science & Luxury
 
 
 </section>
-
-
-
-
-
-
 <!-- PRODUCTS -->
-
 
 <section class="products" id="products">
 
 
-
 <div class="card">
-
 
 <img src="images/shampoo.jpg">
 
@@ -425,7 +539,7 @@ Deep Repair Shampoo
 
 
 <p>
-Luxury formula that restores damaged hair and gives softness.
+Luxury formula that repairs damaged hair and restores softness.
 </p>
 
 
@@ -445,9 +559,7 @@ Add To Beauty Bag ✨
 
 
 
-
 <div class="card">
-
 
 <img src="images/conditioner.jpg">
 
@@ -478,9 +590,7 @@ Add To Beauty Bag ✨
 
 
 
-
 <div class="card">
-
 
 <img src="images/hairmask.jpg">
 
@@ -491,7 +601,7 @@ Deep Care Hair Mask
 
 
 <p>
-Professional treatment for strength and softness.
+Professional treatment for stronger and softer hair.
 </p>
 
 
@@ -514,7 +624,6 @@ Add To Beauty Bag ✨
 
 <div class="card">
 
-
 <img src="images/serum.jpg">
 
 
@@ -524,7 +633,7 @@ Ultimate Shine Serum
 
 
 <p>
-Lightweight serum for luxury shine.
+Luxury shine without heavy feeling.
 </p>
 
 
@@ -541,7 +650,9 @@ Add To Beauty Bag ✨
 </div>
 
 
+
 </section>
+
 
 
 
@@ -572,12 +683,14 @@ Shampoo + Conditioner + Hair Mask
 </p>
 
 
+
 <button onclick="addBundle(this)">
 Add Collection
 </button>
 
 
 </div>
+
 
 
 
@@ -592,13 +705,14 @@ Luxury Shine Collection ✨
 
 
 <p>
-Shampoo + Serum
+Shampoo + Shine Serum
 </p>
 
 
 <p class="price">
 1200 EGP
 </p>
+
 
 
 <button onclick="addShineBundle(this)">
@@ -613,151 +727,64 @@ Add Collection
 
 
 
+
+
+
+
+<!-- INSTAPAY -->
+
+
+<section class="products">
+
+
+<div class="card">
+
+
+<h2>
+Payment ✨
+</h2>
+
+
+<p>
+Secure payment through InstaPay
+</p>
+
+
+
+<a href="https://ipn.eg/S/monagalal8811/instapay/7m13Kd"
+target="_blank"
+style="
+color:#C5A059;
+font-size:20px;
+font-weight:bold;
+text-decoration:none;
+">
+
+Pay with InstaPay ✨
+
+</a>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- TOAST -->
+
+
 <div id="toast">
+
 Added To Beauty Bag ✨
-</div>
-<!-- CONSULTATION -->
-
-<section class="products" id="consult">
-
-
-<div class="card">
-
-
-<h2>
-Consult The Hair Expert 👩‍🔬
-</h2>
-
-
-<p>
-Get your personalized hair routine from YOURS.
-</p>
-
-
-<input id="cName" placeholder="Your Name"
-style="width:90%;padding:15px;margin:8px;border-radius:15px;">
-
-
-<input id="cPhone" placeholder="Phone Number"
-style="width:90%;padding:15px;margin:8px;border-radius:15px;">
-
-
-
-<select id="cType"
-style="width:90%;padding:15px;margin:8px;border-radius:15px;">
-
-
-<option>Dry Hair</option>
-
-<option>Oily Hair</option>
-
-<option>Damaged Hair</option>
-
-<option>Colored Hair</option>
-
-
-</select>
-
-
-
-<textarea id="cProblem"
-placeholder="Your Hair Problem"
-style="width:90%;height:120px;padding:15px;margin:8px;border-radius:15px;">
-</textarea>
-
-
-
-<button onclick="sendConsult()">
-
-Send Request ✨
-
-</button>
-
 
 </div>
-
-
-</section>
-
-
-
-
-
-<!-- REVIEWS -->
-
-
-<section class="products">
-
-
-<div class="card">
-
-
-<h2>
-Customer Reviews ⭐
-</h2>
-
-
-
-<p>
-⭐⭐⭐⭐⭐
-<br>
-Amazing quality, my hair feels healthier.
-</p>
-
-
-<p>
-⭐⭐⭐⭐⭐
-<br>
-Luxury experience and beautiful results.
-</p>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-<!-- OUR STORY -->
-
-
-<section class="products">
-
-
-<div class="card">
-
-
-<h2>
-The YOURS Story ✨
-</h2>
-
-
-<p>
-
-YOURS combines science and luxury to create professional hair care products that help every woman achieve healthy, beautiful hair.
-
-</p>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
 <!-- CHECKOUT -->
-
 
 <section class="products" id="checkout">
 
@@ -775,21 +802,16 @@ Complete Your Order ✨
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 
 
-
 <input id="phone" placeholder="Phone Number"
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
-
 
 
 <input id="address" placeholder="Address"
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 
 
-
 <input id="city" placeholder="City"
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
-
-
 
 
 
@@ -800,11 +822,8 @@ Payment Method
 
 
 <label>
-
 <input type="radio" name="payment" value="Cash" checked>
-
 Cash 💵
-
 </label>
 
 
@@ -812,11 +831,8 @@ Cash 💵
 
 
 <label>
-
 <input type="radio" name="payment" value="InstaPay">
-
 InstaPay 📲
-
 </label>
 
 
@@ -824,24 +840,30 @@ InstaPay 📲
 
 
 <label>
-
 <input type="radio" name="payment" value="Visa">
-
 Visa 💳
-
 </label>
 
 
 
-
-<p style="color:#C5A059;font-weight:bold;">
-
-InstaPay Number:
-01003884148
-
-</p>
+<br><br>
 
 
+<a href="https://ipn.eg/S/monagalal8811/instapay/7m13Kd"
+target="_blank"
+style="
+color:#C5A059;
+font-weight:bold;
+text-decoration:none;
+">
+
+Open InstaPay Payment ✨
+
+</a>
+
+
+
+<br><br>
 
 
 <button onclick="completeOrder()">
@@ -855,9 +877,7 @@ Confirm Order ✅
 <h3 id="success" style="color:#C5A059;"></h3>
 
 
-
 </div>
-
 
 </section>
 
@@ -866,59 +886,50 @@ Confirm Order ✅
 
 
 
-
 <!-- WHATSAPP -->
-
 
 <a href="https://wa.me/201003884148"
 
 style="
-
 position:fixed;
-
 right:25px;
-
 bottom:25px;
-
 background:#25D366;
-
 color:white;
-
 width:60px;
-
 height:60px;
-
 border-radius:50%;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
 font-size:30px;
-
 text-decoration:none;
-
 ">
 
 💬
 
 </a>
+
+
+
+
+
+
+
 <script>
 
-let cart = [];
 
-let total = 0;
+let cart=[];
+
+let total=0;
 
 
 
-// ADD TO CART
 
 function addToCart(button,name,price){
 
 
-let card = button.parentElement;
+let card=button.parentElement;
 
 
 card.classList.add("glow");
@@ -935,16 +946,17 @@ card.classList.remove("glow");
 cart.push({
 
 name:name,
-
 price:price
 
 });
 
 
-total += price;
+
+total+=price;
 
 
-document.getElementById("count").innerHTML = cart.length;
+
+document.getElementById("count").innerHTML=cart.length;
 
 
 showToast();
@@ -956,9 +968,6 @@ showToast();
 
 
 
-// BUNDLES
-
-
 function addBundle(button){
 
 
@@ -968,16 +977,15 @@ button.parentElement.classList.add("glow");
 cart.push({
 
 name:"Complete Repair Collection",
-
 price:2200
 
 });
 
 
-total += 2200;
+total+=2200;
 
 
-document.getElementById("count").innerHTML = cart.length;
+document.getElementById("count").innerHTML=cart.length;
 
 
 showToast();
@@ -997,16 +1005,15 @@ button.parentElement.classList.add("glow");
 cart.push({
 
 name:"Luxury Shine Collection",
-
 price:1200
 
 });
 
 
-total += 1200;
+total+=1200;
 
 
-document.getElementById("count").innerHTML = cart.length;
+document.getElementById("count").innerHTML=cart.length;
 
 
 showToast();
@@ -1015,10 +1022,6 @@ showToast();
 }
 
 
-
-
-
-// TOAST MESSAGE
 
 
 function showToast(){
@@ -1045,10 +1048,6 @@ toast.style.display="none";
 
 
 
-
-// CHECKOUT SCROLL
-
-
 function goCheckout(){
 
 
@@ -1066,12 +1065,7 @@ behavior:"smooth"
 
 
 
-
-// SEND ORDER TO WHATSAPP
-
-
 function completeOrder(){
-
 
 
 let name=document.getElementById("name").value;
@@ -1086,21 +1080,20 @@ let address=document.getElementById("address").value;
 let city=document.getElementById("city").value;
 
 
-
 let payment=document.querySelector(
 'input[name="payment"]:checked'
 ).value;
 
 
 
-let order="";
 
+let order="";
 
 
 cart.forEach(item=>{
 
 
-order += item.name+" - "+item.price+" EGP\n";
+order+=item.name+" - "+item.price+" EGP\n";
 
 
 });
@@ -1108,36 +1101,28 @@ order += item.name+" - "+item.price+" EGP\n";
 
 
 
-let message =
 
+let message=
 
 "✨ YOURS Luxury Order ✨\n\n"+
 
-
 "Name: "+name+"\n"+
-
 
 "Phone: "+phone+"\n"+
 
-
 "Address: "+address+"\n"+
-
 
 "City: "+city+"\n"+
 
-
 "Payment: "+payment+"\n\n"+
 
-
-"Order:\n"+order+"\n"+
-
+"Products:\n"+order+"\n"+
 
 "Total: "+total+" EGP";
 
 
 
 
-
 window.open(
 
 "https://wa.me/201003884148?text="+
@@ -1150,75 +1135,13 @@ encodeURIComponent(message),
 
 
 
-document.getElementById("success").innerHTML =
+document.getElementById("success").innerHTML=
 
 "🎉 Order Sent Successfully";
 
 
-
 }
 
-
-
-
-
-
-
-// CONSULTATION WHATSAPP
-
-
-function sendConsult(){
-
-
-
-let name=document.getElementById("cName").value;
-
-
-let phone=document.getElementById("cPhone").value;
-
-
-let type=document.getElementById("cType").value;
-
-
-let problem=document.getElementById("cProblem").value;
-
-
-
-
-
-let message =
-
-
-"👩‍🔬 YOURS Consultation Request\n\n"+
-
-
-"Name: "+name+"\n"+
-
-
-"Phone: "+phone+"\n"+
-
-
-"Hair Type: "+type+"\n"+
-
-
-"Problem: "+problem;
-
-
-
-
-window.open(
-
-"https://wa.me/201003884148?text="+
-
-encodeURIComponent(message),
-
-"_blank"
-
-);
-
-
-
-}
 
 
 </script>
