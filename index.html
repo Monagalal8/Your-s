@@ -140,30 +140,30 @@
                 <h2 class="section-title">Luxury Collection ✨</h2>
                 <div class="carousel-container">
                     <div class="carousel-track" id="product-track">
-                        <!-- Card 1 -->
+                        <!-- Card 1 (Real Shampoo Image) -->
                         <div class="product-card" onclick="openProduct('shampoo')">
-                            <img src="https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&q=80" alt="Shampoo">
+                            <img src="be92c3e2-8ee4-44f3-a061-2696cffa14dd.jpeg" alt="Luxury Shampoo">
                             <h2>Luxury Shampoo</h2>
                             <p style="color:#aaa;">1000ml</p>
                             <div class="price">800 EGP</div>
                         </div>
-                        <!-- Card 2 -->
+                        <!-- Card 2 (Real Conditioner Image) -->
                         <div class="product-card" onclick="openProduct('conditioner')">
-                            <img src="https://images.unsplash.com/photo-1608248597481-496100c8c836?w=500&q=80" alt="Conditioner">
+                            <img src="78a4e8aa-4b9e-4186-bc77-03e7b7712c03.jpeg" alt="Luxury Conditioner">
                             <h2>Luxury Conditioner</h2>
                             <p style="color:#aaa;">1000ml</p>
                             <div class="price">800 EGP</div>
                         </div>
                         <!-- Card 3 (Real Mask Image) -->
                         <div class="product-card" onclick="openProduct('mask')">
-                            <img src="b81ee2c9-2169-450d-a0e9-7680c587813a.jpeg" alt="Mask">
+                            <img src="b81ee2c9-2169-450d-a0e9-7680c587813a.jpeg" alt="Repair Treatment Mask">
                             <h2>Repair Treatment Mask</h2>
                             <p style="color:#aaa;">500ml</p>
                             <div class="price">800 EGP</div>
                         </div>
                         <!-- Card 4 (Real Serum Image) -->
                         <div class="product-card" onclick="openProduct('serum')">
-                            <img src="eeb645b7-9224-47b9-a5ec-05015af7d188.jpeg" alt="Serum">
+                            <img src="5a214e20-5c11-4baf-9220-8cc1b7ed44e5_2.jpeg" alt="Shine Serum">
                             <h2>Shine Serum</h2>
                             <p style="color:#aaa;">100ml</p>
                             <div class="price">550 EGP</div>
@@ -177,8 +177,9 @@
                 <h2 class="section-title">YOURS Signature Bundles 🎁</h2>
                 <div class="carousel-container">
                     <div class="carousel-track" id="bundle-track">
+                        <!-- Bundle Card (Real Bundle Image) -->
                         <div class="product-card bundle-card" onclick="openBundle()">
-                            <img src="4785b136-470d-4f4d-840d-7913682f61ac.jpeg" alt="Bundle">
+                            <img src="80794169-cd17-4561-b558-2a3c4efc161a.jpeg" alt="Complete Hair Ritual Bundle">
                             <h2>Complete Hair Ritual Bundle ✨</h2>
                             <p style="color: #ccc; font-size:14px; margin:10px 0;">Shampoo 1000ml + Conditioner 1000ml + Mask 500ml + Serum 100ml</p>
                             <div style="text-decoration:line-through; color:#888; font-size:16px;">2950 EGP</div>
@@ -276,7 +277,7 @@
         <div id="bundle-details-view" style="display: none;" class="luxury-section">
             <button class="btn" onclick="showSection('home')" style="margin-bottom: 20px;">← Back Collection</button>
             <div class="details-box">
-                <img src="4785b136-470d-4f4d-840d-7913682f61ac.jpeg" class="detail-img" alt="Bundle Image">
+                <img src="80794169-cd17-4561-b558-2a3c4efc161a.jpeg" class="detail-img" alt="Bundle Image">
                 <div class="details-text">
                     <h1>Complete Hair Ritual Bundle ✨</h1>
                     <h2 style="color:var(--gold);">2500 EGP <span style="text-decoration:line-through; color:#666; font-size:18px; margin-left:10px;">2950 EGP</span></h2>
@@ -385,12 +386,12 @@
 
     <!-- JavaScript logic -->
     <script>
-        // Database Matrix updated with the real images
+        // Database Matrix updated with all your real luxury images
         const products = {
-            shampoo: { name: "Luxury Shampoo", size: "1000ml", price: 800, image: "https://images.unsplash.com/photo-1535585209827-a15fcdbc4c2d?w=500&q=80", benefits: ["Deep cleansing matrix", "Fresh premium scalp sensation", "Silky post-wash structure"], use: "Massage thoroughly through wet strands, lather carefully, then rinse elegantly." },
-            conditioner: { name: "Luxury Conditioner", size: "1000ml", price: 800, image: "https://images.unsplash.com/photo-1608248597481-496100c8c836?w=500&q=80", benefits: ["Instant cuticle hydration", "Zero-friction effortless detangling", "Satin glossy finish"], use: "Apply uniformly across mid-lengths down to ends post-shampoo. Leave 3 minutes, rinse." },
+            shampoo: { name: "Luxury Shampoo", size: "1000ml", price: 800, image: "be92c3e2-8ee4-44f3-a061-2696cffa14dd.jpeg", benefits: ["Deep cleansing matrix", "Fresh premium scalp sensation", "Silky post-wash structure"], use: "Massage thoroughly through wet strands, lather carefully, then rinse elegantly." },
+            conditioner: { name: "Luxury Conditioner", size: "1000ml", price: 800, image: "78a4e8aa-4b9e-4186-bc77-03e7b7712c03.jpeg", benefits: ["Instant cuticle hydration", "Zero-friction effortless detangling", "Satin glossy finish"], use: "Apply uniformly across mid-lengths down to ends post-shampoo. Leave 3 minutes, rinse." },
             mask: { name: "Repair Treatment Mask", size: "500ml", price: 800, image: "b81ee2c9-2169-450d-a0e9-7680c587813a.jpeg", benefits: ["Deep cellular fiber core repair", "Intense re-hydration therapy", "Restores lost elastic texture"], use: "Distribute evenly weekly on damp hair. Wrap beautifully for 5-10 minutes, rinse fully." },
-            serum: { name: "Shine Serum", size: "100ml", price: 550, image: "eeb645b7-9224-47b9-a5ec-05015af7d188.jpeg", benefits: ["High-definition surface shine", "Total elite frizz blocking barrier", "Shields fragile styling tips"], use: "Warm 2-3 drops smoothly between palms, glide across dry or damp structural ends." }
+            serum: { name: "Shine Serum", size: "100ml", price: 550, image: "5a214e20-5c11-4baf-9220-8cc1b7ed44e5_2.jpeg", benefits: ["High-definition surface shine", "Total elite frizz blocking barrier", "Shields fragile styling tips"], use: "Warm 2-3 drops smoothly between palms, glide across dry or damp structural ends." }
         };
 
         let cart = [];
