@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -7,24 +8,27 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>YOURS Luxury</title>
+<title>YOURS Luxury Hair Care</title>
+
 
 <style>
 
 *{
 box-sizing:border-box;
-font-family:"Poppins",Arial,sans-serif;
+font-family:Arial, sans-serif;
 scroll-behavior:smooth;
 }
 
+
 :root{
 
---gold:#D4AF37;
---black:#020202;
---card:#0b0b0b;
+--gold:#C5A059;
+--black:#1A1A1A;
+--card:#1A1A1A;
 --white:#ffffff;
 
 }
+
 
 
 body{
@@ -36,6 +40,7 @@ color:var(--white);
 }
 
 
+
 /* HEADER */
 
 header{
@@ -44,22 +49,23 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 padding:25px 50px;
-background:#000;
+background:#111;
 border-bottom:1px solid var(--gold);
 position:sticky;
 top:0;
-z-index:999;
+z-index:1000;
 
 }
+
 
 
 .logo{
 
 font-size:45px;
-letter-spacing:8px;
 font-weight:bold;
+letter-spacing:8px;
 color:var(--gold);
-text-shadow:0 0 15px rgba(212,175,55,.5);
+text-shadow:0 0 15px rgba(197,160,89,.5);
 
 }
 
@@ -69,8 +75,7 @@ nav a{
 
 color:white;
 text-decoration:none;
-margin:0 12px;
-font-size:15px;
+margin:0 10px;
 
 }
 
@@ -85,22 +90,23 @@ color:var(--gold);
 
 .cart-btn{
 
-background:linear-gradient(45deg,#8c6500,#D4AF37,#f5d76e);
-color:#000;
+background:linear-gradient(45deg,#8A6A2F,#C5A059,#E8D39A);
+border:none;
 padding:15px 30px;
 border-radius:40px;
-border:none;
 font-weight:bold;
 cursor:pointer;
 
 }
 
 
+
 /* HERO */
+
 
 .hero{
 
-height:85vh;
+height:80vh;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -110,20 +116,21 @@ text-align:center;
 }
 
 
+
 .hero h1{
 
 font-size:75px;
 color:var(--gold);
-letter-spacing:5px;
-text-shadow:0 0 25px rgba(212,175,55,.4);
+letter-spacing:6px;
 
 }
+
 
 
 .hero p{
 
 font-size:22px;
-color:#eee;
+color:#fff;
 
 }
 
@@ -131,10 +138,10 @@ color:#eee;
 
 .gold-line{
 
-width:120px;
 height:3px;
+width:120px;
 background:var(--gold);
-margin:20px auto;
+margin:20px;
 
 }
 
@@ -142,23 +149,27 @@ margin:20px auto;
 
 /* PRODUCTS */
 
+
 .products{
 
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:35px;
-padding:70px;
+padding:60px;
 
 }
 
 
+
 .card{
 
-background:var(--card);
+background:#111;
 border:1px solid var(--gold);
 border-radius:30px;
 padding:25px;
 text-align:center;
+opacity:0;
+animation:fadeUp 1s forwards;
 transition:.5s;
 
 }
@@ -166,8 +177,8 @@ transition:.5s;
 
 .card:hover{
 
-transform:translateY(-12px);
-box-shadow:0 0 35px rgba(212,175,55,.4);
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(197,160,89,.4);
 
 }
 
@@ -176,9 +187,19 @@ box-shadow:0 0 35px rgba(212,175,55,.4);
 .card img{
 
 width:100%;
-height:300px;
+height:280px;
 object-fit:cover;
 border-radius:25px;
+transition:.5s;
+
+}
+
+
+
+.card:hover img{
+
+transform:scale(1.05);
+filter:drop-shadow(0 0 20px var(--gold));
 
 }
 
@@ -194,7 +215,7 @@ color:var(--gold);
 
 .card p{
 
-color:#fff;
+color:white;
 line-height:1.7;
 
 }
@@ -203,9 +224,9 @@ line-height:1.7;
 
 .price{
 
+color:var(--gold)!important;
 font-size:25px;
 font-weight:bold;
-color:var(--gold)!important;
 
 }
 
@@ -213,7 +234,7 @@ color:var(--gold)!important;
 
 button{
 
-background:linear-gradient(45deg,#8c6500,#D4AF37);
+background:linear-gradient(45deg,#8A6A2F,#C5A059,#E8D39A);
 border:none;
 padding:15px 30px;
 border-radius:35px;
@@ -223,12 +244,99 @@ cursor:pointer;
 }
 
 
+
 button:hover{
 
 box-shadow:0 0 25px var(--gold);
 transform:scale(1.05);
 
 }
+
+
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+}
+.card:nth-child(1){
+animation-delay:.2s;
+}
+
+.card:nth-child(2){
+animation-delay:.4s;
+}
+
+.card:nth-child(3){
+animation-delay:.6s;
+}
+
+.card:nth-child(4){
+animation-delay:.8s;
+}
+
+
+/* ADD TO CART GOLD EFFECT */
+
+.card.glow{
+
+animation:goldGlow .8s;
+
+}
+
+
+@keyframes goldGlow{
+
+0%{
+
+box-shadow:0 0 0 transparent;
+
+}
+
+50%{
+
+box-shadow:0 0 50px var(--gold);
+
+}
+
+100%{
+
+box-shadow:0 0 0 transparent;
+
+}
+
+}
+
+
+
+#toast{
+
+position:fixed;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+background:var(--gold);
+color:#000;
+padding:15px 35px;
+border-radius:40px;
+font-weight:bold;
+display:none;
+z-index:2000;
+
+}
+
 
 </style>
 
@@ -249,16 +357,22 @@ YOURS ✨
 <nav>
 
 <a href="#products">Products</a>
+
 <a href="#bundles">Bundles</a>
+
 <a href="#consult">Consultation</a>
+
 <a href="#checkout">Order</a>
 
 </nav>
 
 
+
 <button class="cart-btn" onclick="goCheckout()">
 
-🛒 Beauty Bag (<span id="count">0</span>)
+🛒 Beauty Bag 
+
+(<span id="count">0</span>)
 
 </button>
 
@@ -267,110 +381,168 @@ YOURS ✨
 
 
 
+
+
 <section class="hero">
 
-<h1>YOURS Luxury</h1>
+
+<h1>
+YOURS Luxury
+</h1>
+
 
 <div class="gold-line"></div>
+
 
 <p>
 Professional Hair Care Made With Science & Luxury
 </p>
 
+
 </section>
-<!-- PRODUCTS SECTION -->
+
+
+
+
+
+
+<!-- PRODUCTS -->
+
 
 <section class="products" id="products">
 
 
+
 <div class="card">
+
 
 <img src="images/shampoo.jpg">
 
-<h2>YOURS Deep Repair Shampoo</h2>
+
+<h2>
+Deep Repair Shampoo
+</h2>
+
 
 <p>
-Luxury cleansing formula that repairs damaged hair and restores softness.
+Luxury formula that restores damaged hair and gives softness.
 </p>
+
 
 <p class="price">
 800 EGP
 </p>
+
 
 <button onclick="addToCart(this,'Deep Repair Shampoo',800)">
 Add To Beauty Bag ✨
 </button>
 
+
 </div>
+
+
+
 
 
 
 <div class="card">
 
+
 <img src="images/conditioner.jpg">
 
-<h2>YOURS Intensive Conditioner</h2>
+
+<h2>
+Intensive Conditioner
+</h2>
+
 
 <p>
-Deep hydration formula for smooth, healthy and shiny hair.
+Deep hydration for smooth and healthy hair.
 </p>
+
 
 <p class="price">
 800 EGP
 </p>
+
 
 <button onclick="addToCart(this,'Intensive Conditioner',800)">
 Add To Beauty Bag ✨
 </button>
 
+
 </div>
+
+
+
 
 
 
 <div class="card">
 
+
 <img src="images/hairmask.jpg">
 
-<h2>YOURS Deep Care Mask</h2>
+
+<h2>
+Deep Care Hair Mask
+</h2>
+
 
 <p>
-Professional treatment that strengthens and nourishes hair.
+Professional treatment for strength and softness.
 </p>
+
 
 <p class="price">
 800 EGP
 </p>
 
-<button onclick="addToCart(this,'Deep Care Mask',800)">
+
+<button onclick="addToCart(this,'Deep Care Hair Mask',800)">
 Add To Beauty Bag ✨
 </button>
 
+
 </div>
+
+
+
 
 
 
 <div class="card">
 
+
 <img src="images/serum.jpg">
 
-<h2>YOURS Ultimate Shine Serum</h2>
+
+<h2>
+Ultimate Shine Serum
+</h2>
+
 
 <p>
-Lightweight serum for luxury shine without greasy feeling.
+Lightweight serum for luxury shine.
 </p>
+
 
 <p class="price">
 550 EGP
 </p>
 
+
 <button onclick="addToCart(this,'Ultimate Shine Serum',550)">
 Add To Beauty Bag ✨
 </button>
+
 
 </div>
 
 
 </section>
+
 
 
 
@@ -378,86 +550,61 @@ Add To Beauty Bag ✨
 
 <!-- BUNDLES -->
 
+
 <section class="products" id="bundles">
 
 
 <div class="card">
 
+
 <h2>
 Complete Repair Collection ✨
 </h2>
+
 
 <p>
 Shampoo + Conditioner + Hair Mask
 </p>
 
+
 <p class="price">
 2200 EGP
 </p>
+
 
 <button onclick="addBundle(this)">
 Add Collection
 </button>
 
+
 </div>
 
 
 
 
+
 <div class="card">
+
 
 <h2>
 Luxury Shine Collection ✨
 </h2>
 
+
 <p>
-Shampoo + Shine Serum
+Shampoo + Serum
 </p>
+
 
 <p class="price">
 1200 EGP
 </p>
 
+
 <button onclick="addShineBundle(this)">
 Add Collection
 </button>
 
-</div>
-
-
-</section>
-
-
-
-
-
-<!-- INGREDIENTS -->
-
-<section class="products">
-
-
-<div class="card">
-
-<h2>
-Ingredient Spotlight 🧪
-</h2>
-
-<p>
-
-Vitamin E:
-Protection & beautiful shine.
-
-<br><br>
-
-Keratin:
-Strengthens damaged hair.
-
-<br><br>
-
-Argan Oil:
-Deep nourishment.
-
-</p>
 
 </div>
 
@@ -466,85 +613,24 @@ Deep nourishment.
 
 
 
-
-
-<!-- ADD CART EFFECT STYLE -->
-
-<style>
-
-
-.card.glow{
-
-animation:luxuryGlow .8s;
-
-}
-
-
-
-@keyframes luxuryGlow{
-
-
-0%{
-
-box-shadow:0 0 0 transparent;
-
-}
-
-
-50%{
-
-box-shadow:
-0 0 50px #D4AF37;
-
-}
-
-
-100%{
-
-box-shadow:0 0 0 transparent;
-
-}
-
-
-}
-
-
-
-#message{
-
-position:fixed;
-bottom:40px;
-left:50%;
-transform:translateX(-50%);
-background:#D4AF37;
-color:#000;
-padding:15px 30px;
-border-radius:40px;
-font-weight:bold;
-display:none;
-z-index:9999;
-
-}
-
-
-</style>
-
-
-<div id="message">
-
+<div id="toast">
 Added To Beauty Bag ✨
-
 </div>
 <!-- CONSULTATION -->
 
 <section class="products" id="consult">
 
+
 <div class="card">
 
-<h2>Consult The Hair Expert 👩‍🔬</h2>
+
+<h2>
+Consult The Hair Expert 👩‍🔬
+</h2>
+
 
 <p>
-Tell us about your hair and get a personalized routine.
+Get your personalized hair routine from YOURS.
 </p>
 
 
@@ -560,6 +646,7 @@ style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 <select id="cType"
 style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 
+
 <option>Dry Hair</option>
 
 <option>Oily Hair</option>
@@ -568,7 +655,9 @@ style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 
 <option>Colored Hair</option>
 
+
 </select>
+
 
 
 <textarea id="cProblem"
@@ -587,38 +676,6 @@ Send Request ✨
 
 </div>
 
-</section>
-
-
-
-
-
-<!-- BEFORE & AFTER -->
-
-<section class="products">
-
-
-<div class="card">
-
-<h2>
-Transformation Gallery ✨
-</h2>
-
-
-<img src="images/before.jpg">
-
-<br><br>
-
-<img src="images/after.jpg">
-
-
-<p>
-Real results with YOURS Luxury.
-</p>
-
-
-</div>
-
 
 </section>
 
@@ -627,6 +684,7 @@ Real results with YOURS Luxury.
 
 
 <!-- REVIEWS -->
+
 
 <section class="products">
 
@@ -639,18 +697,20 @@ Customer Reviews ⭐
 </h2>
 
 
+
 <p>
 ⭐⭐⭐⭐⭐
 <br>
-"My hair feels softer and healthier."
+Amazing quality, my hair feels healthier.
 </p>
 
 
 <p>
 ⭐⭐⭐⭐⭐
 <br>
-"Luxury quality and amazing results."
+Luxury experience and beautiful results.
 </p>
+
 
 
 </div>
@@ -662,7 +722,10 @@ Customer Reviews ⭐
 
 
 
+
+
 <!-- OUR STORY -->
+
 
 <section class="products">
 
@@ -677,7 +740,7 @@ The YOURS Story ✨
 
 <p>
 
-YOURS was created to combine scientific hair care with a luxury experience, helping every woman achieve beautiful, healthy hair.
+YOURS combines science and luxury to create professional hair care products that help every woman achieve healthy, beautiful hair.
 
 </p>
 
@@ -691,7 +754,10 @@ YOURS was created to combine scientific hair care with a luxury experience, help
 
 
 
+
+
 <!-- CHECKOUT -->
+
 
 <section class="products" id="checkout">
 
@@ -725,7 +791,9 @@ style="width:90%;padding:15px;margin:8px;border-radius:15px;">
 
 
 
-<h3 style="color:#D4AF37">
+
+
+<h3 style="color:#C5A059;">
 Payment Method
 </h3>
 
@@ -735,41 +803,44 @@ Payment Method
 
 <input type="radio" name="payment" value="Cash" checked>
 
-Cash
+Cash 💵
 
 </label>
 
 
-<br>
+<br><br>
 
 
 <label>
 
 <input type="radio" name="payment" value="InstaPay">
 
-InstaPay
+InstaPay 📲
 
 </label>
 
 
-<br>
+<br><br>
 
 
 <label>
 
 <input type="radio" name="payment" value="Visa">
 
-Visa
+Visa 💳
 
 </label>
 
 
 
-<p style="color:#D4AF37;font-weight:bold">
 
-InstaPay: 01003884148
+<p style="color:#C5A059;font-weight:bold;">
+
+InstaPay Number:
+01003884148
 
 </p>
+
 
 
 
@@ -781,7 +852,7 @@ Confirm Order ✅
 
 
 
-<h3 id="success"></h3>
+<h3 id="success" style="color:#C5A059;"></h3>
 
 
 
@@ -793,19 +864,42 @@ Confirm Order ✅
 
 
 
-<!-- FLOATING WHATSAPP -->
+
+
+
+<!-- WHATSAPP -->
+
 
 <a href="https://wa.me/201003884148"
+
 style="
+
 position:fixed;
+
 right:25px;
+
 bottom:25px;
+
 background:#25D366;
+
 color:white;
-padding:18px;
+
+width:60px;
+
+height:60px;
+
 border-radius:50%;
-font-size:25px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:30px;
+
 text-decoration:none;
+
 ">
 
 💬
@@ -813,20 +907,18 @@ text-decoration:none;
 </a>
 <script>
 
+let cart = [];
 
-let cart=[];
-
-let total=0;
-
+let total = 0;
 
 
 
-// ADD TO CART WITH GOLD GLOW
+// ADD TO CART
 
 function addToCart(button,name,price){
 
 
-let card=button.parentElement;
+let card = button.parentElement;
 
 
 card.classList.add("glow");
@@ -849,19 +941,22 @@ price:price
 });
 
 
-total+=price;
+total += price;
 
 
+document.getElementById("count").innerHTML = cart.length;
 
-document.getElementById("count").innerHTML=cart.length;
 
-
-showMessage();
+showToast();
 
 
 }
 
 
+
+
+
+// BUNDLES
 
 
 function addBundle(button){
@@ -879,17 +974,16 @@ price:2200
 });
 
 
-total+=2200;
+total += 2200;
 
 
-document.getElementById("count").innerHTML=cart.length;
+document.getElementById("count").innerHTML = cart.length;
 
 
-showMessage();
+showToast();
 
 
 }
-
 
 
 
@@ -909,13 +1003,13 @@ price:1200
 });
 
 
-total+=1200;
+total += 1200;
 
 
-document.getElementById("count").innerHTML=cart.length;
+document.getElementById("count").innerHTML = cart.length;
 
 
-showMessage();
+showToast();
 
 
 }
@@ -923,18 +1017,24 @@ showMessage();
 
 
 
-function showMessage(){
+
+// TOAST MESSAGE
 
 
-let msg=document.getElementById("message");
+function showToast(){
 
 
-msg.style.display="block";
+let toast=document.getElementById("toast");
+
+
+toast.style.display="block";
 
 
 setTimeout(()=>{
 
-msg.style.display="none";
+
+toast.style.display="none";
+
 
 },2000);
 
@@ -944,7 +1044,10 @@ msg.style.display="none";
 
 
 
-// GO TO CHECKOUT
+
+
+// CHECKOUT SCROLL
+
 
 function goCheckout(){
 
@@ -963,10 +1066,12 @@ behavior:"smooth"
 
 
 
-// COMPLETE ORDER WHATSAPP
+
+// SEND ORDER TO WHATSAPP
 
 
 function completeOrder(){
+
 
 
 let name=document.getElementById("name").value;
@@ -991,34 +1096,44 @@ let payment=document.querySelector(
 let order="";
 
 
+
 cart.forEach(item=>{
 
 
-order+=item.name+" - "+item.price+" EGP\n";
+order += item.name+" - "+item.price+" EGP\n";
 
 
 });
 
 
 
-let message=
+
+let message =
 
 
 "✨ YOURS Luxury Order ✨\n\n"+
 
+
 "Name: "+name+"\n"+
+
 
 "Phone: "+phone+"\n"+
 
+
 "Address: "+address+"\n"+
+
 
 "City: "+city+"\n"+
 
+
 "Payment: "+payment+"\n\n"+
 
-"Products:\n"+order+"\n"+
+
+"Order:\n"+order+"\n"+
+
 
 "Total: "+total+" EGP";
+
 
 
 
@@ -1035,9 +1150,10 @@ encodeURIComponent(message),
 
 
 
-document.getElementById("success").innerHTML=
+document.getElementById("success").innerHTML =
 
-"🎉 Order Completed Successfully";
+"🎉 Order Sent Successfully";
+
 
 
 }
@@ -1046,10 +1162,13 @@ document.getElementById("success").innerHTML=
 
 
 
-// HAIR CONSULTATION
+
+
+// CONSULTATION WHATSAPP
 
 
 function sendConsult(){
+
 
 
 let name=document.getElementById("cName").value;
@@ -1066,16 +1185,21 @@ let problem=document.getElementById("cProblem").value;
 
 
 
-let message=
+
+let message =
 
 
-"👩‍🔬 YOURS Hair Consultation\n\n"+
+"👩‍🔬 YOURS Consultation Request\n\n"+
+
 
 "Name: "+name+"\n"+
 
+
 "Phone: "+phone+"\n"+
 
+
 "Hair Type: "+type+"\n"+
+
 
 "Problem: "+problem;
 
@@ -1093,8 +1217,8 @@ encodeURIComponent(message),
 );
 
 
-}
 
+}
 
 
 </script>
