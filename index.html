@@ -7,13 +7,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+
 <title>YOURS Luxury Hair Care</title>
+
 
 
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600;700&display=swap" rel="stylesheet">
 
 
+
 <style>
+
 
 *{
 box-sizing:border-box;
@@ -21,11 +25,12 @@ scroll-behavior:smooth;
 }
 
 
+
 body{
 
 margin:0;
 
-background:#111;
+background:#0d0d0d;
 
 color:white;
 
@@ -35,16 +40,21 @@ font-family:Arial,sans-serif;
 
 
 
+
 :root{
 
 --gold:#C5A059;
 
---lightgold:#E8C982;
+--softgold:#E8C982;
 
---black:#111;
+--black:#0d0d0d;
 
 }
 
+
+
+
+/* INTRO */
 
 
 .intro{
@@ -53,19 +63,19 @@ position:fixed;
 
 inset:0;
 
-background:#111;
+background:#0d0d0d;
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
+
+justify-content:center;
 
 flex-direction:column;
 
 z-index:9999;
 
-animation:intro 3s forwards;
+animation:hideIntro 3s forwards;
 
 }
 
@@ -75,11 +85,11 @@ animation:intro 3s forwards;
 
 font-family:'Bodoni Moda',serif;
 
-font-size:85px;
+font-size:90px;
 
-letter-spacing:18px;
+letter-spacing:20px;
 
-background:linear-gradient(90deg,#C5A059,#F3D58A,#C5A059);
+background:linear-gradient(90deg,#C5A059,#F5D88A,#C5A059);
 
 -webkit-background-clip:text;
 
@@ -93,11 +103,13 @@ color:transparent;
 
 letter-spacing:8px;
 
+color:#E8C982;
+
 }
 
 
 
-@keyframes intro{
+@keyframes hideIntro{
 
 0%,80%{
 
@@ -118,6 +130,12 @@ visibility:hidden;
 
 
 
+
+
+
+/* HEADER */
+
+
 header{
 
 position:sticky;
@@ -134,9 +152,9 @@ align-items:center;
 
 padding:20px 40px;
 
-background:#111;
+background:#0d0d0d;
 
-border-bottom:1px solid var(--gold);
+border-bottom:1px solid #C5A059;
 
 }
 
@@ -148,11 +166,12 @@ font-family:'Bodoni Moda',serif;
 
 font-size:45px;
 
-letter-spacing:10px;
+letter-spacing:12px;
 
-color:var(--gold);
+color:#C5A059;
 
 }
+
 
 
 
@@ -162,7 +181,7 @@ color:white;
 
 text-decoration:none;
 
-margin:10px;
+margin:12px;
 
 }
 
@@ -170,23 +189,23 @@ margin:10px;
 
 nav a:hover{
 
-color:var(--gold);
+color:#C5A059;
 
 }
 
 
 
-.cart-btn{
 
-background:var(--gold);
 
-border:0;
+.cart{
+
+background:#C5A059;
+
+color:#111;
 
 padding:12px 25px;
 
 border-radius:30px;
-
-cursor:pointer;
 
 font-weight:bold;
 
@@ -195,19 +214,28 @@ font-weight:bold;
 
 
 
+
+
+
+
+/* HERO */
+
+
 .hero{
 
-height:75vh;
+min-height:80vh;
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
+
+justify-content:center;
 
 flex-direction:column;
 
 text-align:center;
+
+padding:30px;
 
 }
 
@@ -217,9 +245,9 @@ text-align:center;
 
 font-family:'Bodoni Moda',serif;
 
-font-size:70px;
+font-size:75px;
 
-color:var(--gold);
+color:#C5A059;
 
 }
 
@@ -231,7 +259,11 @@ font-size:22px;
 
 max-width:700px;
 
+line-height:1.7;
+
 }
+
+
 
 
 
@@ -239,21 +271,82 @@ max-width:700px;
 
 height:3px;
 
-width:150px;
+width:170px;
 
-background:var(--gold);
+background:#C5A059;
 
-margin:20px;
+margin:25px;
+
+}
+
+
+
+
+
+.btn{
+
+background:linear-gradient(45deg,#8A6A2F,#C5A059,#F5D88A);
+
+border:none;
+
+padding:15px 40px;
+
+border-radius:40px;
+
+font-weight:bold;
+
+cursor:pointer;
 
 }
 
 
 
-.luxury-section{
 
-padding:60px 30px;
+
+/* NEW COLLECTION */
+
+
+.new-banner{
+
+margin:40px auto;
+
+padding:35px;
+
+max-width:900px;
+
+text-align:center;
+
+border:1px solid #C5A059;
+
+border-radius:30px;
+
+background:#151515;
 
 }
+
+
+
+.new-banner h2{
+
+font-family:'Bodoni Moda',serif;
+
+color:#C5A059;
+
+font-size:40px;
+
+}
+
+
+
+.new-banner p{
+
+font-size:20px;
+
+color:#E8C982;
+
+}
+
+
 
 
 
@@ -263,11 +356,19 @@ text-align:center;
 
 font-family:'Bodoni Moda',serif;
 
-font-size:42px;
+font-size:45px;
 
-color:var(--gold);
+color:#C5A059;
 
-margin-bottom:40px;
+margin:60px 0 30px;
+
+}
+
+
+
+.luxury-section{
+
+padding:40px 30px;
 
 }
 
@@ -275,10 +376,13 @@ margin-bottom:40px;
 
 </style>
 
+
 </head>
 
 
 <body>
+
+
 
 
 <div class="intro">
@@ -290,14 +394,18 @@ margin-bottom:40px;
 </div>
 
 
+
+
+
 <header>
 
 
 <div class="logo">
 
-YOURS ✨
+YOURS
 
 </div>
+
 
 
 <nav>
@@ -306,21 +414,28 @@ YOURS ✨
 
 <a href="#bundles">Bundles</a>
 
-<a href="#routine">Hair Consultant</a>
+<a href="#routine">Routine</a>
 
-<a href="#club">Beauty Club</a>
+<a href="#club">Club</a>
 
 </nav>
 
 
-<button class="cart-btn">
 
-🛒 <span id="count">0</span>
+<div class="cart">
 
-</button>
+🛒 <span id="cartCount">0</span>
+
+</div>
+
 
 
 </header>
+
+
+
+
+
 
 
 <section class="hero">
@@ -338,13 +453,58 @@ Luxury Hair Ritual
 
 <p>
 
-Professional hair care designed to transform your routine into a luxury experience.
+Professional hair care designed to transform your daily routine into a luxury experience.
 
 </p>
 
 
+
+<button class="btn">
+
+Shop Collection ✨
+
+</button>
+
+
+
 </section>
-<!-- PRODUCTS SECTION -->
+
+
+
+
+
+
+
+
+<section class="new-banner">
+
+
+<h2>
+
+New Collection Coming Soon ✨
+
+</h2>
+
+
+
+<p>
+
+Stay tuned for our latest luxury hair experience.
+
+</p>
+
+
+<button class="btn">
+
+Get Early Access
+
+</button>
+
+
+
+</section>
+<!-- PRODUCTS -->
+
 
 <section class="luxury-section" id="products">
 
@@ -357,16 +517,8 @@ Luxury Collection ✨
 
 
 
-<div class="product-slider" id="productSlider"
-style="
-display:flex;
-gap:25px;
-overflow-x:auto;
-scroll-behavior:smooth;
-scrollbar-width:none;
-">
 
-
+<div class="product-slider">
 
 
 
@@ -391,15 +543,14 @@ Luxury Shampoo
 </p>
 
 
-<h3 class="price">
+<h2>
 
 800 EGP
 
-</h3>
+</h2>
 
 
 </div>
-
 
 
 
@@ -426,15 +577,14 @@ Luxury Conditioner
 </p>
 
 
-<h3 class="price">
+<h2>
 
 800 EGP
 
-</h3>
+</h2>
 
 
 </div>
-
 
 
 
@@ -444,7 +594,7 @@ Luxury Conditioner
 onclick="openProduct('mask')">
 
 
-<img src="images/hairmask.jpg">
+<img src="images/mask.jpg">
 
 
 <h3>
@@ -461,15 +611,14 @@ Repair Treatment Mask
 </p>
 
 
-<h3 class="price">
+<h2>
 
 800 EGP
 
-</h3>
+</h2>
 
 
 </div>
-
 
 
 
@@ -496,15 +645,14 @@ Shine Serum
 </p>
 
 
-<h3 class="price">
+<h2>
 
 550 EGP
 
-</h3>
+</h2>
 
 
 </div>
-
 
 
 
@@ -520,7 +668,8 @@ Shine Serum
 
 
 
-<!-- BUNDLES -->
+
+<!-- BUNDLE -->
 
 
 <section class="luxury-section" id="bundles">
@@ -528,28 +677,17 @@ Shine Serum
 
 <h2 class="section-title">
 
-YOURS Signature Bundles 🎁
+YOURS Signature Bundle 🎁
 
 </h2>
 
 
 
-
-<div class="product-card">
-
+<div class="product-card bundle-card">
 
 
-<span style="
-background:#C5A059;
-color:#111;
-padding:7px 15px;
-border-radius:20px;
-">
 
-BEST VALUE
-
-</span>
-
+<img src="images/bundle.jpg">
 
 
 
@@ -563,19 +701,15 @@ Complete Hair Ritual Bundle ✨
 
 <p>
 
-Includes:
+Shampoo 1000ml
 
 <br>
 
-Luxury Shampoo 1000ml
+Conditioner 1000ml
 
 <br>
 
-Luxury Conditioner 1000ml
-
-<br>
-
-Repair Treatment Mask 500ml
+Repair Mask 500ml
 
 <br>
 
@@ -586,10 +720,9 @@ Shine Serum 100ml
 
 
 
-
 <h3 style="
 text-decoration:line-through;
-color:#aaa;
+color:#999;
 ">
 
 2950 EGP
@@ -598,33 +731,226 @@ color:#aaa;
 
 
 
+<h1 style="
+color:#C5A059;
+">
 
-<h2 class="price">
+2500 EGP
 
-2500 EGP ✨
-
-</h2>
+</h1>
 
 
 
+<p style="
+color:#E8C982;
+">
 
-<p style="color:#E8C982;">
-
-Save 450 EGP
+Save 450 EGP ✨
 
 </p>
 
 
 
 
-
-<button class="gold-btn"
+<button class="btn"
 onclick="addBundle()">
 
-Add Bundle To Bag ✨
+Add Bundle To Cart
 
 </button>
 
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<style>
+
+
+.product-slider{
+
+display:flex;
+
+gap:25px;
+
+overflow-x:auto;
+
+scroll-behavior:smooth;
+
+padding:20px;
+
+scrollbar-width:none;
+
+}
+
+
+
+
+.product-card{
+
+background:#151515;
+
+border:1px solid #C5A059;
+
+border-radius:30px;
+
+padding:25px;
+
+text-align:center;
+
+min-width:260px;
+
+cursor:pointer;
+
+transition:.4s;
+
+}
+
+
+
+.product-card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 0 25px rgba(197,160,89,.4);
+
+}
+
+
+
+.product-card img{
+
+width:100%;
+
+height:260px;
+
+object-fit:contain;
+
+border-radius:20px;
+
+}
+
+
+
+.product-card h3{
+
+color:#C5A059;
+
+font-size:24px;
+
+}
+
+
+
+.bundle-card{
+
+max-width:450px;
+
+margin:auto;
+
+}
+
+
+
+</style>
+<!-- PRODUCT PAGE -->
+
+
+<section class="luxury-section" id="productPage" style="display:none;">
+
+
+
+<div class="product-details">
+
+
+
+<div>
+
+<img id="detailImage"
+
+class="detail-image"
+
+>
+
+
+</div>
+
+
+
+
+
+<div class="detail-info">
+
+
+
+<h1 id="detailName"></h1>
+
+
+<h2 id="detailSize"></h2>
+
+
+<h2 id="detailPrice"></h2>
+
+
+
+
+<h3>
+Benefits ✨
+</h3>
+
+
+<ul id="detailBenefits"></ul>
+
+
+
+
+
+<h3>
+How To Use ✨
+</h3>
+
+
+<p id="detailUse"></p>
+
+
+
+
+
+<button class="btn"
+
+onclick="addCurrentProduct()">
+
+Add To Cart 🛒
+
+</button>
+
+
+
+<br><br>
+
+
+
+<button class="btn"
+
+onclick="backProducts()">
+
+Back To Collection
+
+</button>
+
+
+
+</div>
 
 
 </div>
@@ -641,269 +967,611 @@ Add Bundle To Bag ✨
 <style>
 
 
-.product-card{
+.product-details{
 
-min-width:260px;
+display:flex;
 
-background:#181818;
+justify-content:center;
 
-border:1px solid #C5A059;
+align-items:center;
 
-border-radius:30px;
+gap:50px;
 
-padding:25px;
-
-text-align:center;
-
-transition:.4s;
-
-cursor:pointer;
+flex-wrap:wrap;
 
 }
 
 
 
-.product-card:hover{
+.detail-image{
 
-transform:translateY(-10px);
+width:420px;
 
-box-shadow:0 0 30px rgba(197,160,89,.5);
-
-}
-
-
-
-.product-card img{
-
-width:100%;
-
-height:230px;
+height:420px;
 
 object-fit:contain;
 
+border:1px solid #C5A059;
+
+border-radius:35px;
+
 }
 
 
 
-.product-card h3{
+.detail-info{
+
+max-width:450px;
+
+}
+
+
+
+.detail-info h1{
+
+font-family:'Bodoni Moda',serif;
 
 color:#C5A059;
 
-font-size:24px;
+font-size:45px;
 
 }
 
 
 
-.price{
+.detail-info h2{
+
+color:#E8C982;
+
+}
+
+
+
+.detail-info h3{
 
 color:#C5A059;
-
-}
-
-
-
-.gold-btn{
-
-background:linear-gradient(45deg,#8A6A2F,#C5A059,#F3D58A);
-
-border:none;
-
-padding:15px 35px;
-
-border-radius:40px;
-
-font-weight:bold;
-
-cursor:pointer;
 
 }
 
 
 
 </style>
-<!-- PRODUCT DETAILS PAGE -->
 
 
-<section class="luxury-section" id="productPage" style="display:none;">
 
 
-<div style="
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:50px;
-align-items:center;
-">
 
 
 
-<div>
 
-<img id="productImage"
 
-style="
-width:400px;
-height:400px;
-object-fit:contain;
-border:1px solid #C5A059;
-border-radius:35px;
-">
+<script>
 
-</div>
 
+const productsData={
 
 
 
-<div style="
-max-width:500px;
-">
+shampoo:{
 
 
-<h1 id="productName"
+name:"Luxury Shampoo",
 
-style="
-font-family:'Bodoni Moda',serif;
-color:#C5A059;
-font-size:45px;
-">
+size:"1000ml",
 
-</h1>
+price:800,
 
+image:"images/shampoo.jpg",
 
+benefits:[
 
+"Deep cleansing",
 
-<h2 id="productSize"></h2>
+"Fresh scalp feeling",
 
+"Soft and smooth hair"
 
+],
 
-<h2 id="productPrice"
+use:
 
-style="
-color:#C5A059;
-">
+"Apply on wet hair, massage gently, then rinse."
 
-</h2>
+},
 
 
 
 
-<p id="productDescription"></p>
 
+conditioner:{
 
 
+name:"Luxury Conditioner",
 
+size:"1000ml",
 
-<h3 style="color:#C5A059;">
+price:800,
 
-Benefits ✨
+image:"images/conditioner.jpg",
 
-</h3>
+benefits:[
 
+"Deep hydration",
 
-<ul id="productBenefits"></ul>
+"Easy detangling",
 
+"Silky finish"
 
+],
 
+use:
 
+"Apply after shampoo and leave for a few minutes."
 
-<h3 style="color:#C5A059;">
+},
 
-How To Use ✨
 
-</h3>
 
 
-<p id="productUse"></p>
 
+mask:{
 
 
+name:"Repair Treatment Mask",
 
+size:"500ml",
 
-<button class="gold-btn"
+price:800,
 
-onclick="addCurrentProduct()">
+image:"images/mask.jpg",
 
-Add To Cart ✨
+benefits:[
 
-</button>
+"Hair repair",
 
+"Strengthens damaged hair",
 
+"Improves softness"
 
+],
 
-<br><br>
+use:
 
+"Apply for 5-10 minutes then rinse."
 
+},
 
-<button class="gold-btn"
 
-onclick="backToProducts()">
 
-← Back
 
-</button>
 
 
+serum:{
 
-</div>
 
+name:"Shine Serum",
 
-</div>
+size:"100ml",
 
+price:550,
 
-</section>
+image:"images/serum.jpg",
 
+benefits:[
 
+"Luxury shine",
 
+"Frizz control",
 
+"Protects hair ends"
 
+],
 
+use:
 
+"Apply a small amount on hair ends."
 
-<!-- CART SUMMARY -->
+}
 
 
-<section class="luxury-section">
+
+};
+
+
+
+
+
+
+
+let currentProduct=null;
+
+let cart=[];
+
+let total=0;
+
+
+
+
+
+
+
+function openProduct(product){
+
+
+currentProduct=productsData[product];
+
+
+
+document.getElementById("products").style.display="none";
+
+
+document.getElementById("bundles").style.display="none";
+
+
+document.getElementById("productPage").style.display="block";
+
+
+
+
+
+document.getElementById("detailImage").src=currentProduct.image;
+
+
+document.getElementById("detailName").innerHTML=currentProduct.name;
+
+
+document.getElementById("detailSize").innerHTML=currentProduct.size;
+
+
+document.getElementById("detailPrice").innerHTML=currentProduct.price+" EGP";
+
+
+
+
+
+let benefits="";
+
+
+currentProduct.benefits.forEach(x=>{
+
+benefits += "<li>"+x+"</li>";
+
+});
+
+
+
+document.getElementById("detailBenefits").innerHTML=benefits;
+
+
+
+document.getElementById("detailUse").innerHTML=currentProduct.use;
+
+
+}
+
+
+
+
+
+
+function backProducts(){
+
+
+document.getElementById("products").style.display="block";
+
+
+document.getElementById("bundles").style.display="block";
+
+
+document.getElementById("productPage").style.display="none";
+
+
+}
+
+
+
+
+
+
+function addCurrentProduct(){
+
+
+cart.push(currentProduct);
+
+
+total += currentProduct.price;
+
+
+
+document.getElementById("cartCount").innerHTML=cart.length;
+
+
+
+alert("Added To Cart ✨");
+
+
+}
+
+
+
+
+
+
+
+function addBundle(){
+
+
+let bundle={
+
+name:"Complete Hair Ritual Bundle",
+
+price:2500
+
+};
+
+
+
+cart.push(bundle);
+
+
+total += 2500;
+
+
+document.getElementById("cartCount").innerHTML=cart.length;
+
+
+
+alert("Bundle Added ✨");
+
+
+}
+
+
+</script>
+<!-- HAIR CONSULTANT -->
+
+
+<section class="luxury-section" id="routine">
 
 
 <h2 class="section-title">
 
-Your Bag 🛒
+Build Your Hair Routine ✨
 
 </h2>
 
 
 
-<div class="product-card">
-
-
-<h3>
-
-Items:
-
-<span id="cartItems">
-
-0
-
-</span>
-
-</h3>
+<div class="product-card" style="max-width:500px;margin:auto;">
 
 
 
-<h3>
+<h2>
 
-Total:
+Find Your Perfect Ritual 👑
 
-<span id="cartTotal">
+</h2>
 
-0
 
-</span>
 
-EGP
 
-</h3>
+<select id="hairType"
+
+style="
+width:90%;
+padding:15px;
+margin:10px;
+border-radius:15px;
+">
+
+
+
+<option value="">
+
+Choose Hair Type
+
+</option>
+
+
+<option>
+
+Oily Hair
+
+</option>
+
+
+<option>
+
+Dry Hair
+
+</option>
+
+
+<option>
+
+Curly Hair
+
+</option>
+
+
+<option>
+
+Weak Hair
+
+</option>
+
+
+<option>
+
+Damaged Hair
+
+</option>
+
+
+
+</select>
+
+
+
+
+
+
+
+<select id="hairProblem"
+
+style="
+width:90%;
+padding:15px;
+margin:10px;
+border-radius:15px;
+">
+
+
+
+<option value="">
+
+Choose Your Problem
+
+</option>
+
+
+
+<option>
+
+Frizz
+
+</option>
+
+
+<option>
+
+Dryness
+
+</option>
+
+
+<option>
+
+Weakness
+
+</option>
+
+
+<option>
+
+Damage
+
+</option>
+
+
+<option>
+
+Lack Of Shine
+
+</option>
+
+
+
+</select>
+
+
+
+
+
+
+
+
+<select id="hairGoal"
+
+style="
+width:90%;
+padding:15px;
+margin:10px;
+border-radius:15px;
+">
+
+
+
+<option value="">
+
+Choose Your Goal
+
+</option>
+
+
+<option>
+
+Repair
+
+</option>
+
+
+<option>
+
+Hydration
+
+</option>
+
+
+<option>
+
+Shine
+
+</option>
+
+
+<option>
+
+Strength
+
+</option>
+
+
+</select>
+
+
+
+
+
+
+<button class="btn"
+
+onclick="createHairRoutine()">
+
+Create My Routine ✨
+
+</button>
+
+
+
+
+
+<div id="routineResult"
+
+style="
+margin-top:30px;
+color:#E8C982;
+font-size:18px;
+">
+
+</div>
+
+
+
+
+
+<button id="addRoutineBtn"
+
+class="btn"
+
+style="display:none;"
+
+onclick="addRoutineToCart()">
+
+Add My Routine To Cart 🛒
+
+</button>
+
 
 
 </div>
@@ -923,282 +1591,207 @@ EGP
 
 
 
-let cart=[];
+let selectedRoutine=[];
 
-let total=0;
 
-let currentProduct=null;
 
 
 
-const products={
+function createHairRoutine(){
 
 
 
-shampoo:{
+let type=document.getElementById("hairType").value;
 
+let problem=document.getElementById("hairProblem").value;
 
-name:"Luxury Shampoo",
+let goal=document.getElementById("hairGoal").value;
 
-size:"1000ml",
 
-price:800,
 
-image:"images/shampoo.jpg",
+selectedRoutine=[];
 
-description:
 
-"Professional cleansing formula that refreshes the scalp and leaves hair soft and healthy.",
 
+let result="Your YOURS Ritual: <br><br>";
 
-benefits:[
 
-"Deep cleansing",
 
-"Soft and smooth hair",
 
-"Fresh scalp feeling"
 
-],
+if(
+type=="Curly Hair" ||
+problem=="Frizz"
+){
 
+selectedRoutine=[
 
-use:
+productsData.conditioner,
 
-"Apply to wet hair, massage gently, then rinse."
+productsData.serum
 
-},
+];
 
+result +=
 
-
-
-
-conditioner:{
-
-
-name:"Luxury Conditioner",
-
-size:"1000ml",
-
-price:800,
-
-image:"images/conditioner.jpg",
-
-description:
-
-"Deep hydration formula for silky and manageable hair.",
-
-
-benefits:[
-
-"Hydration",
-
-"Smooth finish",
-
-"Easy detangling"
-
-],
-
-
-use:
-
-"Apply after shampoo, leave for a few minutes, then rinse."
-
-},
-
-
-
-
-
-mask:{
-
-
-name:"Repair Treatment Mask",
-
-size:"500ml",
-
-price:800,
-
-image:"images/hairmask.jpg",
-
-description:
-
-"Intensive repair treatment for damaged hair.",
-
-
-benefits:[
-
-"Hair repair",
-
-"Strength",
-
-"Healthy appearance"
-
-],
-
-
-use:
-
-"Apply for 5-10 minutes then rinse."
-
-},
-
-
-
-
-
-serum:{
-
-
-name:"Shine Serum",
-
-size:"100ml",
-
-price:550,
-
-image:"images/serum.jpg",
-
-description:
-
-"Lightweight serum for shine and protection.",
-
-
-benefits:[
-
-"Luxury shine",
-
-"Frizz control",
-
-"End protection"
-
-],
-
-
-use:
-
-"Apply a small amount to hair ends."
+"✨ Conditioner + Shine Serum<br>";
 
 }
 
 
 
-};
+
+else if(
+
+type=="Damaged Hair" ||
+
+problem=="Damage" ||
+
+goal=="Repair"
+
+){
+
+
+selectedRoutine=[
+
+productsData.mask,
+
+productsData.shampoo
+
+];
+
+
+result +=
+
+"✨ Repair Mask + Luxury Shampoo<br>";
+
+}
 
 
 
 
 
+else if(
+
+goal=="Hydration" ||
+
+type=="Dry Hair"
+
+){
 
 
-function openProduct(id){
+selectedRoutine=[
+
+productsData.conditioner,
+
+productsData.mask
+
+];
 
 
+result +=
 
-currentProduct=products[id];
+"✨ Conditioner + Repair Mask<br>";
 
-
-
-document.getElementById("products").style.display="none";
-
-document.getElementById("bundles").style.display="none";
-
-document.getElementById("productPage").style.display="block";
-
-
-
-document.getElementById("productImage").src=currentProduct.image;
-
-document.getElementById("productName").innerHTML=currentProduct.name;
-
-document.getElementById("productSize").innerHTML=currentProduct.size;
-
-document.getElementById("productPrice").innerHTML=currentProduct.price+" EGP";
-
-document.getElementById("productDescription").innerHTML=currentProduct.description;
+}
 
 
 
-let list="";
 
 
-currentProduct.benefits.forEach(item=>{
+else if(
 
-list+="<li>"+item+"</li>";
+goal=="Strength" ||
+
+type=="Weak Hair"
+
+){
+
+
+selectedRoutine=[
+
+productsData.mask,
+
+productsData.serum
+
+];
+
+
+result +=
+
+"✨ Repair Mask + Shine Serum<br>";
+
+}
+
+
+
+
+
+else{
+
+
+selectedRoutine=[
+
+productsData.shampoo,
+
+productsData.conditioner,
+
+productsData.mask,
+
+productsData.serum
+
+];
+
+
+result +=
+
+"✨ Complete Luxury Hair Ritual<br>";
+
+}
+
+
+
+
+
+result +=
+
+"<br>Made especially for your hair ✨";
+
+
+
+document.getElementById("routineResult").innerHTML=result;
+
+
+
+document.getElementById("addRoutineBtn").style.display="inline-block";
+
+}
+
+
+
+
+
+function addRoutineToCart(){
+
+
+selectedRoutine.forEach(item=>{
+
+
+cart.push(item);
+
+
+total += item.price;
+
 
 });
 
 
-document.getElementById("productBenefits").innerHTML=list;
 
-
-document.getElementById("productUse").innerHTML=currentProduct.use;
-
-
-}
+document.getElementById("cartCount").innerHTML=cart.length;
 
 
 
-function backToProducts(){
-
-
-document.getElementById("products").style.display="block";
-
-document.getElementById("bundles").style.display="block";
-
-document.getElementById("productPage").style.display="none";
-
-
-}
-
-
-
-function addCurrentProduct(){
-
-
-cart.push(currentProduct);
-
-
-total+=currentProduct.price;
-
-
-document.getElementById("cartItems").innerHTML=cart.length;
-
-
-document.getElementById("cartTotal").innerHTML=total;
-
-
-alert("Added To Cart ✨");
-
-
-}
-
-
-
-
-function addBundle(){
-
-
-let bundle={
-
-name:"Complete Hair Ritual Bundle",
-
-price:2500
-
-};
-
-
-cart.push(bundle);
-
-
-total+=2500;
-
-
-document.getElementById("cartItems").innerHTML=cart.length;
-
-
-document.getElementById("cartTotal").innerHTML=total;
-
-
-alert("Bundle Added ✨");
+alert("Your Personal Routine Added ✨");
 
 
 }
@@ -1206,118 +1799,6 @@ alert("Bundle Added ✨");
 
 
 </script>
-<!-- HAIR CONSULTANT -->
-
-
-<section class="luxury-section" id="routine">
-
-
-<h2 class="section-title">
-
-Your Personal Hair Consultant ✨
-
-</h2>
-
-
-
-<div class="product-card" style="margin:auto;max-width:450px;">
-
-
-<h3>
-
-Tell us about your hair
-
-</h3>
-
-
-
-
-<select id="hairType"
-
-style="
-width:90%;
-padding:15px;
-border-radius:15px;
-margin:10px;
-">
-
-
-<option>Choose Hair Type</option>
-
-<option>Oily Hair</option>
-
-<option>Dry Hair</option>
-
-<option>Curly Hair</option>
-
-<option>Weak Hair</option>
-
-<option>Damaged Hair</option>
-
-
-</select>
-
-
-
-
-
-<select id="hairGoal"
-
-style="
-width:90%;
-padding:15px;
-border-radius:15px;
-margin:10px;
-">
-
-
-<option>Choose Your Goal</option>
-
-<option>Repair</option>
-
-<option>Hydration</option>
-
-<option>Shine</option>
-
-<option>Strength</option>
-
-
-</select>
-
-
-
-
-
-<button class="gold-btn"
-
-onclick="createRoutine()">
-
-Create My Ritual ✨
-
-</button>
-
-
-
-<h3 id="routineResult"
-
-style="color:#C5A059;">
-
-</h3>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
 <!-- BEAUTY CLUB -->
 
 
@@ -1332,33 +1813,368 @@ YOURS Beauty Club 👑
 
 
 
-
-<div class="product-card" style="margin:auto;max-width:450px;">
-
+<div class="product-card" style="max-width:500px;margin:auto;">
 
 
-<h3>
 
-Join Our Luxury Community
+<h2>
 
-</h3>
+Join The Luxury Community ✨
+
+</h2>
 
 
 
 <p>
 
-Get exclusive hair tips, offers and personalized recommendations.
+Get exclusive offers, hair tips and early access to new collections.
 
 </p>
 
 
 
 
-<button class="gold-btn"
 
-onclick="openClubPage()">
+<input id="clubName"
 
-Join Now ✨
+placeholder="Your Name"
+
+style="
+width:90%;
+padding:15px;
+margin:10px;
+border-radius:15px;
+">
+
+
+
+
+
+<input id="clubPhone"
+
+placeholder="WhatsApp Number"
+
+style="
+width:90%;
+padding:15px;
+margin:10px;
+border-radius:15px;
+">
+
+
+
+
+
+<button class="btn"
+
+onclick="joinClub()">
+
+Join Beauty Club ✨
+
+</button>
+
+
+
+
+<p id="clubMessage"
+
+style="color:#E8C982;">
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+<!-- VIP EARLY ACCESS -->
+
+
+<section class="luxury-section">
+
+
+<div class="new-banner">
+
+
+<h2>
+
+VIP Early Access 💎
+
+</h2>
+
+
+<p>
+
+Be the first to discover our upcoming New Collection.
+
+</p>
+
+
+
+<input id="vipEmail"
+
+placeholder="Your Email"
+
+style="
+padding:15px;
+border-radius:20px;
+width:70%;
+">
+
+
+
+<br><br>
+
+
+<button class="btn"
+
+onclick="vipJoin()">
+
+Get Early Access ✨
+
+</button>
+
+
+
+<p id="vipMessage"
+
+style="color:#E8C982;">
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- REWARDS CLUB -->
+
+
+<section class="luxury-section">
+
+
+<h2 class="section-title">
+
+YOURS Rewards ⭐
+
+</h2>
+
+
+
+
+<div class="product-card" style="max-width:500px;margin:auto;">
+
+
+
+<h2>
+
+Your Points: 
+
+<span id="points">
+
+0
+
+</span>
+
+✨
+
+</h2>
+
+
+
+
+<p>
+
+Earn points with every purchase and unlock special gifts.
+
+</p>
+
+
+
+<button class="btn"
+
+onclick="addPoints()">
+
+Collect Reward Points
+
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+let points=0;
+
+
+
+
+
+
+function joinClub(){
+
+
+let name=document.getElementById("clubName").value;
+
+
+
+document.getElementById("clubMessage").innerHTML=
+
+"Welcome "+name+" to YOURS Beauty Club 👑✨";
+
+
+}
+
+
+
+
+
+
+
+
+function vipJoin(){
+
+
+document.getElementById("vipMessage").innerHTML=
+
+"You are now on the VIP Early Access list 💎✨";
+
+
+}
+
+
+
+
+
+
+
+function addPoints(){
+
+
+points +=100;
+
+
+document.getElementById("points").innerHTML=points;
+
+
+}
+
+
+
+</script>
+<!-- GIFT COLLECTION -->
+
+
+<section class="luxury-section" id="gift">
+
+
+<h2 class="section-title">
+
+Luxury Gift Collection 🎁
+
+</h2>
+
+
+
+<div class="product-card" style="max-width:450px;margin:auto;">
+
+
+
+<img src="images/bundle.jpg"
+class="product-image">
+
+
+
+<h2>
+
+Complete Hair Ritual Gift Box ✨
+
+</h2>
+
+
+
+<p>
+
+A luxury gift containing:
+
+<br><br>
+
+Shampoo 1000ml
+
+<br>
+
+Conditioner 1000ml
+
+<br>
+
+Repair Mask 500ml
+
+<br>
+
+Shine Serum 100ml
+
+</p>
+
+
+
+
+<h3 style="
+text-decoration:line-through;
+color:#999;
+">
+
+2950 EGP
+
+</h3>
+
+
+
+<h1 style="
+color:#C5A059;
+">
+
+2500 EGP
+
+</h1>
+
+
+
+<button class="btn"
+
+onclick="addBundle()">
+
+Add Gift Bundle 🎁
 
 </button>
 
@@ -1377,76 +2193,51 @@ Join Now ✨
 
 
 
-<!-- BEAUTY CLUB PAGE -->
+<!-- GIFT PACKAGING -->
 
 
-<section class="luxury-section"
-
-id="clubPage"
-
-style="display:none;">
-
+<section class="luxury-section">
 
 
 <h2 class="section-title">
 
-Welcome To YOURS Club ✨
+Gift Packaging 🎀
 
 </h2>
 
 
 
-
-<div class="product-card" style="margin:auto;max-width:450px;">
-
-
-
-<input id="memberName"
-
-placeholder="Your Name"
-
-style="
-width:90%;
-padding:15px;
-margin:8px;
-border-radius:15px;
-">
+<div class="product-card" style="max-width:450px;margin:auto;">
 
 
 
+<h2>
 
+Make It Special ✨
 
-<input id="memberPhone"
-
-placeholder="WhatsApp Number"
-
-style="
-width:90%;
-padding:15px;
-margin:8px;
-border-radius:15px;
-">
+</h2>
 
 
 
+<label>
+
+
+<input type="checkbox" id="giftBox">
+
+
+Add Luxury Gift Packaging +50 EGP
+
+
+</label>
 
 
 
-<button class="gold-btn"
+<p style="color:#E8C982;">
 
-onclick="joinClub()">
+Perfect for birthdays and special occasions.
 
-Become A Member ✨
+</p>
 
-</button>
-
-
-
-<h3 id="memberMessage"
-
-style="color:#C5A059;">
-
-</h3>
 
 
 </div>
@@ -1470,7 +2261,7 @@ style="color:#C5A059;">
 
 <h2 class="section-title">
 
-My Hair Diary 📖✨
+My Hair Diary 📖
 
 </h2>
 
@@ -1510,7 +2301,7 @@ Week 2
 
 <p>
 
-Feel softer and healthier hair.
+Feel the difference.
 
 </p>
 
@@ -1530,7 +2321,96 @@ Month 1
 
 <p>
 
-Discover your transformation.
+See your transformation.
+
+</p>
+
+</div>
+
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- INGREDIENT SPOTLIGHT -->
+
+
+<section class="luxury-section">
+
+
+<h2 class="section-title">
+
+Ingredient Spotlight 🧪
+
+</h2>
+
+
+
+
+<div class="product-slider">
+
+
+
+<div class="product-card">
+
+<h3>
+
+Shampoo
+
+</h3>
+
+<p>
+
+Deep cleansing care for a fresh scalp and soft hair.
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="product-card">
+
+<h3>
+
+Repair Mask
+
+</h3>
+
+<p>
+
+Intensive treatment for damaged and weak hair.
+
+</p>
+
+</div>
+
+
+
+
+
+<div class="product-card">
+
+<h3>
+
+Shine Serum
+
+</h3>
+
+<p>
+
+Smooth finish, shine and frizz control.
 
 </p>
 
@@ -1542,6 +2422,245 @@ Discover your transformation.
 
 
 </section>
+
+
+
+
+
+
+
+
+
+<!-- TRANSFORMATION GALLERY -->
+
+
+<section class="luxury-section">
+
+
+<h2 class="section-title">
+
+Hair Transformation Gallery 📸
+
+</h2>
+
+
+
+
+<div class="product-slider">
+
+
+
+<div class="product-card">
+
+<img src="images/before1.jpg"
+class="product-image">
+
+
+<h3>
+
+Before
+
+</h3>
+
+</div>
+
+
+
+
+
+<div class="product-card">
+
+<img src="images/after1.jpg"
+class="product-image">
+
+
+<h3>
+
+After
+
+</h3>
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<style>
+
+
+.product-image{
+
+width:100%;
+
+height:260px;
+
+object-fit:contain;
+
+border-radius:25px;
+
+}
+
+
+</style>
+<!-- CUSTOMER REVIEWS -->
+
+
+<section class="luxury-section" id="reviews">
+
+
+<h2 class="section-title">
+
+Customer Reviews ⭐
+
+</h2>
+
+
+
+
+<div class="product-card" style="max-width:500px;margin:auto;">
+
+
+
+<h2>
+
+Share Your Experience ✨
+
+</h2>
+
+
+
+<input id="reviewName"
+
+placeholder="Your Name"
+
+style="
+width:90%;
+padding:15px;
+margin:10px;
+border-radius:15px;
+">
+
+
+
+
+
+<select id="reviewRating"
+
+style="
+width:90%;
+padding:15px;
+margin:10px;
+border-radius:15px;
+">
+
+
+<option>
+
+★★★★★
+
+</option>
+
+
+<option>
+
+★★★★
+
+</option>
+
+
+<option>
+
+★★★
+
+</option>
+
+
+<option>
+
+★★
+
+</option>
+
+
+<option>
+
+★
+
+</option>
+
+
+</select>
+
+
+
+
+
+<textarea id="reviewMessage"
+
+placeholder="Write your review..."
+
+style="
+width:90%;
+height:120px;
+padding:15px;
+margin:10px;
+border-radius:15px;
+"></textarea>
+
+
+
+
+
+<br>
+
+
+<button class="btn"
+
+onclick="addReview()">
+
+Submit Review ✨
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+<div id="reviewsContainer"
+
+style="
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:20px;
+margin-top:40px;
+">
+
+</div>
+
+
+
+</section>
+
 
 
 
@@ -1554,72 +2673,60 @@ Discover your transformation.
 
 
 
-function createRoutine(){
-
-
-let type=document.getElementById("hairType").value;
-
-let goal=document.getElementById("hairGoal").value;
-
-
-let result="";
+let reviews=[];
 
 
 
-if(goal=="Repair" || type=="Damaged Hair"){
+function addReview(){
 
-result="Your Ritual: Repair Treatment Mask + Shampoo ✨";
 
-}
 
-else if(goal=="Hydration" || type=="Dry Hair"){
+let name=document.getElementById("reviewName").value;
 
-result="Your Ritual: Conditioner + Repair Mask ✨";
 
-}
+let rating=document.getElementById("reviewRating").value;
 
-else if(goal=="Shine"){
 
-result="Your Ritual: Shine Serum + Conditioner ✨";
+let message=document.getElementById("reviewMessage").value;
 
-}
 
-else if(goal=="Strength" || type=="Weak Hair"){
 
-result="Your Ritual: Repair Mask + Shine Serum ✨";
 
-}
 
-else{
+if(name==="" || message===""){
 
-result="Your Ritual: Complete YOURS Collection ✨";
+alert("Please complete your review ✨");
+
+return;
 
 }
 
 
 
 
-document.getElementById("routineResult").innerHTML=result;
+reviews.push({
+
+name:name,
+
+rating:rating,
+
+message:message
+
+});
 
 
-}
+
+
+
+showReviews();
 
 
 
 
+document.getElementById("reviewName").value="";
 
+document.getElementById("reviewMessage").value="";
 
-
-function openClubPage(){
-
-
-document.getElementById("club").style.display="none";
-
-
-document.getElementById("clubPage").style.display="block";
-
-
-window.scrollTo(0,0);
 
 
 }
@@ -1627,17 +2734,67 @@ window.scrollTo(0,0);
 
 
 
-function joinClub(){
 
 
 
-let name=document.getElementById("memberName").value;
+
+function showReviews(){
 
 
 
-document.getElementById("memberMessage").innerHTML=
+let box=document.getElementById("reviewsContainer");
 
-"Welcome "+name+" to YOURS Beauty Club 👑✨";
+
+box.innerHTML="";
+
+
+
+reviews.forEach(review=>{
+
+
+
+box.innerHTML +=`
+
+
+<div class="product-card" style="max-width:300px;">
+
+
+<h3 style="color:#C5A059;">
+
+${review.rating}
+
+</h3>
+
+
+
+<h3>
+
+${review.name}
+
+✓
+
+</h3>
+
+
+
+<p>
+
+${review.message}
+
+</p>
+
+
+
+</div>
+
+
+
+`;
+
+
+
+});
+
 
 
 }
@@ -1645,44 +2802,25 @@ document.getElementById("memberMessage").innerHTML=
 
 
 </script>
-<!-- INGREDIENT SPOTLIGHT -->
+<!-- CART -->
 
 
-<section class="luxury-section">
+<section class="luxury-section" id="cartPage">
 
 
 <h2 class="section-title">
 
-Ingredient Spotlight 🧪✨
+Your Shopping Bag 🛒
 
 </h2>
 
 
 
-<div class="product-slider">
+<div id="cartItems"
 
+class="product-card"
 
-
-<div class="product-card">
-
-
-<h3>
-
-Luxury Shampoo
-
-</h3>
-
-
-<p>
-
-✨ Professional cleansing formula
-
-<br><br>
-
-Refreshes the scalp and gives a soft, clean feeling.
-
-</p>
-
+style="max-width:600px;margin:auto;">
 
 </div>
 
@@ -1690,59 +2828,25 @@ Refreshes the scalp and gives a soft, clean feeling.
 
 
 
-<div class="product-card">
+<h2 style="
+text-align:center;
+color:#C5A059;
+">
 
+Total: <span id="cartTotal">0</span> EGP
 
-<h3>
-
-Repair Treatment Mask
-
-</h3>
-
-
-<p>
-
-✨ Intensive repair care
-
-<br><br>
-
-Helps damaged hair feel stronger and healthier.
-
-</p>
-
-
-</div>
+</h2>
 
 
 
+<button class="btn"
 
+onclick="goCheckout()">
 
-<div class="product-card">
+Checkout ✨
 
+</button>
 
-<h3>
-
-Shine Serum
-
-</h3>
-
-
-<p>
-
-✨ Lightweight shine formula
-
-<br><br>
-
-Protects ends and controls frizz.
-
-</p>
-
-
-</div>
-
-
-
-</div>
 
 
 </section>
@@ -1755,227 +2859,13 @@ Protects ends and controls frizz.
 
 
 
-<!-- REVIEWS -->
-
-
-<section class="luxury-section">
-
-
-<h2 class="section-title">
-
-Customer Love ⭐
-
-</h2>
-
-
-
-
-<div class="product-slider">
-
-
-
-<div class="product-card">
-
-
-<h3>
-
-★★★★★
-
-</h3>
-
-
-<p>
-
-"My hair feels softer and looks healthier after using YOURS."
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="product-card">
-
-
-<h3>
-
-★★★★★
-
-</h3>
-
-
-<p>
-
-"The repair mask became my favorite step in my routine."
-
-</p>
-
-
-</div>
-
-
-
-
-
-<div class="product-card">
-
-
-<h3>
-
-★★★★★
-
-</h3>
-
-
-<p>
-
-"Luxury quality and beautiful results."
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<!-- GIFT COLLECTION -->
-
-
-<section class="luxury-section">
-
-
-<h2 class="section-title">
-
-Luxury Gift Collection 🎁
-
-</h2>
-
-
-
-<div class="product-slider">
-
-
-
-<div class="product-card">
-
-
-<h3>
-
-Birthday Hair Box 🎂
-
-</h3>
-
-
-<p>
-
-Luxury hair care set wrapped as a special gift.
-
-</p>
-
-
-
-<button class="gold-btn">
-
-Choose Gift
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="product-card">
-
-
-<h3>
-
-Self Care Box ✨
-
-</h3>
-
-
-<p>
-
-A relaxing luxury ritual for beautiful hair.
-
-</p>
-
-
-
-<button class="gold-btn">
-
-Choose Gift
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="product-card">
-
-
-<h3>
-
-Hair Recovery Box 👑
-
-</h3>
-
-
-<p>
-
-Complete care for damaged and weak hair.
-
-</p>
-
-
-
-<button class="gold-btn">
-
-Choose Gift
-
-</button>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
 <!-- CHECKOUT -->
 
 
-<section class="luxury-section" id="checkout">
+<section class="luxury-section" id="checkout"
+
+style="display:none;">
+
 
 
 <h2 class="section-title">
@@ -1986,7 +2876,13 @@ Complete Your Order ✨
 
 
 
-<div class="product-card" style="margin:auto;max-width:500px;">
+
+
+<div class="product-card"
+
+style="max-width:500px;margin:auto;">
+
+
 
 
 
@@ -2005,9 +2901,10 @@ border-radius:15px;
 
 
 
+
 <input id="customerPhone"
 
-placeholder="Phone Number"
+placeholder="WhatsApp Number"
 
 style="
 width:90%;
@@ -2037,9 +2934,7 @@ border-radius:15px;
 
 
 
-<input id="customerCity"
-
-placeholder="City"
+<select id="delivery"
 
 style="
 width:90%;
@@ -2049,37 +2944,16 @@ border-radius:15px;
 ">
 
 
-
-
-
-<h3 style="color:#C5A059;">
-
-Delivery Options 🚚
-
-</h3>
-
-
-
-<select id="delivery"
-
-style="
-width:90%;
-padding:15px;
-border-radius:15px;
-">
-
-
-
 <option value="50">
 
-Standard Delivery - 50 EGP
+Delivery 50 EGP 🚚
 
 </option>
 
 
 <option value="0">
 
-Free Delivery (Orders Above 2000 EGP)
+Free Delivery
 
 </option>
 
@@ -2092,19 +2966,21 @@ Free Delivery (Orders Above 2000 EGP)
 
 
 
-<h3 style="color:#C5A059;">
 
-Gift Packaging 🎁
-
-</h3>
+<br>
 
 
 
 <label>
 
-<input type="checkbox" id="gift">
 
-Add Luxury Gift Packaging +50 EGP
+<input type="checkbox"
+
+id="giftPackaging">
+
+
+Luxury Gift Packaging +50 EGP 🎀
+
 
 </label>
 
@@ -2112,13 +2988,8 @@ Add Luxury Gift Packaging +50 EGP
 
 
 
+<br><br>
 
-
-<h3 style="color:#C5A059;">
-
-Payment Method
-
-</h3>
 
 
 
@@ -2129,7 +3000,6 @@ width:90%;
 padding:15px;
 border-radius:15px;
 ">
-
 
 
 <option>
@@ -2147,15 +3017,6 @@ InstaPay
 </option>
 
 
-
-<option>
-
-Visa
-
-</option>
-
-
-
 </select>
 
 
@@ -2166,9 +3027,10 @@ Visa
 
 
 
-<button class="gold-btn"
 
-onclick="sendOrder()">
+<button class="btn"
+
+onclick="confirmOrder()">
 
 Confirm Order ✨
 
@@ -2176,15 +3038,8 @@ Confirm Order ✨
 
 
 
-<h3 id="orderMessage"
-
-style="color:#C5A059;">
-
-</h3>
-
-
-
 </div>
+
 
 
 </section>
@@ -2197,85 +3052,83 @@ style="color:#C5A059;">
 
 
 
-<!-- INSTAPAY -->
-
-
-<section class="luxury-section">
-
-
-<h2 class="section-title">
-
-Secure Payment 📲
-
-</h2>
+<script>
 
 
 
-<div class="product-card" style="margin:auto;max-width:450px;">
+function updateCart(){
 
 
 
-<h3>
+let box=document.getElementById("cartItems");
 
-Pay With InstaPay
 
-</h3>
+box.innerHTML="";
+
+
+
+let sum=0;
+
+
+
+
+cart.forEach((item,index)=>{
+
+
+
+sum += item.price;
+
+
+
+box.innerHTML += `
 
 
 <p>
 
-Fast and secure payment.
+${item.name}
+
+-
+
+${item.price} EGP
+
+
+<button onclick="removeItem(${index})">
+
+❌
+
+</button>
+
 
 </p>
 
 
-
-
-<a href="https://ipn.eg/S/monagalal8811/instapay/7m13Kd"
-
-target="_blank"
-
-style="
-color:#C5A059;
-font-size:22px;
-">
-
-Open InstaPay ✨
-
-</a>
+`;
 
 
 
-</div>
-
-
-</section>
-<script>
-
-
-// UPDATE FINAL PRICE
-
-
-function calculateFinalTotal(){
-
-
-let delivery = Number(
-document.getElementById("delivery").value
-);
-
-
-let gift = document.getElementById("gift").checked;
-
-
-let giftPrice = gift ? 50 : 0;
+});
 
 
 
-let finalTotal = total + delivery + giftPrice;
+document.getElementById("cartTotal").innerHTML=sum;
+
+
+}
 
 
 
-return finalTotal;
+
+
+function removeItem(index){
+
+
+cart.splice(index,1);
+
+
+updateCart();
+
+
+document.getElementById("cartCount").innerHTML=cart.length;
 
 
 }
@@ -2286,58 +3139,199 @@ return finalTotal;
 
 
 
-
-// SEND ORDER TO WHATSAPP
-
-
-function sendOrder(){
+function goCheckout(){
 
 
-
-let name = document.getElementById("customerName").value;
-
-
-let phone = document.getElementById("customerPhone").value;
+document.getElementById("cartPage").style.display="none";
 
 
-let address = document.getElementById("customerAddress").value;
+document.getElementById("checkout").style.display="block";
 
 
-let city = document.getElementById("customerCity").value;
-
-
-
-let payment = document.getElementById("payment").value;
-
-
-
-let delivery = document.getElementById("delivery").value;
-
-
-
-let gift = document.getElementById("gift").checked 
-? "Yes (+50 EGP)" 
-: "No";
+}
 
 
 
 
-let items="";
+
+
+
+function confirmOrder(){
+
+
+let delivery=
+
+Number(document.getElementById("delivery").value);
+
+
+
+let gift=
+
+document.getElementById("giftPackaging").checked
+?50
+:0;
+
+
+
+
+total = total + delivery + gift;
+
+
+
+alert(
+
+"Your order is ready ✨ Total: "
+
++ total +
+
+" EGP"
+
+);
+
+
+
+updateCart();
+
+
+
+}
+
+
+
+</script>
+<!-- PAYMENT & ORDER SUCCESS -->
+
+
+<section class="luxury-section" id="paymentSection">
+
+
+
+<h2 class="section-title">
+
+Secure Payment ✨
+
+</h2>
+
+
+
+
+
+<div class="product-card"
+
+style="max-width:500px;margin:auto;">
+
+
+
+
+
+<h2>
+
+Choose Your Payment Method 💎
+
+</h2>
+
+
+
+
+<p>
+
+After confirming your order, you can complete payment or send your order directly.
+
+</p>
+
+
+
+
+
+<button class="btn"
+
+onclick="sendWhatsAppOrder()">
+
+Order Via WhatsApp 💬
+
+</button>
+
+
+
+
+
+<br><br>
+
+
+
+
+
+<a href="https://ipn.eg/"
+
+target="_blank">
+
+
+<button class="btn">
+
+Pay With InstaPay 📲
+
+</button>
+
+
+</a>
+
+
+
+
+
+<h3 id="successMessage"
+
+style="color:#E8C982;margin-top:25px;">
+
+</h3>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+
+function sendWhatsAppOrder(){
+
+
+
+let name = document.getElementById("customerName")?.value || "";
+
+let phone = document.getElementById("customerPhone")?.value || "";
+
+let address = document.getElementById("customerAddress")?.value || "";
+
+
+
+
+
+let products="";
 
 
 
 cart.forEach(item=>{
 
 
-items += "• "+item.name+" - "+item.price+" EGP\n";
+products +=
+
+"- "+item.name+" : "+item.price+" EGP\n";
 
 
 });
 
-
-
-
-let finalTotal = calculateFinalTotal();
 
 
 
@@ -2346,23 +3340,16 @@ let message =
 
 "✨ YOURS Luxury Hair Order ✨\n\n"+
 
-"Customer Name: "+name+"\n"+
+"Name: "+name+"\n"+
 
 "Phone: "+phone+"\n"+
 
-"Address: "+address+"\n"+
+"Address: "+address+"\n\n"+
 
-"City: "+city+"\n\n"+
+"Products:\n"+products+"\n"+
 
-"Products:\n"+items+
+"Total: "+total+" EGP";
 
-"\nDelivery: "+delivery+" EGP\n"+
-
-"Gift Packaging: "+gift+"\n"+
-
-"Payment: "+payment+"\n\n"+
-
-"Total: "+finalTotal+" EGP";
 
 
 
@@ -2370,7 +3357,9 @@ let message =
 
 window.open(
 
-"https://wa.me/201003884148?text="+
+"https://wa.me/201003884148?text="
+
++
 
 encodeURIComponent(message),
 
@@ -2381,180 +3370,18 @@ encodeURIComponent(message),
 
 
 
-document.getElementById("orderMessage").innerHTML=
 
-"🎉 Order Sent Successfully!";
+document.getElementById("successMessage").innerHTML=
+
+"🎉 Your order has been prepared successfully!";
 
 
 
 }
-
-
-
-
-
-
-
-
-// AUTO PRODUCT SLIDER + TOUCH SWIPE
-
-
-let slider = document.getElementById("productSlider");
-
-
-let startX = 0;
-
-
-
-if(slider){
-
-
-
-slider.addEventListener("touchstart",function(e){
-
-startX=e.touches[0].clientX;
-
-});
-
-
-
-
-slider.addEventListener("touchend",function(e){
-
-
-let endX=e.changedTouches[0].clientX;
-
-
-
-if(startX-endX>50){
-
-slider.scrollLeft +=300;
-
-}
-
-
-
-if(endX-startX>50){
-
-slider.scrollLeft -=300;
-
-}
-
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-setInterval(()=>{
-
-
-if(slider){
-
-
-slider.scrollLeft +=250;
-
-
-
-if(
-slider.scrollLeft + slider.clientWidth 
->= slider.scrollWidth
-){
-
-slider.scrollLeft=0;
-
-}
-
-
-}
-
-
-},5000);
-
 
 
 
 </script>
-<!-- FOOTER -->
-
-
-<footer style="
-background:#0b0b0b;
-padding:50px 20px;
-text-align:center;
-border-top:1px solid #C5A059;
-">
-
-
-
-<h1 style="
-font-family:'Bodoni Moda',serif;
-color:#C5A059;
-letter-spacing:10px;
-">
-
-YOURS
-
-</h1>
-
-
-
-<p>
-
-Luxury Hair Care Experience ✨
-
-</p>
-
-
-
-<p style="color:#E8C982;">
-
-Healthy Hair • Luxury Ritual • Confidence
-
-</p>
-
-
-
-<div style="margin-top:25px;">
-
-
-<a href="#products"
-style="color:white;margin:10px;text-decoration:none;">
-Products
-</a>
-
-
-<a href="#bundles"
-style="color:white;margin:10px;text-decoration:none;">
-Bundles
-</a>
-
-
-<a href="#club"
-style="color:white;margin:10px;text-decoration:none;">
-Beauty Club
-</a>
-
-
-
-</div>
-
-
-</footer>
-
-
-
-
-
-
-
 <!-- FLOATING WHATSAPP -->
 
 
@@ -2562,22 +3389,7 @@ Beauty Club
 
 target="_blank"
 
-style="
-position:fixed;
-right:25px;
-bottom:25px;
-width:65px;
-height:65px;
-border-radius:50%;
-background:#25D366;
-color:white;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-text-decoration:none;
-z-index:9999;
-">
+class="whatsapp-btn">
 
 💬
 
@@ -2589,19 +3401,103 @@ z-index:9999;
 
 
 
-<!-- MOBILE IMPROVEMENTS -->
-
 
 <style>
+
+
+.whatsapp-btn{
+
+position:fixed;
+
+right:25px;
+
+bottom:25px;
+
+width:65px;
+
+height:65px;
+
+border-radius:50%;
+
+background:#25D366;
+
+color:white;
+
+font-size:32px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-decoration:none;
+
+z-index:9999;
+
+}
+
+
+
+
+
+/* MOBILE DESIGN */
 
 
 @media(max-width:700px){
 
 
 
+header{
+
+padding:15px;
+
+}
+
+
+
 .logo{
 
 font-size:30px;
+
+letter-spacing:7px;
+
+}
+
+
+
+
+.hero h1{
+
+font-size:45px;
+
+}
+
+
+
+
+.section-title{
+
+font-size:35px;
+
+}
+
+
+
+
+.product-card{
+
+min-width:230px;
+
+}
+
+
+
+.detail-image{
+
+width:300px;
+
+height:300px;
 
 }
 
@@ -2615,31 +3511,560 @@ display:none;
 
 
 
-.hero h1{
-
-font-size:45px;
-
 }
-
-
-
-.product-card{
-
-min-width:230px;
-
-}
-
-
-
-}
-
-
 
 </style>
 
 
 
 
+
+
+
+
+
+<script>
+
+
+// AUTO PRODUCT SLIDER
+
+
+let sliders=document.querySelectorAll(".product-slider");
+
+
+
+sliders.forEach(slider=>{
+
+
+
+setInterval(()=>{
+
+
+slider.scrollLeft +=250;
+
+
+
+if(
+slider.scrollLeft + slider.clientWidth
+>= slider.scrollWidth
+){
+
+
+slider.scrollLeft=0;
+
+
+}
+
+
+
+},5000);
+
+
+
+});
+
+
+
+
+
+
+
+
+
+// TOUCH SWIPE
+
+
+sliders.forEach(slider=>{
+
+
+let startX=0;
+
+
+
+slider.addEventListener(
+
+"touchstart",
+
+function(e){
+
+
+startX=e.touches[0].clientX;
+
+
+}
+
+);
+
+
+
+
+
+
+slider.addEventListener(
+
+"touchend",
+
+function(e){
+
+
+
+let endX=e.changedTouches[0].clientX;
+
+
+
+if(startX-endX>50){
+
+
+slider.scrollLeft +=300;
+
+
+}
+
+
+
+if(endX-startX>50){
+
+
+slider.scrollLeft -=300;
+
+
+}
+
+
+
+}
+
+
+);
+
+
+
+});
+
+
+
+</script>
+<!-- ABOUT YOURS -->
+
+
+<section class="luxury-section">
+
+
+<h2 class="section-title">
+
+About YOURS 👑
+
+</h2>
+
+
+
+
+<div class="product-card"
+
+style="max-width:800px;margin:auto;">
+
+
+
+<h2>
+
+More Than Hair Care ✨
+
+</h2>
+
+
+
+<p>
+
+YOURS is a luxury hair care experience created to bring professional results into your daily ritual.
+
+We believe every hair type deserves care, confidence and a personalized routine.
+
+</p>
+
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- WHY YOURS -->
+
+
+<section class="luxury-section">
+
+
+<h2 class="section-title">
+
+Why Choose YOURS ✨
+
+</h2>
+
+
+
+
+<div class="product-slider">
+
+
+
+
+
+<div class="product-card">
+
+
+<h2>
+
+Quality
+
+</h2>
+
+
+<p>
+
+Premium formulas designed for beautiful healthy hair.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="product-card">
+
+
+<h2>
+
+Luxury Ritual
+
+</h2>
+
+
+<p>
+
+Transform your hair routine into a self-care experience.
+
+</p>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="product-card">
+
+
+<h2>
+
+Personal Care
+
+</h2>
+
+
+<p>
+
+Solutions designed for different hair needs.
+
+</p>
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer style="
+
+background:#090909;
+
+padding:60px 20px;
+
+text-align:center;
+
+border-top:1px solid #C5A059;
+
+">
+
+
+
+
+
+<h1 style="
+
+font-family:'Bodoni Moda',serif;
+
+letter-spacing:15px;
+
+color:#C5A059;
+
+">
+
+YOURS
+
+</h1>
+
+
+
+
+<p>
+
+Luxury Hair Care Experience ✨
+
+</p>
+
+
+
+
+<p style="color:#E8C982;">
+
+Healthy Hair • Luxury Ritual • Confidence
+
+</p>
+
+
+
+
+<div style="margin-top:30px;">
+
+
+<a href="#products"
+
+style="color:white;margin:10px;text-decoration:none;">
+
+Products
+
+</a>
+
+
+
+
+<a href="#bundles"
+
+style="color:white;margin:10px;text-decoration:none;">
+
+Bundles
+
+</a>
+
+
+
+
+<a href="#reviews"
+
+style="color:white;margin:10px;text-decoration:none;">
+
+Reviews
+
+</a>
+
+
+
+
+<a href="#club"
+
+style="color:white;margin:10px;text-decoration:none;">
+
+Beauty Club
+
+</a>
+
+
+
+</div>
+
+
+
+
+<p style="margin-top:40px;color:#777;">
+
+© YOURS Luxury Hair Care
+
+</p>
+
+
+
+</footer>
+<!-- SEO & FINAL SETTINGS -->
+
+<meta name="description" content="
+YOURS Luxury Hair Care - Premium hair products, personalized routines, bundles and luxury hair rituals.
+">
+
+
+<meta name="keywords" content="
+Luxury Hair Care,
+Hair Routine,
+Shampoo,
+Conditioner,
+Hair Mask,
+Serum,
+YOURS
+">
+
+
+
+
+
+<script>
+
+
+// OPEN CART WHEN CLICK CART ICON
+
+
+document.querySelector(".cart").onclick=function(){
+
+
+document.getElementById("cartPage").style.display="block";
+
+
+updateCart();
+
+
+};
+
+
+
+
+
+
+// WELCOME MESSAGE
+
+
+setTimeout(()=>{
+
+
+console.log(
+
+"Welcome to YOURS Luxury Hair Care ✨"
+
+);
+
+
+},3000);
+
+
+
+
+
+
+
+
+// UPDATE CART COUNT SAFELY
+
+
+function updateCartCount(){
+
+
+let counter=document.getElementById("cartCount");
+
+
+if(counter){
+
+counter.innerHTML=cart.length;
+
+}
+
+
+}
+
+
+
+updateCartCount();
+
+
+
+
+</script>
+
+
+
+
+
+<style>
+
+
+/* FINAL LUXURY TOUCH */
+
+
+button{
+
+transition:.3s;
+
+}
+
+
+
+button:hover{
+
+transform:scale(1.05);
+
+}
+
+
+
+
+
+input,select,textarea{
+
+background:#fff;
+
+color:#111;
+
+outline:none;
+
+border:none;
+
+}
+
+
+
+
+::selection{
+
+background:#C5A059;
+
+color:#111;
+
+}
+
+
+
+</style>
 
 
 
