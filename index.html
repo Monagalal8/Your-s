@@ -1,51 +1,212 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <title>Luxury Hair Care</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
-    <style>
-        /* CSS الفاخر */
-        :root { --bg: #121212; --gold: #C2A14A; --white: #FFFFFF; }
-        body { background-color: var(--bg); color: var(--white); font-family: 'Poppins', sans-serif; margin: 0; }
-        
-        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('your-image.jpg') no-repeat center/cover; }
-        .hero h1 { font-family: 'Bodoni Moda', serif; font-size: 4rem; color: var(--gold); }
-        
-        .product-slider { display: flex; overflow-x: auto; padding: 50px; gap: 20px; }
-        .product-card { min-width: 250px; border: 1px solid var(--gold); padding: 20px; transition: 0.3s; }
-        .product-card:hover { transform: scale(1.05); }
-        
-        .cart-drawer { position: fixed; right: -300px; top: 0; width: 300px; height: 100%; background: #000; border-left: 1px solid var(--gold); transition: 0.5s; }
-        .cart-drawer.active { right: 0; }
-        
-        footer { background: #000; border-top: 1px solid var(--gold); padding: 40px; text-align: center; color: var(--gold); }
-    </style>
-</head>
-<body>
+<!-- PRODUCTS -->
 
-    <section class="hero">
-        <div>
-            <h1>Luxury Hair Care</h1>
-            <p>جمال شعركِ يبدأ هنا</p>
-        </div>
-    </section>
+<section id="products">
 
-    <div class="product-slider">
-        <div class="product-card"><h3>Luxury Shampoo</h3><p>800 EGP</p></div>
-        <div class="product-card"><h3>Luxury Conditioner</h3><p>800 EGP</p></div>
-        <div class="product-card"><h3>Repair Mask</h3><p>800 EGP</p></div>
-    </div>
+<h1 class="title">
+YOURS Collection ✨
+</h1>
 
-    <div class="cart-drawer" id="cart">
-        <h2 style="color: var(--gold); text-align: center;">سلة التسوق</h2>
-        </div>
 
-    <script>
-        // كود بسيط لفتح وغلق السلة (يمكنك ربطه بزر)
-        function toggleCart() {
-            document.getElementById('cart').classList.toggle('active');
-        }
-    </script>
-</body>
-</html>
+<div class="products">
+
+
+<div class="card">
+
+<h2>Repair Shampoo</h2>
+
+<p>1000 ml</p>
+
+<h3>800 EGP</h3>
+
+<button class="btn" onclick="openProduct('shampoo')">
+View Details
+</button>
+
+</div>
+
+
+
+<div class="card">
+
+<h2>Luxury Conditioner</h2>
+
+<p>1000 ml</p>
+
+<h3>800 EGP</h3>
+
+<button class="btn" onclick="openProduct('conditioner')">
+View Details
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>Repair Treatment Mask</h2>
+
+<p>500 ml</p>
+
+<h3>800 EGP</h3>
+
+<button class="btn" onclick="openProduct('mask')">
+View Details
+</button>
+
+</div>
+
+
+
+
+<div class="card">
+
+<h2>Luxury Hair Serum</h2>
+
+<p>100 ml</p>
+
+<h3>550 EGP</h3>
+
+<button class="btn" onclick="openProduct('serum')">
+View Details
+</button>
+
+</div>
+
+
+
+
+<div class="card bundle">
+
+<h2>Complete Repair Bundle 🎁</h2>
+
+<p>
+Shampoo + Conditioner + Mask + Serum
+</p>
+
+
+<h3>
+<del>2950 EGP</del>
+<br>
+2500 EGP
+</h3>
+
+
+<button class="btn" onclick="openProduct('bundle')">
+View Bundle
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- PRODUCT DETAILS -->
+
+<section id="details" style="display:none;">
+
+
+<div class="quiz-box">
+
+
+<h1 id="pName"></h1>
+
+
+<h2 id="pPrice"></h2>
+
+
+<h3 id="pSize"></h3>
+
+
+
+<h2>
+Benefits ✨
+</h2>
+
+
+<ul id="pBenefits"></ul>
+
+
+
+<h2>
+Ingredients 🌿
+</h2>
+
+
+<p id="pIngredients"></p>
+
+
+
+<h2>
+How To Use 💆‍♀️
+</h2>
+
+
+<p id="pUsage"></p>
+
+
+
+<button class="btn" onclick="addToCart()">
+Add To Cart 🛒
+</button>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+<style>
+
+
+.products{
+
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+
+}
+
+
+
+.card{
+
+background:white;
+width:280px;
+padding:25px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 30px #0002;
+
+}
+
+
+
+.card h2{
+
+color:#D4AF37;
+
+}
+
+
+.bundle{
+
+border:3px solid #D4AF37;
+
+}
+
+
+</style>
